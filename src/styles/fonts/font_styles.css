@@ -1,0 +1,29 @@
+/* This File Contains All The Style Files Required For Configuring Font Colors,Size and Weight */
+
+/* Setting Font Family */
+
+*{
+    color: var(--light-accent);
+    font-family: "Ranade", Arial, Helvetica, sans-serif;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+    font-family: "Clash Display", Arial, Helvetica, sans-serif;
+    font-size: 5rem;
+}
+
+.st, .st > h1,h2,h3,h4,h5,h6 {
+    /* ST = Special Text */
+    font-family: "Panchang", Arial, Helvetica, sans-serif;
+}
+
+/* Setting Font Sizes */
+
+
+/* Styles Applied When The Device Has Toggled Dark Mode */
+
+@media screen and (prefers-color-scheme: dark) {
+    * {
+        color: var(--dark-accent);
+    }
+}
