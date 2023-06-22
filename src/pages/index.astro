@@ -3,24 +3,33 @@ import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="Zedan Saheer">
-  <!-- The initial loading container with countdown -->
-  <div class="loading_container">
-    <h1 class="counter st" id="counter">0</h1><h2 class="percentage">%</h2>
-  </div>
-  <!-- The screen following loading container with marquee and text data -->
-  <div class="announcement_container">
-    <div class="top st">
-      <h1>Coming Soon</h1>
-      <h1>Coming Soon</h1>
-      <h1>Coming Soon</h1>
+  <div class="page_wrapper">
+    <!-- The initial loading container with countdown -->
+    <div class="loading_container">
+      <h1 class="counter st" id="counter">0</h1><h2 class="percentage">%</h2>
     </div>
-    <div class="center st">
-      <h1>zedansaheer.com</h1>
-    </div>
-    <div class="bottom st">
-      <h1>Coming Soon</h1>
-      <h1>Coming Soon</h1>
-      <h1>Coming Soon</h1>
+    <!-- The screen following loading container with marquee and text data -->
+    <div class="announcement_container">
+      <div class="top st">
+        <h1 class="mt_text">Coming Soon.</h1>
+        <h1 class="mt_text">Coming Soon.</h1>
+        <h1 class="mt_text">Coming Soon.</h1>
+      </div>
+      <div class="center st">
+        <h1 class="first_text">zedansaheer.com</h1>
+        <h2 class="second_text">
+          <span class="st">Software Engineering</span> is a <span class="st"
+            >craft</span
+          >
+          <br /> A <span class="st">craft</span> that has shaped the tools for modern
+          world.
+        </h2>
+      </div>
+      <div class="bottom st">
+        <h1 class="mb_text">Coming Soon.</h1>
+        <h1 class="mb_text">Coming Soon.</h1>
+        <h1 class="mb_text">Coming Soon.</h1>
+      </div>
     </div>
   </div>
 </Layout>
