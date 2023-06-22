@@ -1,9 +1,6 @@
 /* The Global CSS File is used as a source file that is called to get access into all the other stylesheets */
 
 /* Importing all the fonts CSS files */
-@import url("@styles/fonts/clash_display.css");
-@import url("@styles/fonts/panchang.css");
-@import url("@styles/fonts/ranade.css");
 @import url("@styles/fonts/font_styles.css");
 
 /* Importing all the Page CSS files */
