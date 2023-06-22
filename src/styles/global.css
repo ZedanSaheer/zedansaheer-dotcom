@@ -1,16 +1,16 @@
 /* The Global CSS File is used as a source file that is called to get access into all the other stylesheets */
 
 /* Importing all the fonts CSS files */
-@import url("../styles/fonts/clash_display.css");
-@import url("../styles/fonts/panchang.css");
-@import url("../styles/fonts/ranade.css");
-@import url("../styles/fonts/font_styles.css");
+@import url("@styles/fonts/clash_display.css");
+@import url("@styles/fonts/panchang.css");
+@import url("@styles/fonts/ranade.css");
+@import url("@styles/fonts/font_styles.css");
 
 /* Importing all the Page CSS files */
-@import url("../styles/pages/index.css");
+@import url("@styles/pages/index.css");
 
 /* Importing all the Layout CSS files */
-@import url("./layout.css");
+@import url("@styles/layout.css");
 
 /* Importing all the Component CSS files */
 
@@ -21,20 +21,23 @@
     --dark-accent: #2CC986;
     --light-bg: #D7D3D0;
     --light-accent: #181111;
-    --xl-text:100rem
+    --xl-text: 100rem
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
     background-color: var(--light-bg);
 }
 
 /* Styles Applied When The Device Has Toggled Dark Mode */
 
 @media screen and (prefers-color-scheme: dark) {
-    * {
+    body {
         background-color: var(--dark-bg);
     }
 }

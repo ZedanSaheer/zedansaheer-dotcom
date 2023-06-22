@@ -1,17 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<div class="top st">
-		<h1>Coming Soon</h1>
-		<h1>Coming Soon</h1>
-		<h1>Coming Soon</h1>
-	</div>
-	<div class="center"></div>
-	<div class="bottom st">
-		<h1>Coming Soon</h1>
-		<h1>Coming Soon</h1>
-		<h1>Coming Soon</h1>
-	</div>
+<Layout title="Zedan Saheer">
+  <!-- The initial loading container with countdown -->
+  <div class="loading_container">
+    <h1 class="counter st" id="counter">0</h1><h2 class="percentage">%</h2>
+  </div>
+  <!-- The screen following loading container with marquee and text data -->
+  <div class="announcement_container">
+    <div class="top st">
+      <h1>Coming Soon</h1>
+      <h1>Coming Soon</h1>
+      <h1>Coming Soon</h1>
+    </div>
+    <div class="center st">
+      <h1>zedansaheer.com</h1>
+    </div>
+    <div class="bottom st">
+      <h1>Coming Soon</h1>
+      <h1>Coming Soon</h1>
+      <h1>Coming Soon</h1>
+    </div>
+  </div>
 </Layout>
+<script src="@scripts/index.ts"></script>
