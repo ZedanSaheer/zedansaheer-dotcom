@@ -1,13 +1,13 @@
-.page_wrapper{
+.page_wrapper {
     width: 100%;
     height: 100dvh;
     position: relative;
-    background-color: var(--dark-accent);
+    background-color: var(--light-accent);
 }
 
 .loading_container {
     opacity: 1;
-    background-color: var(--dark-accent);
+    background-color: var(--light-accent);
     width: 100%;
     height: 100dvh;
     position: relative;
@@ -27,7 +27,6 @@
     bottom: 5rem;
     font-size: 6rem;
     font-weight: 500;
-    margin-left: 1rem;
 }
 
 .announcement_container {
@@ -50,8 +49,8 @@
     justify-content: center;
 }
 
-.top,.bottom{
-    background-color: var(--dark-bg);
+.top, .bottom {
+    background-color: var(--light-bg);
 }
 
 .center {
@@ -59,29 +58,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.center > h1 {
+.center>h1 {
     font-size: 2.5rem;
 }
 
-.center > h2 > .st {
-    font-family: "Clash Display",Arial, Helvetica, sans-serif;
+.center>h2>.st {
+    font-family: "Clash Display", Arial, Helvetica, sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
-    color: var(--dark-bg);
+    color: var(--light-bg);
 }
 
-.center > h2 {
-    color: var(--dark-bg);
-    font-family: "Ranade",Arial, Helvetica, sans-serif;
+.center>h2 {
+    color: var(--light-bg);
+    font-family: "Ranade", Arial, Helvetica, sans-serif;
     font-weight: 300;
     font-size: 1rem;
-    text-align: right;
+    text-align: center;
 }
 
 .center>h1, .loading_container>h1, .loading_container>h2 {
-    color: var(--dark-bg);
+    color: var(--light-bg);
 }
 
 .top>h1, .bottom>h1 {
@@ -90,4 +90,74 @@
     font-size: 11.5rem;
     font-weight: 400;
     text-transform: lowercase;
+}
+
+/* Setting styles for system dark mode */
+
+@media screen and (prefers-color-scheme: dark) {
+    .page_wrapper {
+        background-color: var(--dark-accent);
+    }
+
+    .loading_container {
+        background-color: var(--dark-accent);
+    }
+
+    .top, .bottom {
+        background-color: var(--dark-bg);
+    }
+
+    .center>h2>.st {
+        color: var(--dark-bg);
+    }
+
+    .center>h2 {
+        color: var(--dark-bg);
+    }
+
+    .center>h1, .loading_container>h1, .loading_container>h2 {
+        color: var(--dark-bg);
+    }
+}
+
+/* Adding media queries for responsive styles on small desktop */
+@media only screen and (max-width: 1250px) {
+    .loading_container>h1 {
+        position: absolute;
+        right: 6rem;
+        bottom: 2rem;
+        font-size: 8rem;
+        font-weight: 200;
+    }
+
+    .loading_container>h2 {
+        position: absolute;
+        right: 1rem;
+        bottom: 2rem;
+    }
+
+    .center>h1 {
+        font-size: 1.5rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .center>h2 {
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .center>h1 {
+        font-size: 1.8rem;
+    }
+    
+    .center>h2>.st {
+        font-size: 1.0rem;
+    }
+    
+    .center>h2 {
+        font-size: 0.6rem;
+    }
 }

@@ -25,15 +25,15 @@ loadTimeline.to('.percentage', {
     opacity: 0,
 }, "<");
 
-gsap.to(".mt_text",{
+gsap.to(".mt_text", {
     xPercent: 100,
     duration: 8,
-    repeat: -1, 
+    repeat: -1,
 });
-gsap.to(".mb_text",{
+gsap.to(".mb_text", {
     xPercent: -100,
     duration: 8,
-    repeat: -1, 
+    repeat: -1,
 });
 
 loadTimeline.from(".top", {
@@ -45,26 +45,6 @@ loadTimeline.from(".bottom", {
     yPercent: 100,
     duration: 2.5, ease: "power4.out",
 }, 2.5);
-
-loadTimeline.from(".first_text", {
-    opacity:0,
-    y:100,
-});
-
-loadTimeline.to(".first_text", {
-    opacity:1,
-    x:-200,
-});
-
-loadTimeline.from(".second_text",{
-    opacity:0,
-    y:100,
-});
-
-loadTimeline.to(".second_text",{
-    opacity:1,
-    x:200,
-});
 
 
 
@@ -89,6 +69,52 @@ function frame() {
     }
 };
 
+/* Adding responsive changes for animation */
+
+let smallDesktop = 1250;
+let windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+if (windowWidth < smallDesktop) {
+    loadTimeline.from(".first_text", {
+        opacity: 0,
+        duration:3,
+    });
+
+    loadTimeline.to(".first_text", {
+        opacity: 0,
+        duration:3,
+    });
+
+    loadTimeline.from(".second_text", {
+        opacity: 0,
+    });
+
+    loadTimeline.to(".second_text", {
+        opacity: 1,
+    });
+} else {
+    loadTimeline.from(".first_text", {
+        opacity: 0,
+        y: 100,
+    });
+
+    loadTimeline.to(".first_text", {
+        opacity: 1,
+        x: -200,
+    });
+
+    loadTimeline.from(".second_text", {
+        opacity: 0,
+        y: 100,
+    });
+
+    loadTimeline.to(".second_text", {
+        opacity: 1,
+        x: 200,
+    });
+}
+
+/* Showing the animation timeline on window load */
 window.onload = () => {
     showCounterAnimation();
 };
