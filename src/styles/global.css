@@ -15,10 +15,13 @@
 
 :root {
     --dark-bg: #030111;
+    --dark-bg-50: #0301117a;
     --dark-accent: #2CC986;
+    --dark-accent-50: #2cc9857c;
     --light-bg: #D7D3D0;
+    --light-bg-50: #d7d3d074;
     --light-accent: #181111;
-    --xl-text: 100rem
+    --light-accent-50: #1811116c;
 }
 
 * {
