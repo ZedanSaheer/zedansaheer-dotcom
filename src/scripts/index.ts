@@ -77,12 +77,12 @@ let windowWidth = window.innerWidth || document.documentElement.clientWidth || d
 if (windowWidth < smallDesktop) {
     loadTimeline.from(".first_text", {
         opacity: 0,
-        duration:3,
+        duration:1,
     });
 
     loadTimeline.to(".first_text", {
         opacity: 0,
-        duration:3,
+        duration:1,
     });
 
     loadTimeline.from(".second_text", {
@@ -95,21 +95,25 @@ if (windowWidth < smallDesktop) {
 } else {
     loadTimeline.from(".first_text", {
         opacity: 0,
+        duration:1,
         y: 100,
     });
 
     loadTimeline.to(".first_text", {
         opacity: 1,
+        duration:2,
         x: -200,
     });
 
     loadTimeline.from(".second_text", {
         opacity: 0,
+        duration:2,
         y: 100,
     });
 
     loadTimeline.to(".second_text", {
         opacity: 1,
+        duration:1,
         x: 200,
     });
 }
