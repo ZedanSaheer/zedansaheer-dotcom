@@ -80,6 +80,7 @@
     text-align: right;
 }
 
+
 .center>h1, .loading_container>h1, .loading_container>h2 {
     color: var(--light-bg);
 }
@@ -90,6 +91,29 @@
     font-size: 11.5rem;
     font-weight: 400;
     text-transform: lowercase;
+    color: var(--light-accent);
+}
+
+.third_text{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    z-index: 22222222;
+    margin-top: 3rem;
+}
+
+.icons svg {
+    width: 50px;
+    height: 50px;
+    color: var(--light-bg) !important;
 }
 
 /* Setting styles for system dark mode */
@@ -107,6 +131,15 @@
         background-color: var(--dark-bg);
     }
 
+    .top>h1, .bottom>h1 {
+        width: 130rem;
+        letter-spacing: 0.5rem;
+        font-size: 11.5rem;
+        font-weight: 400;
+        text-transform: lowercase;
+        color: var(--dark-accent);
+    }
+
     .center>h2>.st {
         color: var(--dark-bg);
     }
@@ -117,6 +150,12 @@
 
     .center>h1, .loading_container>h1, .loading_container>h2 {
         color: var(--dark-bg);
+    }
+
+    .icons svg {
+        width: 50px;
+        height: 50px;
+        color: var(--dark-bg) !important;
     }
 }
 
@@ -154,6 +193,7 @@
     .loading_container>h1 {
         font-size: 6rem;
     }
+
     .loading_container>h2 {
         font-size: 4rem;
     }

@@ -15,14 +15,3 @@
     /* ST = Special Text */
     font-family: "Panchang", Arial, Helvetica, sans-serif;
 }
-
-/* Setting Font Sizes */
-
-
-/* Styles Applied When The Device Has Toggled Dark Mode */
-
-@media screen and (prefers-color-scheme: dark) {
-    * {
-        color: var(--dark-accent);
-    }
-}

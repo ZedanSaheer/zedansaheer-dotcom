@@ -75,46 +75,57 @@ let smallDesktop = 1250;
 let windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
 if (windowWidth < smallDesktop) {
+    gsap.to(".third_text", {
+        display:"none",
+    });
     loadTimeline.from(".first_text", {
         opacity: 0,
-        duration:1,
+        duration: 1,
     });
-
     loadTimeline.to(".first_text", {
         opacity: 0,
-        duration:1,
+        duration: 1,
     });
-
     loadTimeline.from(".second_text", {
         opacity: 0,
+        duration: 1,
     });
-
     loadTimeline.to(".second_text", {
-        opacity: 1,
+        opacity: 0,
+        display : "none",
+        duration: 1,
+    });
+    loadTimeline.from(".third_text", {
+        opacity: 0,
+        display : "flex",
     });
 } else {
     loadTimeline.from(".first_text", {
         opacity: 0,
-        duration:1,
-        y: 100,
-    });
-
-    loadTimeline.to(".first_text", {
-        opacity: 1,
-        duration:2,
+        duration: 1,
         x: -200,
     });
 
     loadTimeline.from(".second_text", {
         opacity: 0,
-        duration:2,
-        y: 100,
+        duration: 1,
+        x: 200,
+    });
+    loadTimeline.to(".first_text", {
+        opacity: 0,
+        duration: 1,
+        x: -200,
     });
 
     loadTimeline.to(".second_text", {
-        opacity: 1,
-        duration:1,
+        opacity: 0,
+        duration: 1,
         x: 200,
+    });
+    loadTimeline.from(".third_text", {
+        opacity: 0,
+        duration: 2,
+        y: 100,
     });
 }
 
