@@ -1,7 +1,7 @@
 {
-  "name": "zedansaheerdotcom",
+  "name": "",
   "type": "module",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,7 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.6.6",
-    "gsap": "^3.12.1"
+    "@astrojs/mdx": "^1.1.0",
+    "@astrojs/prism": "^3.0.0",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "astro": "^3.1.4",
+    "sharp": "^0.32.6",
+    "tailwindcss": "^3.0.24",
+    "tailwindcss-animated": "^1.0.1"
   }
 }

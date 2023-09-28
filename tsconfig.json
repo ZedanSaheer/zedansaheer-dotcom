@@ -4,9 +4,11 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@styles/*": ["src/styles/*"],
-      "@scripts/*": ["src/scripts/*"],
-    }
+      "@content/*": ["src/content/*"],
+      "@pages/*": ["src/pages/*"],
+    },
+    "allowJs": true
   }
 }

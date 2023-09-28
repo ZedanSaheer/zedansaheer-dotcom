@@ -1,0 +1,167 @@
+---
+// Primary colors used as CSS variables
+const primary_white = "rgb(255 255 254)";
+const white80 = "rgba(255 255 254 / 80%)";
+const white50 = "rgba(255 255 254 / 50%)";
+const primary_black = "rgb(36 37 35)";
+const black80 = "rgba(36 37 35 / 80%)";
+const black50 = "rgba(36 37 35 / 50%)";
+---
+
+<style
+  define:vars={{
+    primary_black,
+    primary_white,
+    white80,
+    black80,
+    white50,
+    black50,
+  }}
+>
+  /* Base styles for Menu container */
+
+  .menu_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1.5px solid var(--primary_black);
+    position: relative;
+  }
+
+  .menu_container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    background-image: radial-gradient(
+      var(--primary_white),
+      var(--primary_white)
+    );
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  .menu_wrapper ul {
+    display: none;
+  }
+
+  /* Base styles for Hamburger menu */
+
+  .top,
+  .middle,
+  .bottom {
+    background-color: var(--primary_black);
+    width: 50px;
+    height: 1.5px;
+    transition: all 0.3s;
+    z-index: 2;
+  }
+
+  .middle {
+    margin: 10px 0;
+    transform: translateX(20%);
+  }
+
+  /* Active styles for menu container */
+
+  .menu_wrapper.active > .menu_container {
+    background-image: radial-gradient(
+      var(--primary_black),
+      var(--primary_black)
+    );
+    transform: scale(80);
+  }
+  .menu_wrapper.active > .middle {
+    display: none;
+  }
+  .menu_wrapper.active > .bottom {
+    transform: rotate(45deg);
+    margin-top: 5px;
+    transition: all 0.3s;
+    background-color: var(--primary_white);
+  }
+  .menu_wrapper.active > .top {
+    transform: rotate(-45deg);
+    margin-bottom: -5px;
+    transition: all 0.3s;
+    background-color: var(--primary_white);
+  }
+  .menu_wrapper.active ul {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+  }
+
+  .menu_wrapper.active li {
+    font-size: 6rem;
+    margin: 1rem 0;
+    font-family: "Clash Display";
+    color: var(--white50);
+  }
+
+  .menu_wrapper.active li:hover {
+    color: var(--primary_white);
+  }
+
+  /* Responsive styles for hamburger menu */
+
+  @media (max-width: 639px) {
+    .menu_wrapper {
+      width: 60px;
+      height: 60px;
+    }
+    .menu_container {
+      width: 40px;
+      height: 40px;
+    }
+    .top,
+    .middle,
+    .bottom {
+      width: 35px;
+    }
+    .middle {
+      margin: 6px 0;
+    }
+    .menu_wrapper.active li {
+      font-size: 3.5rem;
+      margin: 1rem 0;
+      font-family: "Clash Display";
+      color: var(--white50);
+    }
+  }
+</style>
+
+<div class="menu_wrapper">
+  <div class="top"></div>
+  <div class="middle"></div>
+  <div class="bottom"></div>
+  <div class="menu_container"></div>
+  <ul>
+    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">Home</li>
+    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">Blogs</li>
+    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">Contact</li>
+  </ul>
+  <script>
+    const wrapper = document.querySelector(".menu_wrapper");
+    const classlist = wrapper?.classList;
+
+    // Execute the humburger menu logic
+    wrapper?.addEventListener("click", () => {
+      if (classlist?.contains("active")) {
+        classlist.remove("active");
+      } else {
+        wrapper.classList.add("active");
+      }
+    });
+  </script>
+</div>

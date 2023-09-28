@@ -1,0 +1,21 @@
+---
+import HTMLHeader from "@components/HTMLHeader.astro";
+import Navbar from "@components/Navbar.astro";
+---
+
+<html lang="en">
+  <head>
+    <HTMLHeader />
+    <style is:global>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen h-screen overflow-hidden p-12 sm:p-8">
+    <Navbar />
+    <slot />
+  </body>
+</html>
