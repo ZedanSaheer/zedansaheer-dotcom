@@ -122,9 +122,11 @@
 
     .middle {
       width: 15px;
-    }
-    .middle {
       margin: 6px 0;
+    }
+
+    .menu_wrapper.active > .bottom {
+      margin-top: 3px;
     }
     .menu_wrapper.active li {
       font-size: 3rem;
@@ -163,7 +165,8 @@
     }
 
     .menu_wrapper.active li:hover {
-      color: theme(colors.white.100);
+      color: theme(colors.black.100);
+      border-bottom: 1px solid theme(colors.black.100);
     }
     .menu_wrapper.active > .bottom,
     .menu_wrapper.active > .top {
@@ -191,7 +194,7 @@
   <script>
     const wrapper = document.querySelector(".menu_wrapper");
     const classlist = wrapper?.classList;
-    
+
     const triggerMenu = () => {
       if (classlist?.contains("active")) {
         classlist.remove("active");
@@ -199,7 +202,7 @@
         wrapper.classList.add("active");
       }
     };
-    
+
     // Execute the humburger menu logic
     wrapper.addEventListener("click", triggerMenu);
   </script>
