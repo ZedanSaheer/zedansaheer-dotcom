@@ -1,9 +1,10 @@
 ---
 import HTMLHeader from "@components/HTMLHeader.astro";
+import '../main.css';
 import Navbar from "@components/Navbar.astro";
 ---
 
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <HTMLHeader />
     <style is:global>
@@ -14,7 +15,7 @@ import Navbar from "@components/Navbar.astro";
       }
     </style>
   </head>
-  <body class="min-h-screen h-screen overflow-hidden p-12 sm:p-8">
+  <body class="min-h-screen h-screen overflow-hidden p-12 sm:p-8 bg-white-100 dark:bg-black-100">
     <Navbar />
     <slot />
   </body>

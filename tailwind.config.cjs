@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
@@ -12,8 +13,8 @@ module.exports = {
 			'lg': { 'max': '1023px' },
 			// => @media (max-width: 1023px) { ... }
 
-			'md': { 'max': '767px' },
-			// => @media (max-width: 767px) { ... }
+			'md': { 'max': '867px' },
+			// => @media (max-width: 867px) { ... }
 
 			'sm': { 'max': '639px' },
 			// => @media (max-width: 639px) { ... }
@@ -25,28 +26,28 @@ module.exports = {
 		extend: {
 			colors: {
 				'white': {
-					10: 'rgb(255,255,254,10%)',
-					20: 'rgb(255,255,254,20%)',
-					30: 'rgb(255,255,254,30%)',
-					40: 'rgb(255,255,254,40%)',
-					50: 'rgb(255,255,254,50%)',
-					60: 'rgb(255,255,254,60%)',
-					70: 'rgb(255,255,254,70%)',
-					80: 'rgb(255,255,254,80%)',
-					90: 'rgb(255,255,254,90%)',
-					100: 'rgb(255,255,254,100%)',
+					10: 'rgb(var(--white10))',
+					20: 'rgb(var(--white20))',
+					30: 'rgb(var(--white30))',
+					40: 'rgb(var(--white40))',
+					50: 'rgb(var(--white50))',
+					60: 'rgb(var(--white60))',
+					70: 'rgb(var(--white70))',
+					80: 'rgb(var(--white80))',
+					90: 'rgb(var(--white90))',
+					100: 'rgb(var(--white100))',
 				},
 				'black': {
-					10: 'rgb(36,37,35,10%)',
-					20: 'rgb(36,37,35,20%)',
-					30: 'rgb(36,37,35,30%)',
-					40: 'rgb(36,37,35,40%)',
-					50: 'rgb(36,37,35,50%)',
-					60: 'rgb(36,37,35,60%)',
-					70: 'rgb(36,37,35,70%)',
-					80: 'rgb(36,37,35,80%)',
-					90: 'rgb(36,37,35,90%)',
-					100: 'rgb(36,37,35,100%)',
+					10: 'rgb(var(--black10))',
+					20: 'rgb(var(--black20))',
+					30: 'rgb(var(--black30))',
+					40: 'rgb(var(--black40))',
+					50: 'rgb(var(--black50))',
+					60: 'rgb(var(--black60))',
+					70: 'rgb(var(--black70))',
+					80: 'rgb(var(--black80))',
+					90: 'rgb(var(--black90))',
+					100: 'rgb(var(--black100))',
 				},
 			},
 		},

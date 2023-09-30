@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary_black: 36 37 35;
+    --black10: 36, 37, 35, 10%;
+    --black20: 36, 37, 35, 20%;
+    --black30: 36, 37, 35, 30%;
+    --black40: 36, 37, 35, 40%;
+    --black50: 36, 37, 35, 50%;
+    --black60: 36, 37, 35, 60%;
+    --black70: 36, 37, 35, 70%;
+    --black80: 36, 37, 35, 80%;
+    --black90: 36, 37, 35, 90%;
+    --black100: 36, 37, 35, 100%;
+    --primary_white: 255 255 254;
+    --white10: 255, 255, 254, 10%;
+    --white20: 255, 255, 254, 20%;
+    --white30: 255, 255, 254, 30%;
+    --white40: 255, 255, 254, 40%;
+    --white50: 255, 255, 254, 50%;
+    --white60: 255, 255, 254, 60%;
+    --white70: 255, 255, 254, 70%;
+    --white80: 255, 255, 254, 80%;
+    --white90: 255, 255, 254, 90%;
+    --white100: 255, 255, 254, 100%;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-black-100 to-black-40;
+  }
+
+  @media (prefers-color-scheme:dark) {
+    .gradient-text {
+      @apply text-transparent bg-clip-text bg-gradient-to-r from-white-100 to-white-40;
+    }
+  }
+
+  .no-select {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .no-select:focus {
+    outline: none !important;
+  }
+}
