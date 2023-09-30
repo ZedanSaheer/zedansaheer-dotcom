@@ -152,7 +152,6 @@
       background-image: radial-gradient(
         theme(colors.black.100),
         theme(colors.white.100)
-        
       );
     }
     .menu_wrapper {
@@ -173,11 +172,11 @@
   }
 </style>
 
-<div class="menu_wrapper no-select">
+<nav class="menu_wrapper" transition:persist>
   <div class="top"></div>
   <div class="middle"></div>
   <div class="bottom"></div>
-  <div class="menu_container no-select"></div>
+  <div class="menu_container"></div>
   <ul>
     <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
       <a href="/"> Home</a>
@@ -192,14 +191,16 @@
   <script>
     const wrapper = document.querySelector(".menu_wrapper");
     const classlist = wrapper?.classList;
-
-    // Execute the humburger menu logic
-    wrapper?.addEventListener("click", () => {
+    
+    const triggerMenu = () => {
       if (classlist?.contains("active")) {
         classlist.remove("active");
       } else {
         wrapper.classList.add("active");
       }
-    });
+    };
+    
+    // Execute the humburger menu logic
+    wrapper.addEventListener("click", triggerMenu);
   </script>
-</div>
+</nav>
