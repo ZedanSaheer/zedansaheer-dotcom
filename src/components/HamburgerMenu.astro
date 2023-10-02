@@ -9,27 +9,8 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 1.5px solid theme(colors.black.100);
     position: relative;
   }
-
-  .menu_container {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    background-image: radial-gradient(
-      theme(colors.white.100),
-      theme(colors.white.100)
-    );
-    transition: all 0.6s;
-  }
-
-  .menu_wrapper ul {
-    display: none;
-  }
-
   /* Base styles for Hamburger menu */
 
   .top,
@@ -54,13 +35,6 @@
 
   /* Active styles for menu container */
 
-  .menu_wrapper.active > .menu_container {
-    background-image: radial-gradient(
-      theme(colors.white.100),
-      theme(colors.black.100)
-    );
-    transform: scale(80);
-  }
   .menu_wrapper.active > .middle {
     display: none;
   }
@@ -68,70 +42,16 @@
     transform: rotate(45deg);
     margin-top: 5px;
   }
-  .menu_wrapper.active > .bottom,
-  .menu_wrapper.active > .top {
-    transition: all 0.3s;
-    background-color: theme(colors.black.100);
-  }
   .menu_wrapper.active > .top {
     transform: rotate(-45deg);
     margin-bottom: -5px;
   }
-  .menu_wrapper.active ul {
-    position: fixed;
-    left: 30%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 4;
-    user-select: none;
-    cursor: pointer;
-    width: 100vw;
-  }
-
-  .menu_wrapper.active li {
-    font-size: 6rem;
-    margin: 1rem 0;
-    font-family: "Clash Display";
-    text-transform: capitalize;
-    color: theme(colors.black.50);
-    font-weight: bold;
-    border-bottom: 1px solid theme(colors.black.100);
-  }
-
-  .menu_wrapper.active li:hover {
-    color: theme(colors.black.100);
-  }
-
-  .menu_wrapper.active li > a {
-    position: relative;
-  }
-  .menu_wrapper.active li > a > span {
-    position: absolute;
-    left: -4rem;
-    top: -1rem;
-    font-size: 1rem;
-    font-weight: 200;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   /* Responsive styles for hamburger menu */
 
   @media (max-width: 639px) {
     .menu_wrapper {
       width: 60px;
       height: 60px;
-    }
-    .menu_container {
-      width: 40px;
-      height: 40px;
     }
     .top,
     .bottom {
@@ -146,62 +66,14 @@
     .menu_wrapper.active > .bottom {
       margin-top: 3px;
     }
-
-    .menu_wrapper.active ul {
-      left: 50%;
-    }
-    .menu_wrapper.active li {
-      font-size: 3rem;
-      width: 100vw;
-      text-align: center;
-    }
-    .menu_wrapper.active li > a > span {
-      position: absolute;
-      left: -2rem;
-      top: -1rem;
-      font-weight: 200;
-      width: 30px;
-      height: 30px;
-    }
   }
 
   /* Dark mode color settings */
 
   @media (prefers-color-scheme: dark) {
-    .menu_wrapper {
-      border: 1.5px solid theme(colors.white.100);
-    }
-    .menu_container {
-      background-image: radial-gradient(
-        theme(colors.black.100),
-        theme(colors.black.100)
-      );
-    }
     .top,
     .middle,
     .bottom {
-      background-color: theme(colors.white.100);
-    }
-    .menu_wrapper.active > .menu_container {
-      background-image: radial-gradient(
-        theme(colors.black.100),
-        theme(colors.white.100)
-      );
-    }
-    .menu_wrapper {
-      border: 1.5px solid theme(colors.white.100);
-    }
-    .menu_wrapper.active li {
-      color: theme(colors.white.50);
-      border-bottom: 1px solid theme(colors.white.100);
-    }
-
-    .menu_wrapper.active li:hover {
-      color: theme(colors.black.100);
-      border-bottom: 1px solid theme(colors.black.100);
-    }
-    .menu_wrapper.active > .bottom,
-    .menu_wrapper.active > .top {
       background-color: theme(colors.white.100);
     }
   }
@@ -211,35 +83,42 @@
   <div class="top"></div>
   <div class="middle"></div>
   <div class="bottom"></div>
-  <div class="menu_container"></div>
-  <ul>
-    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
-      <a href="/"><span>1</span>Home</a>
-    </li>
-    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
-      <a href="/blogs"><span>2</span>Blogs</a>
-    </li>
-    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
-      <a href="/about"><span>3</span>About</a>
-    </li>
-  </ul>
 </nav>
 
 <script>
   const wrapper = document.querySelector(".menu_wrapper");
-  const classlist = wrapper?.classList;
   const header = document.querySelector("header");
+  const OffScreenCanvas = document.querySelector(".off-screen-canvas");
+  const checkScrollHeaderIsActive = header?.classList.contains("scroll-mode");
+  const checkWrapperOrCanvasIsActive =
+    wrapper?.classList?.contains("active") &&
+    OffScreenCanvas?.classList?.contains("active");
 
   const triggerMenu = () => {
-    if (classlist?.contains("active")) {
-      header?.classList.add("glass_bg");
-      classlist.remove("active");
+    if (wrapper?.classList?.contains("active")) {
+      wrapper!.classList.remove("active");
+      OffScreenCanvas!.classList.remove("active");
     } else {
-      header?.classList.remove("glass_bg");
       wrapper!.classList.add("active");
+      OffScreenCanvas!.classList.add("active");
     }
+  };
+
+  const setStickyNav = () => {
+    if (!checkWrapperOrCanvasIsActive) {
+      header?.classList.toggle("scroll-mode", window.scrollY > 0);
+    }
+  };
+
+  const closeMenuOnNavigation = () => {
+    wrapper!.classList.remove("active");
+    OffScreenCanvas!.classList.remove("active");
   };
 
   // Execute the humburger menu logic
   wrapper!.addEventListener("click", triggerMenu);
+  // Execute the sticky navbar logic
+  window.addEventListener("scroll", setStickyNav);
+  // Runs on view transitions navigation
+  document.addEventListener("astro:after-swap", closeMenuOnNavigation);
 </script>

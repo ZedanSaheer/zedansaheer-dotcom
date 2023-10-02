@@ -5,14 +5,14 @@ import Navbar from "@components/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <HTMLHeader />
     <!-- View transitions -->
     <ViewTransitions />
   </head>
   <body
-    class="min-h-screen h-screen overflow-hidden p-12 sm:p-8 bg-white-100 dark:bg-black-100"
+    class="min-h-screen h-screen p-12 sm:p-8 bg-white-100 dark:bg-black-100 overflow-x-hidden"
   >
     <Navbar />
     <slot />

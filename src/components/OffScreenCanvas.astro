@@ -1,0 +1,134 @@
+<style>
+  .off-screen-canvas,
+  .off-screen-canvas ul {
+    display: none;
+  }
+
+  body:has(.off-screen-canvas.active) {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+
+  .off-screen-canvas.active {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: theme(colors.black.60);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+  }
+
+  .off-screen-canvas.active ul {
+    position: fixed;
+    left: 75%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    user-select: none;
+    cursor: pointer;
+    width: 100vw;
+  }
+
+  .off-screen-canvas.active li {
+    font-size: 6rem;
+    margin: 1rem 0;
+    font-family: "Clash Display";
+    text-transform: capitalize;
+    color: theme(colors.black.70);
+    font-weight: bold;
+    border-bottom: 1px solid theme(colors.black.70);
+  }
+
+  .off-screen-canvas.active li:hover,
+  .off-screen-canvas.active li:active {
+    color: theme(colors.black.100);
+    border-bottom: 1px solid theme(colors.black.100);
+  }
+
+  .off-screen-canvas.active li > a {
+    position: relative;
+  }
+  .off-screen-canvas.active li > a > span {
+    position: absolute;
+    left: -4rem;
+    top: -1rem;
+    font-size: 1rem;
+    font-weight: 200;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 1024px) {
+    .off-screen-canvas.active ul {
+      left: 50%;
+    }
+    .off-screen-canvas.active li {
+      font-size: 4rem;
+      text-align: center;
+    }
+    .off-screen-canvas.active li > a > span {
+      position: absolute;
+      left: -2rem;
+      top: -1rem;
+      font-weight: 200;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .off-screen-canvas.active ul {
+      left: 50%;
+    }
+    .off-screen-canvas.active li {
+      font-size: 3rem;
+      width: 100vw;
+      text-align: center;
+    }
+    .off-screen-canvas.active li > a > span {
+      position: absolute;
+      left: -2rem;
+      top: -1rem;
+      font-weight: 200;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .off-screen-canvas.active li {
+      color: theme(colors.white.50);
+      border-bottom: 1px solid theme(colors.white.50);
+    }
+
+    .off-screen-canvas.active li:hover,
+    .off-screen-canvas.active li:active {
+      color: theme(colors.white.100);
+      border-bottom: 1px solid theme(colors.white.100);
+    }
+  }
+</style>
+
+<div class="off-screen-canvas" transition:persist>
+  <ul>
+    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
+      <a href="/"><span>1</span>Home</a>
+    </li>
+    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
+      <a href="/blogs"><span>2</span>Blogs</a>
+    </li>
+    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
+      <a href="/about"><span>3</span>About</a>
+    </li>
+  </ul>
+</div>

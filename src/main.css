@@ -37,24 +37,44 @@
   *::selection {
     background-color: rgba(0, 0, 0, 0.4);
   }
-}
 
-@layer components {
-  .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-black-100 to-beige;
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #757575 #000000;
   }
 
-  .glass_bg {
-    @apply rounded-md backdrop-filter backdrop-blur-sm bg-opacity-10;
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
   }
 
-  @media (prefers-color-scheme:dark) {
-    .gradient-text {
-      @apply text-transparent bg-gradient-to-r from-white-100 to-blue;
-    }
+  *::-webkit-scrollbar-track {
+    background-color: transparent;
   }
 
-  .no-select {
+  *::-webkit-scrollbar-track:hover {
+    background-color: transparent;
+  }
+
+  *::-webkit-scrollbar-track:active {
+    background-color: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background-color: transparent;
+  }
+
+  * {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -64,7 +84,57 @@
     user-select: none;
   }
 
-  .no-select:focus {
+  *:focus {
     outline: none !important;
+  }
+
+  /* Scrolling navbar styles */
+
+  .scroll-mode {
+    top: 0px !important;
+    left: 0 !important;
+    border: 1px solid rgb(var(--primary_black));
+    transition: all 0.4s;
+    background-color: rgb(var(--white40));
+    backdrop-filter: blur(10px);
+  }
+
+  .scroll-mode>.menu_wrapper {
+    border-left: 1px solid rgb(var(--primary_black));
+    border-right: 1px solid rgb(var(--primary_black));
+  }
+
+  @media (prefers-color-scheme:dark) {
+    .scroll-mode {
+      background-color: rgb(var(--black40));
+      border-top: 1px solid rgb(var(--primary_white));
+      border-bottom: 1px solid rgb(var(--primary_white));
+      padding: 0px 20px !important;
+    }
+
+    .scroll-mode>.menu_wrapper {
+      border-left: 1px solid rgb(var(--primary_white));
+      border-right: 1px solid rgb(var(--primary_white));
+    }
+  }
+
+  @media (max-width: 639px) {
+    .scroll-mode {
+      border-top: 1px solid rgb(var(--primary_white));
+      border-bottom: 1px solid rgb(var(--primary_white));
+      padding: 0px 10px !important;
+    }
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-black-100 to-beige;
+  }
+
+  @media (prefers-color-scheme:dark) {
+    .gradient-text {
+      @apply text-transparent bg-gradient-to-r from-white-100 to-blue;
+    }
   }
 }
