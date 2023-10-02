@@ -89,6 +89,7 @@
     z-index: 4;
     user-select: none;
     cursor: pointer;
+    width: 100vw;
   }
 
   .menu_wrapper.active li {
@@ -97,11 +98,27 @@
     font-family: "Clash Display";
     color: theme(colors.black.50);
     font-weight: bold;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid theme(colors.black.100);
   }
 
   .menu_wrapper.active li:hover {
     color: theme(colors.black.100);
+  }
+
+  .menu_wrapper.active li > a {
+    position: relative;
+  }
+  .menu_wrapper.active li > a > span {
+    position: absolute;
+    left: -4rem;
+    top: -1rem;
+    font-size: 1rem;
+    font-weight: 200;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   /* Responsive styles for hamburger menu */
@@ -128,8 +145,22 @@
     .menu_wrapper.active > .bottom {
       margin-top: 3px;
     }
+
+    .menu_wrapper.active ul {
+      left: 50%;
+    }
     .menu_wrapper.active li {
       font-size: 3rem;
+      width: 100vw;
+      text-align: center;
+    }
+    .menu_wrapper.active li > a > span {
+      position: absolute;
+      left: -2rem;
+      top: -1rem;
+      font-weight: 200;
+      width: 30px;
+      height: 30px;
     }
   }
 
@@ -182,13 +213,13 @@
   <div class="menu_container"></div>
   <ul>
     <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
-      <a href="/"> Home</a>
+      <a href="/"><span>1</span>Home</a>
     </li>
     <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
-      <a href="/blogs"> Blogs</a>
+      <a href="/blogs"><span>2</span>Blogs</a>
     </li>
     <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
-      <a href="/about"> About</a>
+      <a href="/about"><span>3</span>About</a>
     </li>
   </ul>
 </nav>
@@ -196,15 +227,15 @@
 <script>
   const wrapper = document.querySelector(".menu_wrapper");
   const classlist = wrapper?.classList;
-  const header = document.querySelector('header');
+  const header = document.querySelector("header");
 
   const triggerMenu = () => {
     if (classlist?.contains("active")) {
-      classlist.remove("active");
       header?.classList.add("glass_bg");
+      classlist.remove("active");
     } else {
-      wrapper!.classList.add("active");
       header?.classList.remove("glass_bg");
+      wrapper!.classList.add("active");
     }
   };
 
