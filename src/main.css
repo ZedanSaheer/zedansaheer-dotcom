@@ -44,6 +44,10 @@
     @apply text-transparent bg-clip-text bg-gradient-to-r from-black-100 to-black-40;
   }
 
+  .glass_bg {
+    @apply rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10;
+  }
+
   @media (prefers-color-scheme:dark) {
     .gradient-text {
       @apply text-transparent bg-clip-text bg-gradient-to-r from-white-100 to-white-40;

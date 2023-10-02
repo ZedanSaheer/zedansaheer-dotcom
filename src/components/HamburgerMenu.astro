@@ -191,19 +191,23 @@
       <a href="/about"> About</a>
     </li>
   </ul>
-  <script>
-    const wrapper = document.querySelector(".menu_wrapper");
-    const classlist = wrapper?.classList;
-
-    const triggerMenu = () => {
-      if (classlist?.contains("active")) {
-        classlist.remove("active");
-      } else {
-        wrapper.classList.add("active");
-      }
-    };
-
-    // Execute the humburger menu logic
-    wrapper.addEventListener("click", triggerMenu);
-  </script>
 </nav>
+
+<script>
+  const wrapper = document.querySelector(".menu_wrapper");
+  const classlist = wrapper?.classList;
+  const header = document.querySelector('header');
+
+  const triggerMenu = () => {
+    if (classlist?.contains("active")) {
+      classlist.remove("active");
+      header?.classList.add("glass_bg");
+    } else {
+      wrapper!.classList.add("active");
+      header?.classList.remove("glass_bg");
+    }
+  };
+
+  // Execute the humburger menu logic
+  wrapper!.addEventListener("click", triggerMenu);
+</script>

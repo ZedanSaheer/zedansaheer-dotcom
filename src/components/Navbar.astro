@@ -4,10 +4,10 @@ import Logo from "./Logo.astro";
 ---
 
 <header
-  class="flex justify-between items-center w-screen fixed top 0 left-0 px-12 sm:px-6 z-10"
+  class="flex justify-between items-center w-screen fixed top-10 left-0 py-4 px-20 sm:px-6 z-10 glass_bg"
   transition:animate="none"
 >
-  <a href="/" class="z-10 select-none no-select flex-1">
+  <a href="/" class="z-10 select-none no-select flex-1 animate-fade-right">
     <Logo color_scheme="fill-black-100 dark:fill-white-100" />
   </a>
   <HamburgerMenu />
