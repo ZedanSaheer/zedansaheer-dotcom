@@ -49,6 +49,8 @@ module.exports = {
 					90: 'rgb(var(--black90))',
 					100: 'rgb(var(--black100))',
 				},
+				'blue':'rgb(25, 25, 112)',
+				'beige':'rgb(245, 245, 220)'
 			},
 		},
 		fontFamily: {
