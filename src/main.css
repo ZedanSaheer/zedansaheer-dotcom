@@ -34,9 +34,12 @@
     margin: 0;
   }
 
+  /* Selection color */
   *::selection {
     background-color: rgba(0, 0, 0, 0.4);
   }
+
+  /* Making side-scrollbar turn off by default */
 
   /* Firefox */
   * {
@@ -104,6 +107,18 @@
     border-right: 1px solid rgb(var(--primary_black));
   }
 
+  .menu_active,.menu_active .menu_wrapper {
+    border: none !important;
+  }
+
+  @media (max-width: 639px) {
+    .scroll-mode {
+      border-top: 1px solid rgb(var(--primary_black));
+      border-bottom: 1px solid rgb(var(--primary_black));
+      padding: 0px 10px !important;
+    }
+  }
+
   @media (prefers-color-scheme:dark) {
     .scroll-mode {
       background-color: rgb(var(--black40));
@@ -115,14 +130,6 @@
     .scroll-mode>.menu_wrapper {
       border-left: 1px solid rgb(var(--primary_white));
       border-right: 1px solid rgb(var(--primary_white));
-    }
-  }
-
-  @media (max-width: 639px) {
-    .scroll-mode {
-      border-top: 1px solid rgb(var(--primary_white));
-      border-bottom: 1px solid rgb(var(--primary_white));
-      padding: 0px 10px !important;
     }
   }
 }

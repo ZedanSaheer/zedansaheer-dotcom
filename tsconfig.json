@@ -8,6 +8,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@content/*": ["src/content/*"],
       "@pages/*": ["src/pages/*"],
+      "@scripts/*": ["src/scripts/*"],
     },
     "allowJs": true
   }

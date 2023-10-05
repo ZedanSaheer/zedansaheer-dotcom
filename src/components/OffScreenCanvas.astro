@@ -16,29 +16,28 @@
     position: fixed;
     left: 0;
     top: 0;
-    background-color: theme(colors.black.60);
+    background-color: theme(colors.white.60);
     backdrop-filter: blur(10px);
     z-index: 1;
   }
 
   .off-screen-canvas.active ul {
-    position: fixed;
-    left: 75%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 4;
+    gap: 5px;
+    z-index: 1;
     user-select: none;
     cursor: pointer;
     width: 100vw;
   }
 
   .off-screen-canvas.active li {
-    font-size: 6rem;
+    font-size: 5rem;
     margin: 1rem 0;
+    width: 100%;
+    text-align: center;
     font-family: "Clash Display";
     text-transform: capitalize;
     color: theme(colors.black.70);
@@ -106,6 +105,9 @@
   }
 
   @media (prefers-color-scheme: dark) {
+    .off-screen-canvas.active {
+      background-color: theme(colors.black.60);
+    }
     .off-screen-canvas.active li {
       color: theme(colors.white.50);
       border-bottom: 1px solid theme(colors.white.50);
