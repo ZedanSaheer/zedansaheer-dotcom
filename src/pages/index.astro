@@ -3,8 +3,40 @@ import MainLayout from "@layouts/MainLayout.astro";
 import { Icon } from "astro-icon";
 ---
 
+<style>
+  .landing-page::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0%;
+    bottom: 10%;
+    width: 150%;
+    left: -25%;
+    background: var(--landing-gradient-light);
+    background-position:;
+    -webkit-mask-image: var(--landing-radial-mask);
+    mask-image: var(--landing-radial-mask);
+  }
+
+  @media (max-width: 639px) {
+    .landing-page::before {
+      top: 0%;
+      bottom: 0%;
+      height: 60%;
+      width: 150%;
+      left: -55%;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .landing-page::before {
+      background: var(--landing-gradient-dark);
+    }
+  }
+</style>
 <MainLayout>
-  <section class="flex flex-col justify-start items-center px-6 sm:px-0 h-screen">
+  <section
+    class="landing-page flex flex-col justify-start items-center px-6 sm:px-0 h-screen relative"
+  >
     <div
       class="flex items-center justify-start w-full animate-fade animate-duration-1000"
     >
@@ -29,8 +61,8 @@ import { Icon } from "astro-icon";
       is a combination of <span class="text-black-100 dark:text-white-100"
         >art</span
       > and <span class="text-black-100 dark:text-white-100">science</span>,
-      This craft is usually driven by an idea or vision for innovation and impact
-      among the scales via carefully curated architechture
+      This craft is usually driven by an idea or vision for innovation and
+      impact among the scales via carefully curated architechture
     </p>
   </section>
 </MainLayout>

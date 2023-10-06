@@ -26,6 +26,9 @@
     --white80: rgba(250, 248, 246, 80%);
     --white90: rgba(250, 248, 246, 90%);
     --white100: rgba(250, 248, 246, 100%);
+    --landing-gradient-light: linear-gradient(83.21deg,   #d9a7c7, #fffcdc);
+    --landing-gradient-dark: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+    --landing-radial-mask: radial-gradient(rgba(0, 0, 0, 0.45), transparent 70%);
   }
 
   body {
@@ -149,7 +152,7 @@
 
   /* Extending unsupported styles */
 
-  .break-all{
+  .break-all {
     word-break: break-all;
   }
 }
