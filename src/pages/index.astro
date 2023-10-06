@@ -1,15 +1,36 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
+import { Icon } from "astro-icon";
 ---
 
 <MainLayout>
-  <section
-    class="flex flex-col font-panchang justify-center items-center text-white-100 px-6 sm:px-0 break-words"
-  >
-    <h1
-      class="text-8xl lg:text-6xl md:text-5xl sm:text-3xl xs:text-2xl uppercase gradient-text text-center font-bold"
+  <section class="flex flex-col justify-start items-center px-6 sm:px-0 h-screen">
+    <div
+      class="flex items-center justify-start w-full animate-fade animate-duration-1000"
     >
-      This is beta verison, I am working on pushing features everyday continously integrating, testing and delivering.
+      <p
+        class="text-sm xs:text-xs w-full text-black-100 dark:text-white-100 font-clash uppercase text-right"
+      >
+        01/04 - scroll
+      </p>
+      <Icon
+        name="ph:arrow-down-thin"
+        class="w-6 ml-4 text-black-100 dark:text-white-100"
+      />
+    </div>
+    <h1
+      class="text-8xl lg:text-6xl font-panchang md:text-5xl sm:text-5xl xs:text-3xl py-10 uppercase gradient-text text-left font-bold animate-fade-up animate-duration-1000"
+    >
+      building scalable software
     </h1>
+    <p
+      class="text-2xl lg:text-xl md:text-sm xs:text-xs font-ranade lowercase text-black-50 dark:text-white-50 font-light text-right w-1/2 xs:w-10/12 animate-fade-left animate-duration-1000"
+    >
+      is a combination of <span class="text-black-100 dark:text-white-100"
+        >art</span
+      > and <span class="text-black-100 dark:text-white-100">science</span>,
+      This craft is usually driven by an idea or vision for innovation and impact
+      among the scales via carefully curated architechture
+    </p>
   </section>
 </MainLayout>

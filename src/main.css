@@ -4,28 +4,33 @@
 
 @layer base {
   :root {
-    --primary_black: 10 10 10;
-    --black10: 10, 10, 10, 10%;
-    --black20: 10, 10, 10, 20%;
-    --black30: 10, 10, 10, 30%;
-    --black40: 10, 10, 10, 40%;
-    --black50: 10, 10, 10, 50%;
-    --black60: 10, 10, 10, 60%;
-    --black70: 10, 10, 10, 70%;
-    --black80: 10, 10, 10, 80%;
-    --black90: 10, 10, 10, 90%;
-    --black100: 10, 10, 10, 100%;
-    --primary_white: 250 248 246;
-    --white10: 250, 248, 246, 10%;
-    --white20: 250, 248, 246, 20%;
-    --white30: 250, 248, 246, 30%;
-    --white40: 250, 248, 246, 40%;
-    --white50: 250, 248, 246, 50%;
-    --white60: 250, 248, 246, 60%;
-    --white70: 250, 248, 246, 70%;
-    --white80: 250, 248, 246, 80%;
-    --white90: 250, 248, 246, 90%;
-    --white100: 250, 248, 246, 100%;
+    --primary_black: rgb(10 10 10);
+    --black10: rgba(10, 10, 10, 10%);
+    --black20: rgba(10, 10, 10, 20%);
+    --black30: rgba(10, 10, 10, 30%);
+    --black40: rgba(10, 10, 10, 40%);
+    --black50: rgba(10, 10, 10, 50%);
+    --black60: rgba(10, 10, 10, 60%);
+    --black70: rgba(10, 10, 10, 70%);
+    --black80: rgba(10, 10, 10, 80%);
+    --black90: rgba(10, 10, 10, 90%);
+    --black100: rgba(10, 10, 10, 100%);
+    --primary_white: rgb(250 248 246);
+    --white10: rgba(250, 248, 246, 10%);
+    --white20: rgba(250, 248, 246, 20%);
+    --white30: rgba(250, 248, 246, 30%);
+    --white40: rgba(250, 248, 246, 40%);
+    --white50: rgba(250, 248, 246, 50%);
+    --white60: rgba(250, 248, 246, 60%);
+    --white70: rgba(250, 248, 246, 70%);
+    --white80: rgba(250, 248, 246, 80%);
+    --white90: rgba(250, 248, 246, 90%);
+    --white100: rgba(250, 248, 246, 100%);
+  }
+
+  body {
+    background-image: radial-gradient(var(--black10) 1px, var(--primary_white) 1px);
+    background-size: 20px 20px;
   }
 
   * {
@@ -93,44 +98,59 @@
 
   /* Scrolling navbar styles */
 
+  header {
+    transition: top 0.4s;
+  }
+
   .scroll-mode {
     top: 0px !important;
     left: 0 !important;
-    border: 1px solid rgb(var(--primary_black));
-    transition: all 0.4s;
-    background-color: rgb(var(--white40));
+    border: 1px solid var(--primary_black);
+    background-color: var(--white40);
     backdrop-filter: blur(10px);
+    transition: top 0.4s;
   }
 
   .scroll-mode>.menu_wrapper {
-    border-left: 1px solid rgb(var(--primary_black));
-    border-right: 1px solid rgb(var(--primary_black));
+    border-left: 1px solid var(--primary_black);
+    border-right: 1px solid var(--primary_black);
   }
 
-  .menu_active,.menu_active .menu_wrapper {
+  .menu_active, .menu_active .menu_wrapper {
     border: none !important;
   }
 
   @media (max-width: 639px) {
     .scroll-mode {
-      border-top: 1px solid rgb(var(--primary_black));
-      border-bottom: 1px solid rgb(var(--primary_black));
+      border-top: 1px solid var(--primary_black);
+      border-bottom: 1px solid var(--primary_black);
       padding: 0px 10px !important;
     }
   }
 
   @media (prefers-color-scheme:dark) {
+    body {
+      background-image: radial-gradient(var(--white10) 1px, var(--primary_black) 1px);
+      background-size: 20px 20px;
+    }
+
     .scroll-mode {
-      background-color: rgb(var(--black40));
-      border-top: 1px solid rgb(var(--primary_white));
-      border-bottom: 1px solid rgb(var(--primary_white));
+      background-color: var(--black40);
+      border-top: 1px solid var(--primary_white);
+      border-bottom: 1px solid var(--primary_white);
       padding: 0px 20px !important;
     }
 
     .scroll-mode>.menu_wrapper {
-      border-left: 1px solid rgb(var(--primary_white));
-      border-right: 1px solid rgb(var(--primary_white));
+      border-left: 1px solid var(--primary_white);
+      border-right: 1px solid var(--primary_white);
     }
+  }
+
+  /* Extending unsupported styles */
+
+  .break-all{
+    word-break: break-all;
   }
 }
 

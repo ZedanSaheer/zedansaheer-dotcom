@@ -1,3 +1,7 @@
+---
+import { Icon } from "astro-icon";
+---
+
 <style>
   .off-screen-canvas,
   .off-screen-canvas ul {
@@ -10,15 +14,28 @@
   }
 
   .off-screen-canvas.active {
+    padding-top: 8rem;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     position: fixed;
     left: 0;
-    top: 0;
+    bottom: 0;
     background-color: theme(colors.white.60);
     backdrop-filter: blur(10px);
     z-index: 1;
+  }
+
+  .off-screen-canvas.active div a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 50%;
+    border: 1px solid theme(colors.black.80);
   }
 
   .off-screen-canvas.active ul {
@@ -26,14 +43,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    z-index: 1;
     user-select: none;
     cursor: pointer;
-    width: 100vw;
+    height: 2/3;
+    width: fit-content;
+    z-index: 1;
   }
 
   .off-screen-canvas.active li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 5rem;
     margin: 1rem 0;
     width: 100%;
@@ -43,6 +63,10 @@
     color: theme(colors.black.70);
     font-weight: bold;
     border-bottom: 1px solid theme(colors.black.70);
+  }
+
+  .off-screen-canvas.active li:last-child {
+    border-bottom: none;
   }
 
   .off-screen-canvas.active li:hover,
@@ -86,8 +110,12 @@
   }
 
   @media (max-width: 639px) {
+    .off-screen-canvas.active {
+      padding-top: 12rem;
+    }
     .off-screen-canvas.active ul {
       left: 50%;
+      width: 100vw;
     }
     .off-screen-canvas.active li {
       font-size: 3rem;
@@ -107,6 +135,9 @@
   @media (prefers-color-scheme: dark) {
     .off-screen-canvas.active {
       background-color: theme(colors.black.60);
+    }
+    .off-screen-canvas.active div a {
+      border: 1px solid theme(colors.white.50);
     }
     .off-screen-canvas.active li {
       color: theme(colors.white.50);
@@ -133,4 +164,37 @@
       <a href="/about"><span>3</span>About</a>
     </li>
   </ul>
+  <div class="w-60 xs:w-full flex justify-evenly items-center gap-5 xs:gap-0">
+    <a target="_blank" href="https://twitter.com/zedansaheer">
+      <Icon
+        pack="mdi"
+        name="twitter"
+        class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+      />
+    </a>
+    <a
+      target="_blank"
+      href="https://www.linkedin.com/in/zedan-saheer-software-engineer/"
+    >
+      <Icon
+        pack="mdi"
+        name="linkedin"
+        class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+      />
+    </a>
+    <a target="_blank" href="https://github.com/ZedanSaheer">
+      <Icon
+        pack="mdi"
+        name="github"
+        class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+      />
+    </a>
+    <a target="_blank" href="mailto:contactme@zedansaheer.com">
+      <Icon
+        pack="mdi"
+        name="email-plus"
+        class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+      />
+    </a>
+  </div>
 </div>
