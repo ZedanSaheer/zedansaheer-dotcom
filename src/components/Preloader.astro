@@ -1,0 +1,376 @@
+<style>
+  .fade-up-letters {
+    display: inline-block;
+    animation: fadeOut 4s;
+    -webkit-animation: fadeOut 4s;
+    -moz-animation: fadeOut 4s;
+    -o-animation: fadeOut 4s;
+    -ms-animation: fadeOut 4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    transition: fadeOut 1s ease-out;
+  }
+
+  .move-right {
+    display: inline-block;
+    animation: moveToRight 1.5s;
+    -webkit-animation: moveToRight 1.5s;
+    -moz-animation: moveToRight 1.5s;
+    -o-animation: moveToRight 1.5s;
+    -ms-animation: moveToRight 1.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    transition: moveToRight 1s ease-in-out;
+  }
+  .move-left {
+    display: inline-block;
+    animation: moveToLeft 1.5s;
+    -webkit-animation: moveToLeft 1.5s;
+    -moz-animation: moveToLeft 1.5s;
+    -o-animation: moveToLeft 1.5s;
+    -ms-animation: moveToLeft 1.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    transition: moveToLeft 1s ease-in-out;
+  }
+
+  .curtain {
+    animation: curtainUp 1.5s;
+    -webkit-animation: curtainUp 1.5s;
+    -moz-animation: curtainUp 1.5s;
+    -o-animation: curtainUp 1.5s;
+    -ms-animation: curtainUp 1.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    transition: curtainUp 1s ease-in-out;
+  }
+
+  .letter-1 {
+    animation-delay: 0.1s;
+  }
+  .letter-2 {
+    animation-delay: 0.2s;
+  }
+  .letter-3 {
+    animation-delay: 0.3s;
+  }
+  .letter-4 {
+    animation-delay: 0.4s;
+  }
+  .letter-5 {
+    animation-delay: 0.5s;
+  }
+  .letter-6 {
+    animation-delay: 0.6s;
+  }
+  .letter-7 {
+    animation-delay: 0.7s;
+  }
+  .letter-8 {
+    animation-delay: 0.8s;
+  }
+  .letter-9 {
+    animation-delay: 0.9s;
+  }
+
+  @keyframes curtainUp {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-200%);
+    }
+  }
+  @-webkit-keyframes curtainUp {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-200%);
+    }
+  }
+  @-moz-keyframes curtainUp {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-200%);
+    }
+  }
+  @-o-keyframes curtainUp {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-200%);
+    }
+  }
+  @-ms-keyframes curtainUp {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-200%);
+    }
+  }
+  @keyframes moveToRight {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(150px);
+    }
+  }
+  @-webkit-keyframes moveToRight {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(150px);
+    }
+  }
+  @-moz-keyframes moveToRight {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(150px);
+    }
+  }
+  @-o-keyframes moveToRight {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(150px);
+    }
+  }
+  @-ms-keyframes moveToRight {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(150px);
+    }
+  }
+  @keyframes moveToLeft {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-150px);
+    }
+  }
+  @-webkit-keyframes moveToLeft {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-150px);
+    }
+  }
+  @-moz-keyframes moveToLeft {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-150px);
+    }
+  }
+  @-o-keyframes moveToLeft {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-150px);
+    }
+  }
+  @-ms-keyframes moveToLeft {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-150px);
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+  }
+  @-webkit-keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+  }
+  @-moz-keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+  }
+  @-o-keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+  }
+  @-ms-keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+  }
+
+  @media (max-width: 639px) {
+    @keyframes moveToRight {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(100px);
+      }
+    }
+    @-webkit-keyframes moveToRight {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(100px);
+      }
+    }
+    @-moz-keyframes moveToRight {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(100px);
+      }
+    }
+    @-o-keyframes moveToRight {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(100px);
+      }
+    }
+    @-ms-keyframes moveToRight {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(100px);
+      }
+    }
+    @keyframes moveToLeft {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100px);
+      }
+    }
+    @-webkit-keyframes moveToLeft {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100px);
+      }
+    }
+    @-moz-keyframes moveToLeft {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100px);
+      }
+    }
+    @-o-keyframes moveToLeft {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100px);
+      }
+    }
+    @-ms-keyframes moveToLeft {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100px);
+      }
+    }
+  }
+</style>
+<div
+  class="curtain flex justify-center items-center w-screen h-screen bg-white-100 dark:bg-black-100 absolute top-0 left-0 z-20"
+>
+  <div
+    class="w-100 h-100 text-6xl xs:text-4xl font-clash font-bold overflow-hidden"
+  >
+    <span class="move-right text-black-100 dark:text-white-100 uppercase">z</span>
+    <span class="fade-up-letters lowercase letter-1 text-black-60 dark:text-white-60"
+      >e</span
+    >
+    <span class="fade-up-letters lowercase letter-2 text-black-60 dark:text-white-60"
+      >d</span
+    >
+    <span class="fade-up-letters lowercase letter-3 text-black-60 dark:text-white-60"
+      >a</span
+    >
+    <span class="fade-up-letters lowercase letter-4 mr-4 text-black-60 dark:text-white-60"
+      >n</span
+    >
+    <span class="text-black-100 dark:text-white-100 uppercase">s</span>
+    <span class="fade-up-letters lowercase letter-5 text-black-60 dark:text-white-60"
+      >a</span
+    >
+    <span class="fade-up-letters lowercase letter-6 text-black-60 dark:text-white-60"
+      >h</span
+    >
+    <span class="fade-up-letters lowercase letter-7 text-black-60 dark:text-white-60"
+      >e</span
+    >
+    <span class="fade-up-letters lowercase letter-8 text-black-60 dark:text-white-60"
+      >e</span
+    >
+    <span class="fade-up-letters lowercase letter-9 text-black-60 dark:text-white-60"
+      >r</span
+    >
+    <span class="move-left text-black-100 dark:text-white-100">.</span>
+  </div>
+</div>
+<script>
+  const curtain = document.querySelector(".curtain");
+  const sections = document.querySelectorAll("section");
+
+  curtain?.addEventListener("animationend", () => {
+    sections.forEach((item) => {
+      item.style.display = "flex";
+    });
+  });
+</script>

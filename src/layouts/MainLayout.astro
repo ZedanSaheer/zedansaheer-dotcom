@@ -3,6 +3,7 @@ import HTMLHeader from "@components/HTMLHeader.astro";
 import "../main.css";
 import Navbar from "@components/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
+import Preloader from "@components/Preloader.astro";
 ---
 
 <html lang="en">
@@ -12,9 +13,19 @@ import { ViewTransitions } from "astro:transitions";
     <ViewTransitions />
   </head>
   <body
-    class="min-h-screen pt-40 sm:pt-36 px-20 sm:px-6 bg-white-100 dark:bg-black-100 overflow-x-hidden"
+    class="relative min-h-screen pt-40 sm:pt-36 px-20 sm:px-6 bg-white-100 dark:bg-black-100 overflow-x-hidden"
   >
+    <Preloader />
     <Navbar />
     <slot />
+    <script>
+      const sections = document.querySelectorAll("section");
+
+      window.onload = () => {
+        sections.forEach((item) => {
+          item.style.display = "none";
+        });
+      };
+    </script>
   </body>
 </html>
