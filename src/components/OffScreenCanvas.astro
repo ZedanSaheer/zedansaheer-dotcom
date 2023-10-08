@@ -113,6 +113,9 @@ import { Icon } from "astro-icon";
     .off-screen-canvas.active {
       padding-top: 12rem;
     }
+    .off-screen-canvas.active div a {
+      padding: 0.4rem;
+    }
     .off-screen-canvas.active ul {
       left: 50%;
       width: 100vw;
@@ -155,46 +158,61 @@ import { Icon } from "astro-icon";
 <div class="off-screen-canvas" transition:persist>
   <ul>
     <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
-      <a href="/"><span>1</span>Home</a>
+      <a href="/"><span>01</span>Home</a>
     </li>
     <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
-      <a href="/blogs"><span>2</span>Blogs</a>
+      <a href="/blogs"><span>02</span>Blogs</a>
     </li>
     <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
-      <a href="/about"><span>3</span>About</a>
+      <a href="/about"><span>03</span>About</a>
     </li>
   </ul>
-  <div class="w-60 xs:w-full flex justify-evenly items-center gap-5 xs:gap-0">
-    <a target="_blank" href="https://twitter.com/zedansaheer">
-      <Icon
-        pack="mdi"
-        name="twitter"
-        class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
-      />
-    </a>
-    <a
-      target="_blank"
-      href="https://www.linkedin.com/in/zedan-saheer-software-engineer/"
+  <div class="w-80 xs:w-full flex xs:flex-col justify-evenly items-center gap-5">
+    <div
+      class="flex items-center justify-center animate-fade animate-duration-1000"
     >
+      <p
+        class="text-sm xs:text-xs w-full text-black-100 dark:text-white-100 font-clash uppercase text-right"
+      >
+        connect with me
+      </p>
       <Icon
-        pack="mdi"
-        name="linkedin"
-        class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+        name="ph:arrow-down-right"
+        class="w-6 ml-4 text-black-100 dark:text-white-100"
       />
-    </a>
-    <a target="_blank" href="https://github.com/ZedanSaheer">
-      <Icon
-        pack="mdi"
-        name="github"
-        class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
-      />
-    </a>
-    <a target="_blank" href="mailto:contactme@zedansaheer.com">
-      <Icon
-        pack="mdi"
-        name="email-plus"
-        class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
-      />
-    </a>
+    </div>
+    <div class="flex justify-center items-center gap-4">
+      <a target="_blank" href="https://twitter.com/zedansaheer">
+        <Icon
+          pack="mdi"
+          name="twitter"
+          class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+        />
+      </a>
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/zedan-saheer-software-engineer/"
+      >
+        <Icon
+          pack="mdi"
+          name="linkedin"
+          class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+        />
+      </a>
+      <a target="_blank" href="https://github.com/ZedanSaheer">
+        <Icon
+          pack="mdi"
+          name="github"
+          class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+        />
+      </a>
+      <a target="_blank" href="mailto:contactme@zedansaheer.com">
+        <Icon
+          pack="mdi"
+          name="email-plus"
+          class="dark:hover:text-white-100 dark:text-white-50 w-10 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+        />
+      </a>
+    </div>
   </div>
 </div>
