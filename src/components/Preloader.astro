@@ -1,11 +1,11 @@
 <style>
   .fade-up-letters {
     display: inline-block;
-    animation: fadeOut 4s;
-    -webkit-animation: fadeOut 4s;
-    -moz-animation: fadeOut 4s;
-    -o-animation: fadeOut 4s;
-    -ms-animation: fadeOut 4s;
+    animation: fadeOut 3s;
+    -webkit-animation: fadeOut 3s;
+    -moz-animation: fadeOut 3s;
+    -o-animation: fadeOut 3s;
+    -ms-animation: fadeOut 3s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     transition: fadeOut 1s ease-out;
@@ -33,7 +33,7 @@
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     animation-delay: 1s;
-    transition: moveToLeft 1s ease-in-out;
+    transition: moveToLeft 1s cubic-bezier(.17,.67,.83,.67);
   }
 
   .curtain {
@@ -44,8 +44,8 @@
     -ms-animation: curtainUp 1.5s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-    animation-delay: 2s;
-    transition: curtainUp 1s ease-in-out;
+    animation-delay: 2.5s;
+    transition: curtainUp 1s cubic-bezier(.17,.67,.83,.67);
   }
 
   .letter-1 {
@@ -121,7 +121,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(150px);
+      transform: translateX(260px);
     }
   }
   @-webkit-keyframes moveToRight {
@@ -129,7 +129,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(150px);
+      transform: translateX(260px);
     }
   }
   @-moz-keyframes moveToRight {
@@ -137,7 +137,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(150px);
+      transform: translateX(260px);
     }
   }
   @-o-keyframes moveToRight {
@@ -145,7 +145,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(150px);
+      transform: translateX(260px);
     }
   }
   @-ms-keyframes moveToRight {
@@ -153,7 +153,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(150px);
+      transform: translateX(260px);
     }
   }
   @keyframes moveToLeft {
@@ -161,7 +161,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(-150px);
+      transform: translateX(-260px);
     }
   }
   @-webkit-keyframes moveToLeft {
@@ -169,7 +169,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(-150px);
+      transform: translateX(-260px);
     }
   }
   @-moz-keyframes moveToLeft {
@@ -177,7 +177,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(-150px);
+      transform: translateX(-260px);
     }
   }
   @-o-keyframes moveToLeft {
@@ -185,7 +185,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(-150px);
+      transform: translateX(-260px);
     }
   }
   @-ms-keyframes moveToLeft {
@@ -193,7 +193,7 @@
       opacity: 1;
     }
     100% {
-      transform: translateX(-150px);
+      transform: translateX(-260px);
     }
   }
 
@@ -249,7 +249,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateX(100px);
+        transform: translateX(105px);
       }
     }
     @-webkit-keyframes moveToRight {
@@ -257,7 +257,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateX(100px);
+        transform: translateX(105px);
       }
     }
     @-moz-keyframes moveToRight {
@@ -265,7 +265,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateX(100px);
+        transform: translateX(105px);
       }
     }
     @-o-keyframes moveToRight {
@@ -273,7 +273,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateX(100px);
+        transform: translateX(105px);
       }
     }
     @-ms-keyframes moveToRight {
@@ -281,7 +281,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateX(100px);
+        transform: translateX(105px);
       }
     }
     @keyframes moveToLeft {
@@ -289,7 +289,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateX(-100px);
+        transform: translateX(-105px);
       }
     }
     @-webkit-keyframes moveToLeft {
@@ -297,7 +297,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateX(-100px);
+        transform: translateX(-105px);
       }
     }
     @-moz-keyframes moveToLeft {
@@ -305,7 +305,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateX(-100px);
+        transform: translateX(-105px);
       }
     }
     @-o-keyframes moveToLeft {
@@ -313,7 +313,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateX(-100px);
+        transform: translateX(-105px);
       }
     }
     @-ms-keyframes moveToLeft {
@@ -321,7 +321,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateX(-100px);
+        transform: translateX(-105px);
       }
     }
   }
@@ -330,7 +330,7 @@
   class="curtain flex justify-center items-center w-screen h-screen bg-white-100 dark:bg-black-100 absolute top-0 left-0 z-20"
 >
   <div
-    class="w-100 h-100 text-6xl xs:text-4xl font-clash font-bold overflow-hidden"
+    class="w-100 h-100 text-8xl xs:text-4xl font-clash font-semibold overflow-hidden"
   >
     <span class="move-right text-black-100 dark:text-white-100 uppercase">z</span>
     <span class="fade-up-letters lowercase letter-1 text-black-60 dark:text-white-60"

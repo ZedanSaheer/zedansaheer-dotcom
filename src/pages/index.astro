@@ -22,7 +22,7 @@ import { Icon } from "astro-icon";
     .landing-page::before {
       top: 0%;
       bottom: 0%;
-      height: 60%;
+      height: 80%;
       width: 150%;
       left: -55%;
     }
@@ -35,7 +35,7 @@ import { Icon } from "astro-icon";
 </style>
 <MainLayout>
   <section
-    class="landing-page flex flex-col justify-start items-center px-6 sm:px-0 h-screen relative"
+    class="landing-page flex flex-col justify-start items-center px-20 sm:px-6 h-screen xs:h-full relative"
   >
     <div
       class="flex items-center justify-start w-full animate-fade animate-duration-1000"
@@ -53,10 +53,10 @@ import { Icon } from "astro-icon";
     <h1
       class="text-8xl lg:text-6xl font-panchang md:text-5xl sm:text-5xl xs:text-3xl py-10 uppercase gradient-text text-left font-bold animate-fade-up animate-duration-1000"
     >
-      building scalable software
+      crafting quality software
     </h1>
     <p
-      class="text-2xl lg:text-xl md:text-sm xs:text-xs font-ranade lowercase text-black-50 dark:text-white-50 font-extralight leading-10 xs:leading-6 text-right w-1/2 xs:w-10/12 animate-fade-left animate-duration-1000"
+      class="text-2xl lg:text-xl md:text-sm xs:text-xs font-ranade lowercase text-black-50 dark:text-white-50 font-extralight leading-10 xs:leading-6 text-left w-1/2 xs:w-10/12 animate-fade-left animate-duration-1000"
     >
       is a combination of <span class="text-black-100 dark:text-white-100"
         >art</span
@@ -66,7 +66,47 @@ import { Icon } from "astro-icon";
     </p>
   </section>
   <section
-    class="flex flex-col justify-start items-center px-6 sm:px-0 h-screen relative"
+    class="flex flex-col justify-start items-center px-12 sm:px-0 h-full relative mb-10 xs:mt-28"
   >
+    <div
+      class="infinite-marquee font-panchang uppercase text-4xl xs:text-2xl text-black-100 dark:text-white-100 relative whitespace-nowrap font-light tracking-wider w-screen h-10 overflow-x-hidden flex items-center"
+    >
+      <p class="item absolute text-black-50 dark:text-white-50">
+        <span class="mx-4 text-black-100 dark:text-white-100"
+          >zedan saheer is a</span
+        >
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         mutli-displinary
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         software engineer
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         visionary
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         muslim
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         story-teller
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         content-writer
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+      </p>
+      <p class="item absolute text-black-50 dark:text-white-50">
+        <span class="mx-4 text-black-100 dark:text-white-100"
+          >zedan saheer is a</span
+        >
+         mutli-displinary
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         software engineer
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         visionary
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         muslim
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         story-teller
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+         content-writer
+        <span class="text-black-60 dark:text-white-60">&#10036;</span>
+      </p>
+    </div>
   </section>
 </MainLayout>
+<script src="@scripts/index_page_scripts.ts"></script>
