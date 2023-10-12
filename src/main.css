@@ -31,10 +31,7 @@
     --landing-radial-mask: radial-gradient(rgba(0, 0, 0, 0.45), transparent 70%);
   }
 
-  body {
-    background-image: radial-gradient(var(--black10) 1px, var(--primary_white) 1px);
-    background-size: 20px 20px;
-  }
+
 
   * {
     box-sizing: border-box;
@@ -97,57 +94,6 @@
 
   *:focus {
     outline: none !important;
-  }
-
-  /* Scrolling navbar styles */
-
-  header {
-    transition: top 0.4s;
-  }
-
-  .scroll-mode {
-    top: 0px !important;
-    left: 0 !important;
-    border: 1px solid var(--primary_black);
-    background-color: var(--white40);
-    backdrop-filter: blur(10px);
-    transition: top 0.4s;
-  }
-
-  .scroll-mode>.menu_wrapper {
-    border-left: 1px solid var(--primary_black);
-    border-right: 1px solid var(--primary_black);
-  }
-
-  .menu_active, .menu_active .menu_wrapper {
-    border: none !important;
-  }
-
-  @media (max-width: 639px) {
-    .scroll-mode {
-      border-top: 1px solid var(--primary_black);
-      border-bottom: 1px solid var(--primary_black);
-      padding: 0px 10px !important;
-    }
-  }
-
-  @media (prefers-color-scheme:dark) {
-    body {
-      background-image: radial-gradient(var(--white10) 1px, var(--primary_black) 1px);
-      background-size: 20px 20px;
-    }
-
-    .scroll-mode {
-      background-color: var(--black40);
-      border-top: 1px solid var(--primary_white);
-      border-bottom: 1px solid var(--primary_white);
-      padding: 0px 20px !important;
-    }
-
-    .scroll-mode>.menu_wrapper {
-      border-left: 1px solid var(--primary_white);
-      border-right: 1px solid var(--primary_white);
-    }
   }
 
   /* Extending unsupported styles */

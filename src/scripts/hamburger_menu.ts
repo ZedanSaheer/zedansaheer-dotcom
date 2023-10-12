@@ -11,6 +11,8 @@ const checkWrapperOrCanvasIsActive =
 
 //Action Methods
 const triggerMenu = () => {
+  console.log("Test");
+  
   if (wrapper?.classList?.contains("active")) {
     wrapper!.classList.remove("active");
     OffScreenCanvas!.classList.remove("active");
@@ -23,12 +25,14 @@ const triggerMenu = () => {
 };
 
 const setStickyNav = () => {
+  console.log("Test");
   if (!checkWrapperOrCanvasIsActive) {
     header?.classList.toggle("scroll-mode", window.scrollY > 0);
   }
 };
 
 const closeMenuOnNavigation = () => {
+  console.log("Test");
   wrapper!.classList.remove("active");
   OffScreenCanvas!.classList.remove("active");
 };

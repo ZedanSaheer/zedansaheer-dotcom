@@ -1,20 +1,48 @@
 ---
-import HTMLHeader from "@components/HTMLHeader.astro";
+import HTMLHeader from "@components/core/HTMLHeader.astro";
 import "../main.css";
-import Navbar from "@components/Navbar.astro";
+import Navbar from "@components/navbar/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
+
+const currentURL = Astro.url.pathname;
+const isPathIndex = currentURL === "/";
+const bodyClassList =
+  "relative min-h-screen pt-40 sm:pt-36 bg-white-100 dark:bg-black-100 overflow-x-hidden";
+const indexBodyClassList = "polka-dots-bg" + " " + bodyClassList;
 ---
 
+<style>
+  .polka-dots-bg {
+    background-image: radial-gradient(
+      var(--black10) 1px,
+      var(--primary_white) 1px
+    );
+    background-size: 20px 20px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .polka-dots-bg {
+      background-image: radial-gradient(
+        var(--white10) 1px,
+        var(--primary_black) 1px
+      );
+    }
+  }
+</style>
 <html lang="en">
   <head>
     <HTMLHeader />
     <!-- View transitions -->
     <ViewTransitions />
   </head>
-  <body
-    class="relative min-h-screen pt-40 sm:pt-36 bg-white-100 dark:bg-black-100 overflow-x-hidden"
-  >
+  <body class={isPathIndex ? indexBodyClassList : bodyClassList}>
     <Navbar />
     <slot />
+
+    <!-- Animate On Scroll CDN -->
+    <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script is:inline>
+      AOS.init();
+    </script>
   </body>
 </html>
