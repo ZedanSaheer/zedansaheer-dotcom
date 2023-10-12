@@ -74,7 +74,7 @@ class LoopingElement {
         this.direction ? this.goForward() : this.goBackward();
         this.lerpFunc(this.lerp.current, this.lerp.target, this.lerp.factor);
 
-        this.element.style.transform = `translateX(${this.lerp.current}%)`;
+        if(this.element) this.element.style.transform = `translateX(${this.lerp.current}%)`;
     }
 
     render() {
@@ -88,3 +88,9 @@ let elements = document.querySelectorAll<HTMLElement>(".item");
 
 new LoopingElement(elements[0], 0, 0.08);
 new LoopingElement(elements[1], -100, 0.08);
+
+document.addEventListener('astro:after-swap', () => {
+    let elements = document.querySelectorAll<HTMLElement>(".item");
+    new LoopingElement(elements[0], 0, 0.08);
+    new LoopingElement(elements[1], -100, 0.08);
+});

@@ -1,6 +1,8 @@
 ---
+import Marquee from "@components/index/Marquee.astro";
+import HeroText from "@components/index/HeroText.astro";
 import MainLayout from "@layouts/MainLayout.astro";
-import { Icon } from "astro-icon";
+import ScrollIndicator from "@components/index/ScrollIndicator.astro";
 ---
 
 <style>
@@ -37,72 +39,8 @@ import { Icon } from "astro-icon";
   <section
     class="landing-page flex flex-col justify-start items-center px-20 sm:px-6 h-screen xs:h-full relative"
   >
-    <div
-      class="flex items-center justify-start w-full animate-fade animate-duration-1000"
-    >
-      <p
-        class="text-sm xs:text-xs w-full text-black-100 dark:text-white-100 font-clash uppercase text-right"
-      >
-        01/04 - scroll
-      </p>
-      <Icon
-        name="ph:arrow-down-thin"
-        class="w-6 ml-4 text-black-100 dark:text-white-100"
-      />
-    </div>
-    <h1
-      class="text-9xl xl:text-7xl lg:text-6xl font-panchang md:text-5xl sm:text-5xl xs:text-3xl py-10 uppercase gradient-text text-left font-bold animate-fade-up animate-duration-1000"
-    >
-      crafting quality software
-    </h1>
-    <p
-      class="text-2xl lg:text-xl md:text-sm xs:text-xs font-ranade lowercase text-black-50 dark:text-white-50 font-extralight leading-10 xs:leading-6 text-right w-1/2 xs:w-10/12 animate-fade-left animate-duration-1000"
-    >
-      is a combination of <span class="text-black-100 dark:text-white-100"
-        >art</span
-      > and <span class="text-black-100 dark:text-white-100">science</span>,
-      This craft is usually driven by an idea or vision for innovation and
-      impact among the scales via carefully curated architechture
-    </p>
-    <div
-      class="infinite-marquee font-panchang uppercase text-4xl xs:text-2xl text-black-100 dark:text-white-100 relative whitespace-nowrap font-light tracking-wider w-screen h-10 overflow-x-hidden flex items-center top-24"
-    >
-      <p class="item absolute text-black-50 dark:text-white-50">
-        <span class="mx-4 text-black-100 dark:text-white-100"
-          >zedan saheer is a</span
-        >
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         mutli-displinary
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         software engineer
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         visionary
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         muslim
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         story-teller
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         content-writer
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-      </p>
-      <p class="item absolute text-black-50 dark:text-white-50">
-        <span class="mx-4 text-black-100 dark:text-white-100"
-          >zedan saheer is a</span
-        >
-         mutli-displinary
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         software engineer
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         visionary
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         muslim
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         story-teller
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-         content-writer
-        <span class="text-black-60 dark:text-white-60">&#10036;</span>
-      </p>
-    </div>
+    <ScrollIndicator page="01/04"/>
+    <HeroText />
+    <Marquee />
   </section>
 </MainLayout>
-<script src="@scripts/infinite_marquee.ts"></script>
