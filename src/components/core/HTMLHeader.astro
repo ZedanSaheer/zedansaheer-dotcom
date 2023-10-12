@@ -1,10 +1,15 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
+
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" initial-scale="1" />
 <meta name="generator" content={Astro.generator} />
+
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
 
 <!-- Favicon Light Mode -->
 <link
@@ -62,6 +67,9 @@ import { ViewTransitions } from "astro:transitions";
 
 <!-- Loading External fonts -->
 <link
+  rel="preload"
+  as="font"
+  crossorigin
   href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,1,300&f[]=ranade@700,300,2,701,401,101,100,400,1,500,501,301&f[]=panchang@200,500,1,700,300,400,800,600&display=swap"
   rel="stylesheet"
 />
