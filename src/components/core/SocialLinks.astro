@@ -1,0 +1,94 @@
+---
+import Icon from "astro-icon";
+import { fade } from "astro:transitions";
+
+interface Props {
+  showBorder?: boolean;
+  showText?: boolean;
+  reduceGap?: boolean;
+}
+
+const { reduceGap = false, showBorder = true, showText = true } = Astro.props;
+
+const reduceGapClasses = reduceGap ? "xs:gap-0 gap-4" : "gap-4";
+const socialContainerClass =
+  "social-container flex justify-center items-center" + " " + reduceGapClasses;
+const socialContainerClassWithBorder =
+  socialContainerClass + " " + "show-border";
+---
+
+<style>
+  .social-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 50%;
+  }
+
+  .show-border a {
+    border: 1px solid theme(colors.black.80);
+  }
+
+  @media (max-width: 639px) {
+    .social-container a {
+      padding: 0.4rem;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .social-container a {
+      border-color: theme(colors.white.50);
+    }
+  }
+</style>
+<div class="w-80 xs:w-full flex xs:flex-col justify-evenly items-center gap-5">
+  {
+    showText && (
+      <div class="flex items-center justify-center animate-fade animate-duration-1000">
+        <p class="text-sm xs:text-xs w-full text-black-100 dark:text-white-100 font-clash uppercase text-right">
+          connect with me
+        </p>
+        <Icon
+          name="ph:arrow-down-right"
+          class="w-6 ml-4 text-black-100 dark:text-white-100"
+        />
+      </div>
+    )
+  }
+  <div
+    class={showBorder ? socialContainerClassWithBorder : socialContainerClass}
+  >
+    <a target="_blank" href="https://twitter.com/zedansaheer">
+      <Icon
+        pack="mdi"
+        name="twitter"
+        class="dark:hover:text-white-100 dark:text-white-50 w-10 sm:w-6 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+      />
+    </a>
+    <a
+      target="_blank"
+      href="https://www.linkedin.com/in/zedan-saheer-software-engineer/"
+    >
+      <Icon
+        pack="mdi"
+        name="linkedin"
+        class="dark:hover:text-white-100 dark:text-white-50 w-10 sm:w-6 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+      />
+    </a>
+    <a target="_blank" href="https://github.com/ZedanSaheer">
+      <Icon
+        pack="mdi"
+        name="github"
+        class="dark:hover:text-white-100 dark:text-white-50 w-10 sm:w-6 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+      />
+    </a>
+    <a target="_blank" href="mailto:contactme@zedansaheer.com">
+      <Icon
+        pack="mdi"
+        name="email-plus"
+        class="dark:hover:text-white-100 dark:text-white-50 w-10 sm:w-6 hover:text-black-100 text-black-80 animate-fade animate-duration-[1000ms] animate-delay-200"
+      />
+    </a>
+  </div>
+</div>
