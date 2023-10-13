@@ -5,7 +5,7 @@ import OffScreenCanvas from "@components/navbar/OffScreenCanvas.astro";
 ---
 
 <OffScreenCanvas />
-<style>
+<style is:global>
   /* Scrolling navbar styles */
 
   header {
@@ -28,6 +28,8 @@ import OffScreenCanvas from "@components/navbar/OffScreenCanvas.astro";
 
   .menu_active,
   .menu_active .menu_wrapper {
+    backdrop-filter: blur(0px) !important;
+    background-color: transparent !important;
     border: none !important;
   }
 
