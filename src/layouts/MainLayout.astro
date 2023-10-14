@@ -4,10 +4,17 @@ import "../main.css";
 import Navbar from "@components/navbar/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
 
+interface Props {
+  showNav?: boolean;
+  removeBodyPaddingTop?: boolean;
+}
+
+const { showNav = true, removeBodyPaddingTop = false } = Astro.props;
+
 const currentURL = Astro.url.pathname;
 const isPathIndex = currentURL === "/";
-const bodyClassList =
-  "relative min-h-screen pt-40 sm:pt-36 bg-white-100 dark:bg-black-100 overflow-x-hidden";
+const setBodyPaddingTop = removeBodyPaddingTop ? "pt-0" : "pt-40 sm:pt-36";
+const bodyClassList = `relative min-h-screen ${setBodyPaddingTop} bg-white-100 dark:bg-black-100 overflow-x-hidden`;
 const indexBodyClassList = "polka-dots-bg" + " " + bodyClassList;
 ---
 
@@ -36,13 +43,13 @@ const indexBodyClassList = "polka-dots-bg" + " " + bodyClassList;
     <ViewTransitions />
   </head>
   <body class={isPathIndex ? indexBodyClassList : bodyClassList}>
-    <Navbar />
+    {showNav && <Navbar />}
     <slot />
 
     <!-- Animate On Scroll CDN -->
     <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script is:inline>
-      AOS.init();
+    AOS.init();
     </script>
   </body>
 </html>

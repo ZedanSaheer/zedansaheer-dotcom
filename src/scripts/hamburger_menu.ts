@@ -32,6 +32,7 @@ const setStickyNav = () => {
 const closeMenuOnNavigation = () => {
   wrapper!.classList.remove("active");
   OffScreenCanvas!.classList.remove("active");
+  header!.classList.remove("menu_active");
 };
 
 // Execute the humburger menu logic

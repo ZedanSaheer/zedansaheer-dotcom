@@ -1,0 +1,17 @@
+---
+import ErrorLogo from "@components/core/ErrorLogo.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+---
+
+<MainLayout showNav={false} removeBodyPaddingTop>
+  <section
+    class="w-full h-screen flex flex-col items-center justify-evenly overflow-hidden p-24 sm:p-4"
+  >
+    <div class="w-1/2 sm:w-full">
+      <ErrorLogo />
+    </div>
+  </section>
+</MainLayout>
+<script>
+  setTimeout(() => window.history.back(), 1500);
+</script>
