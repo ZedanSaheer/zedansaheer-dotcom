@@ -16,7 +16,7 @@ const blogPosts = await getCollection("blogs");
     <div class="flex flex-wrap items-start justify-start gap-4 sm:px-6">
       {
         blogPosts.map((blog) => (
-          <div class="w-96 my-4 flex flex-col flex-grow sm:items-start items-center gap-2 animate-fade-right">
+          <div class="my-4 flex flex-col flex-grow sm:items-start items-center gap-2 animate-fade-right">
             <h1 class="font-clash font-bold text-4xl dark:text-white-100 text-black-100">
               {blog.data.title}
             </h1>
