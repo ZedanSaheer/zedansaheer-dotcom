@@ -51,5 +51,16 @@ const indexBodyClassList = "polka-dots-bg" + " " + bodyClassList;
     <script is:inline>
     AOS.init();
     </script>
+    <script>
+      const wrapper = document.querySelector(".menu_wrapper");
+      const header = document.querySelector("header");
+      const OffScreenCanvas = document.querySelector(".off-screen-canvas");
+      const closeMenuOnNavigation = () => {
+        wrapper!.classList.remove("active");
+        OffScreenCanvas!.classList.remove("active");
+        header!.classList.remove("menu_active");
+      };
+      document.addEventListener("astro:after-swap", closeMenuOnNavigation);
+    </script>
   </body>
 </html>

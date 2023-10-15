@@ -169,3 +169,18 @@ import SocialLinks from "@components/core/SocialLinks.astro";
   </ul>
   <SocialLinks />
 </div>
+<script>
+  const wrapper = document.querySelector(".menu_wrapper");
+  const header = document.querySelector("header");
+  const OffScreenCanvas = document.querySelector(".off-screen-canvas");
+  const listItems = document.querySelector("li");
+
+  const closeMenuOnNavigation = () => {
+    console.log("Test");
+    wrapper!.classList.remove("active");
+    OffScreenCanvas!.classList.remove("active");
+    header!.classList.remove("menu_active");
+  };
+
+  listItems?.addEventListener("click", closeMenuOnNavigation);
+</script>

@@ -4,14 +4,13 @@ const OffScreenCanvas = document.querySelector(".off-screen-canvas");
 
 //Validation conditions
 const checkScrollHeaderIsActive = header?.classList.contains("scroll-mode");
-const checkWrapperOrCanvasIsActive =
-  wrapper?.classList?.contains("active") &&
-  OffScreenCanvas?.classList?.contains("active");
+const checkWrapperOrCanvasIsNotActive =
+  !wrapper?.classList?.contains("active") &&
+  !OffScreenCanvas?.classList?.contains("active");
 
 
 //Action Methods
 const triggerMenu = () => {
-
   if (wrapper?.classList?.contains("active")) {
     wrapper!.classList.remove("active");
     OffScreenCanvas!.classList.remove("active");
@@ -24,8 +23,8 @@ const triggerMenu = () => {
 };
 
 const setStickyNav = () => {
-  if (!checkWrapperOrCanvasIsActive) {
-    header?.classList.toggle("scroll-mode", window.scrollY > 0);
+  if (checkWrapperOrCanvasIsNotActive) {
+    header!.classList.toggle("scroll-mode", window.scrollY > 0);
   }
 };
 
@@ -40,4 +39,3 @@ wrapper!.addEventListener("click", triggerMenu);
 // Execute the sticky navbar logic
 window.addEventListener("scroll", setStickyNav);
 // Runs on view transitions navigation
-document.addEventListener("astro:after-swap", closeMenuOnNavigation);
