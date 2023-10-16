@@ -26,6 +26,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 />
 <link
   rel="icon"
+  type="image/x-icon"
+  media="(prefers-color-scheme: light)"
+  href={imageBaseURL("favicon_dark/favicon.ico")}
+/>
+<link
+  rel="icon"
   type="image/png"
   sizes="16x16"
   media="(prefers-color-scheme: light)"
@@ -64,6 +70,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   sizes="32x32"
   media="(prefers-color-scheme: dark)"
   href={imageBaseURL("favicon_light/favicon-32x32.png")}
+/>
+<link
+  rel="icon"
+  type="image/x-icon"
+  media="(prefers-color-scheme: dark)"
+  href={imageBaseURL("favicon_light/favicon.ico")}
 />
 <link
   rel="icon"
