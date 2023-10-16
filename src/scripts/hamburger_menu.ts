@@ -1,6 +1,4 @@
-const wrapper = document.querySelector(".menu_wrapper");
-const header = document.querySelector("header");
-const OffScreenCanvas = document.querySelector(".off-screen-canvas");
+import { OffScreenCanvas, header, wrapper } from "./constants";
 
 //Validation conditions
 const checkScrollHeaderIsActive = header?.classList.contains("scroll-mode");
@@ -24,7 +22,7 @@ const triggerMenu = () => {
 
 const setStickyNav = () => {
   if (checkWrapperOrCanvasIsNotActive) {
-    header!.classList.toggle("scroll-mode", window.scrollY > 0);
+    header!.classList.toggle("scroll-mode", scrollY > 0);
   }
 };
 
@@ -37,5 +35,5 @@ const closeMenuOnNavigation = () => {
 // Execute the humburger menu logic
 wrapper!.addEventListener("click", triggerMenu);
 // Execute the sticky navbar logic
-window.addEventListener("scroll", setStickyNav);
+addEventListener("scroll", setStickyNav);
 // Runs on view transitions navigation

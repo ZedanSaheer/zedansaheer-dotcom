@@ -4,13 +4,27 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@content/*": ["src/content/*"],
-      "@pages/*": ["src/pages/*"],
-      "@scripts/*": ["src/scripts/*"],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@content/*": [
+        "src/content/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@scripts/*": [
+        "src/scripts/*"
+      ]
     },
-    "allowJs": true
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

@@ -36,9 +36,9 @@ class LoopingElement {
     }
 
     events() {
-        window.addEventListener("scroll", (e) => {
+        addEventListener("scroll", (e) => {
             let direction =
-                window.pageYOffset || document.documentElement.scrollTop;
+                pageYOffset || document.documentElement.scrollTop;
             if (direction > this.scrollTop) {
                 this.direction = true;
                 this.lerp.target += this.speed * 5;
@@ -79,7 +79,7 @@ class LoopingElement {
 
     render() {
         this.animate();
-        window.requestAnimationFrame(() => this.render());
+        requestAnimationFrame(() => this.render());
     }
 }
 

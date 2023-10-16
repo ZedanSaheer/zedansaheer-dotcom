@@ -7,6 +7,8 @@ author: Zedan Saheer
 
 # Quo omnis stabat misisset dixerat me vitalesque
 
+![Sample image](https://picsum.photos/400 "Optional title")
+
 ## Populis esse
 
 *Lorem markdownum Daedalus* devolvunt quodque gurges sub marito verso, dumque.

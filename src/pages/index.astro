@@ -3,6 +3,7 @@ import Marquee from "@components/index/Marquee.astro";
 import HeroText from "@components/index/HeroText.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import ScrollIndicator from "@components/index/ScrollIndicator.astro";
+import Preloader from "@components/core/Preloader.astro";
 ---
 
 <style>
@@ -35,12 +36,33 @@ import ScrollIndicator from "@components/index/ScrollIndicator.astro";
     }
   }
 </style>
+<Preloader />
 <MainLayout>
   <section
     class="landing-page flex flex-col justify-start items-center px-20 sm:px-6 h-full xs:h-full relative"
   >
-    <ScrollIndicator page="01/04"/>
+    <ScrollIndicator page="01/04" />
     <HeroText />
     <Marquee />
   </section>
 </MainLayout>
+<script>
+  const sections = document.querySelectorAll("section");
+  const header = document.querySelector("header");
+  const curtain = document.querySelector(".curtain");
+
+  onload = () => {
+    sections.forEach((section) => {
+      section.style.display = "none";
+      header!.style.display = "none";
+    });
+  };
+
+  curtain?.addEventListener("animationend", () => {
+    sections.forEach((section) => {
+      section.style.display = "flex";
+    });
+    header!.style.display = "flex";
+    sessionStorage.setItem("preloader", "rendered");
+  });
+</script>

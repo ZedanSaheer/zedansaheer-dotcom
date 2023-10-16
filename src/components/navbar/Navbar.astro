@@ -1,7 +1,7 @@
 ---
 import HamburgerMenu from "@components/navbar/HamburgerMenu.astro";
-import Logo from "./Logo.astro";
 import OffScreenCanvas from "@components/navbar/OffScreenCanvas.astro";
+import Logo from "./Logo.astro";
 ---
 
 <OffScreenCanvas />
@@ -59,7 +59,7 @@ import OffScreenCanvas from "@components/navbar/OffScreenCanvas.astro";
   class="flex justify-between items-center w-screen fixed top-10 left-0 py-4 px-20 sm:px-6 z-10"
   transition:persist
 >
-  <a href="/" class="z-10 select-none no-select flex-1 animate-fade-right">
+  <a href="/" class="z-10 select-none no-select flex-1 animate-fade-right animate-duration-1000 animate-delay-[300ms]">
     <Logo color_scheme="fill-black-100 dark:fill-white-100" />
   </a>
   <HamburgerMenu />

@@ -11,8 +11,8 @@ interface Props {
 
 const { showNav = true, removeBodyPaddingTop = false } = Astro.props;
 
-const currentURL = Astro.url.pathname;
-const isPathIndex = currentURL === "/";
+const currentPath = Astro.url.pathname;
+const isPathIndex = currentPath === "/";
 const setBodyPaddingTop = removeBodyPaddingTop ? "pt-0" : "pt-40 sm:pt-36";
 const bodyClassList = `relative min-h-screen ${setBodyPaddingTop} bg-white-100 dark:bg-black-100 overflow-x-hidden`;
 const indexBodyClassList = "polka-dots-bg" + " " + bodyClassList;
@@ -51,16 +51,32 @@ const indexBodyClassList = "polka-dots-bg" + " " + bodyClassList;
     <script is:inline>
     AOS.init();
     </script>
+    <!-- Close menu after each transition or route change -->
     <script>
-      const wrapper = document.querySelector(".menu_wrapper");
-      const header = document.querySelector("header");
-      const OffScreenCanvas = document.querySelector(".off-screen-canvas");
+      import { OffScreenCanvas, header, wrapper } from "@scripts/constants";
+
       const closeMenuOnNavigation = () => {
         wrapper!.classList.remove("active");
         OffScreenCanvas!.classList.remove("active");
         header!.classList.remove("menu_active");
       };
+
       document.addEventListener("astro:after-swap", closeMenuOnNavigation);
+    </script>
+    <script define:vars={{ isPathIndex }}>
+    onbeforeunload = () => {
+      if (isPathIndex) sessionStorage.clear();
+    };
+    </script>
+    <script>
+      document.addEventListener("astro:after-swap", () => {
+        const curtain = document.querySelector(".curtain");
+        const loader = sessionStorage.getItem("preloader");
+
+        if (loader !== null) {
+          curtain?.remove();
+        }
+      });
     </script>
   </body>
 </html>
