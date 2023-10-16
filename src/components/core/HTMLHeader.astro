@@ -32,6 +32,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   href={imageBaseURL("favicon_dark/favicon-16x16.png")}
 />
 <link
+  rel="shortcut icon"
+  type="image/png"
+  sizes="32x32"
+  media="(prefers-color-scheme: light)"
+  href={imageBaseURL("favicon_dark/favicon-32x32.png")}
+/>
+<link
+  rel="shortcut icon"
+  type="image/png"
+  sizes="16x16"
+  media="(prefers-color-scheme: light)"
+  href={imageBaseURL("favicon_dark/favicon-16x16.png")}
+/>
+<link
   rel="manifest"
   media="(prefers-color-scheme: light)"
   href={imageBaseURL("favicon_dark/site.webmanifest")}
@@ -53,6 +67,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 />
 <link
   rel="icon"
+  type="image/png"
+  sizes="16x16"
+  media="(prefers-color-scheme: dark)"
+  href={imageBaseURL("favicon_light/favicon-16x16.png")}
+/>
+<link
+  rel="shortcut icon"
+  type="image/png"
+  sizes="32x32"
+  media="(prefers-color-scheme: dark)"
+  href={imageBaseURL("favicon_light/favicon-32x32.png")}
+/>
+<link
+  rel="shortcut icon"
   type="image/png"
   sizes="16x16"
   media="(prefers-color-scheme: dark)"
