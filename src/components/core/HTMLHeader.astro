@@ -1,5 +1,5 @@
 ---
-import {imageBaseURL} from "@scripts/utils";
+import { imageBaseURL } from "@scripts/utils";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -92,10 +92,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   content="Zedan Saheer is a Software Engineer, Innovator, Content Writer and an Indie Chef. Focused on building highly performant and scalable code."
 />
 <meta property="og:url" content="https://zedansaheer.com/" />
-<meta
-  property="og:image"
-  content={imageBaseURL("/media/zedan_banner.png")}
-/>
+<meta property="og:image" content={imageBaseURL("/media/zedan_banner.png")} />
 <meta property="og:image:alt" content="Zedan Saheer - Brand Banner" />
 
 <!-- Meta Tags for Twitter  -->
@@ -107,15 +104,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   name="twitter:description"
   content="Zedan Saheer is a Software Engineer, Innovator, Content Writer and an Indie Chef. Focused on building highly performant and scalable code."
 />
-<meta
-  name="twitter:image"
-  content={imageBaseURL("/media/zedan_banner.png")}
-/>
+<meta name="twitter:image" content={imageBaseURL("/media/zedan_banner.png")} />
 <meta name="twitter:creator" content="@zedansaheer" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <!-- Website share banner -->
-<link rel="image_src" href={imageBaseURL("/media/zedan_banner.png")}>
+<link
+  rel="image_src"
+  href={imageBaseURL("/media/zedan_banner.png")}
+  media="(prefers-color-scheme: light)"
+/>
+<link
+  rel="image_src"
+  href={imageBaseURL("/media/zedan_banner_dark.png")}
+  media="(prefers-color-scheme: dark)"
+/>
 
 <!-- Animate On Scroll CDN -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
