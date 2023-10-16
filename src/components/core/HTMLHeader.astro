@@ -1,4 +1,5 @@
 ---
+import {imageBaseURL} from "@scripts/utils";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -14,26 +15,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   rel="apple-touch-icon"
   sizes="180x180"
   media="(prefers-color-scheme: light)"
-  href="/favicon_dark/apple-touch-icon.png"
+  href={imageBaseURL("/favicon_dark/apple-touch-icon.png")}
 />
 <link
   rel="icon"
   type="image/png"
   sizes="32x32"
   media="(prefers-color-scheme: light)"
-  href="/favicon_dark/favicon-32x32.png"
+  href={imageBaseURL("/favicon_dark/favicon-32x32.png")}
 />
 <link
   rel="icon"
   type="image/png"
   sizes="16x16"
   media="(prefers-color-scheme: light)"
-  href="/favicon_dark/favicon-16x16.png"
+  href={imageBaseURL("/favicon_dark/favicon-16x16.png")}
 />
 <link
   rel="manifest"
   media="(prefers-color-scheme: light)"
-  href="/favicon_dark/site.webmanifest"
+  href={imageBaseURL("/favicon_dark/site.webmanifest")}
 />
 
 <!-- Favicon Dark Mode -->
@@ -41,26 +42,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   rel="apple-touch-icon"
   sizes="180x180"
   media="(prefers-color-scheme: dark)"
-  href="/favicon_light/apple-touch-icon.png"
+  href={imageBaseURL("/favicon_light/apple-touch-icon.png")}
 />
 <link
   rel="icon"
   type="image/png"
   sizes="32x32"
   media="(prefers-color-scheme: dark)"
-  href="/favicon_light/favicon-32x32.png"
+  href={imageBaseURL("/favicon_light/favicon-32x32.png")}
 />
 <link
   rel="icon"
   type="image/png"
   sizes="16x16"
   media="(prefers-color-scheme: dark)"
-  href="/favicon_light/favicon-16x16.png"
+  href={imageBaseURL("/favicon_light/favicon-16x16.png")}
 />
 <link
   rel="manifest"
   media="(prefers-color-scheme: dark)"
-  href="/favicon_light/site.webmanifest"
+  href={imageBaseURL("/favicon_light/site.webmanifest")}
 />
 
 <!-- Loading External fonts -->
@@ -93,7 +94,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta property="og:url" content="https://zedansaheer.com/" />
 <meta
   property="og:image"
-  content="/media/zedan_banner.png"
+  content={imageBaseURL("/media/zedan_banner.png")}
 />
 <meta property="og:image:alt" content="Zedan Saheer - Brand Banner" />
 
@@ -108,13 +109,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 />
 <meta
   name="twitter:image"
-  content="/media/zedan_banner.png"
+  content={imageBaseURL("/media/zedan_banner.png")}
 />
 <meta name="twitter:creator" content="@zedansaheer" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <!-- Website share banner -->
-<link rel="image_src" href="/media/zedan_banner.png">
+<link rel="image_src" href={imageBaseURL("/media/zedan_banner.png")}>
 
 <!-- Animate On Scroll CDN -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
