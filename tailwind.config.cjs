@@ -24,6 +24,45 @@ module.exports = {
 
 		},
 		extend: {
+			typography: ({ theme }) => ({
+				pitchblack: {
+					css: {
+						'--tw-prose-body': theme('colors.black[80]'),
+						'--tw-prose-headings': theme('colors.black[90]'),
+						'--tw-prose-lead': theme('colors.black[70]'),
+						'--tw-prose-links': theme('colors.black[90]'),
+						'--tw-prose-bold': theme('colors.black[90]'),
+						'--tw-prose-counters': theme('colors.black[60]'),
+						'--tw-prose-bullets': theme('colors.black[40]'),
+						'--tw-prose-hr': theme('colors.black[30]'),
+						'--tw-prose-quotes': theme('colors.black[90]'),
+						'--tw-prose-quote-borders': theme('colors.black[30]'),
+						'--tw-prose-captions': theme('colors.black[70]'),
+						'--tw-prose-code': theme('colors.black[90]'),
+						'--tw-prose-pre-code': theme('colors.black[10]'),
+						'--tw-prose-pre-bg': theme('colors.black[90]'),
+						'--tw-prose-th-borders': theme('colors.black[30]'),
+						'--tw-prose-td-borders': theme('colors.black[20]'),
+						/* Dark Mode Colors - Invert = Dark Mode */
+						'--tw-prose-invert-body': theme('colors.white[80]'),
+						'--tw-prose-invert-headings': theme('colors.white'),
+						'--tw-prose-invert-lead': theme('colors.white[30]'),
+						'--tw-prose-invert-links': theme('colors.white[40]'),
+						'--tw-prose-invert-bold': theme('colors.white'),
+						'--tw-prose-invert-counters': theme('colors.white[40]'),
+						'--tw-prose-invert-bullets': theme('colors.white[60]'),
+						'--tw-prose-invert-hr': theme('colors.white[70]'),
+						'--tw-prose-invert-quotes': theme('colors.white[10]'),
+						'--tw-prose-invert-quote-borders': theme('colors.white[70]'),
+						'--tw-prose-invert-captions': theme('colors.white[40]'),
+						'--tw-prose-invert-code': theme('colors.white'),
+						'--tw-prose-invert-pre-code': theme('colors.white[30]'),
+						'--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 50%)',
+						'--tw-prose-invert-th-borders': theme('colors.white[60]'),
+						'--tw-prose-invert-td-borders': theme('colors.white[70]'),
+					},
+				},
+			}),
 			colors: {
 				'white': {
 					10: 'var(--white10)',
@@ -49,8 +88,8 @@ module.exports = {
 					90: 'var(--black90)',
 					100: 'var(--black100)',
 				},
-				'blue':'rgb(25, 25, 112)',
-				'beige':'rgb(245, 245, 220)'
+				'blue': 'rgb(25, 25, 112)',
+				'beige': 'rgb(245, 245, 220)'
 			},
 		},
 		fontFamily: {
