@@ -6,9 +6,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta name="viewport" content="width=device-width" initial-scale="1" />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Website share banner -->
-<link rel="image_src" href="/media/zedan_banner.png">
-
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
@@ -115,6 +112,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 />
 <meta name="twitter:creator" content="@zedansaheer" />
 <meta name="twitter:card" content="summary_large_image" />
+
+<!-- Website share banner -->
+<link rel="image_src" href="/media/zedan_banner.png">
 
 <!-- Animate On Scroll CDN -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
