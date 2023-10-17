@@ -10,6 +10,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+
+<!-- Website share banner -->
+<link
+  rel="image_src"
+  href={imageBaseURL("media/zedan_banner.jpg")}
+  media="(prefers-color-scheme: light)"
+/>
+<link
+  rel="image_src"
+  href={imageBaseURL("media/zedan_banner_dark.jpg")}
+  media="(prefers-color-scheme: dark)"
+/>
+
 <!-- Favicon Light Mode -->
 <link
   rel="apple-touch-icon"
@@ -147,18 +160,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta name="twitter:image" content={imageBaseURL("media/zedan_banner.jpg")} />
 <meta name="twitter:creator" content="@zedansaheer" />
 <meta name="twitter:card" content="summary_large_image" />
-
-<!-- Website share banner -->
-<link
-  rel="image_src"
-  href={imageBaseURL("media/zedan_banner.jpg")}
-  media="(prefers-color-scheme: light)"
-/>
-<link
-  rel="image_src"
-  href={imageBaseURL("media/zedan_banner_dark.jpg")}
-  media="(prefers-color-scheme: dark)"
-/>
 
 <!-- Animate On Scroll CDN -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
