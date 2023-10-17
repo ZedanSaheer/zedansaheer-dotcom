@@ -1,21 +1,18 @@
 ---
-import HTMLHeader from "@components/core/HTMLHeader.astro";
 import "../main.css";
+import HTMLHeader from "@components/core/HTMLHeader.astro";
 import Navbar from "@components/navbar/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
+import {setBodyStyles} from "@scripts/utils"
 
 interface Props {
-  showNav?: boolean;
-  removeBodyPaddingTop?: boolean;
+  bodyStyle?: "main" | "error" | "index";
 }
 
-const { showNav = true, removeBodyPaddingTop = false } = Astro.props;
+const { bodyStyle = "main" } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 const isPathIndex = currentPath === "/";
-const setBodyPaddingTop = removeBodyPaddingTop ? "pt-0" : "pt-40 sm:pt-36";
-const bodyClassList = `relative min-h-screen ${setBodyPaddingTop} bg-white-100 dark:bg-black-100 overflow-x-hidden`;
-const indexBodyClassList = "polka-dots-bg" + " " + bodyClassList;
 ---
 
 <style>
@@ -42,8 +39,8 @@ const indexBodyClassList = "polka-dots-bg" + " " + bodyClassList;
     <!-- View transitions -->
     <ViewTransitions />
   </head>
-  <body class={isPathIndex ? indexBodyClassList : bodyClassList}>
-    {showNav && <Navbar />}
+  <body class={setBodyStyles(bodyStyle)}>
+    {bodyStyle !== "error" && <Navbar />}
     <slot />
 
     <!-- Animate On Scroll CDN -->
@@ -52,31 +49,11 @@ const indexBodyClassList = "polka-dots-bg" + " " + bodyClassList;
     AOS.init();
     </script>
     <!-- Close menu after each transition or route change -->
-    <script>
-      import { OffScreenCanvas, header, wrapper } from "@scripts/constants";
-
-      const closeMenuOnNavigation = () => {
-        wrapper!.classList.remove("active");
-        OffScreenCanvas!.classList.remove("active");
-        header!.classList.remove("menu_active");
-      };
-
-      document.addEventListener("astro:after-swap", closeMenuOnNavigation);
-    </script>
+    <script src="@scripts/main_layout.ts"></script>
     <script define:vars={{ isPathIndex }}>
     onbeforeunload = () => {
       if (isPathIndex) sessionStorage.clear();
     };
-    </script>
-    <script>
-      document.addEventListener("astro:after-swap", () => {
-        const curtain = document.querySelector(".curtain");
-        const loader = sessionStorage.getItem("preloader");
-
-        if (loader !== null) {
-          curtain?.remove();
-        }
-      });
     </script>
   </body>
 </html>
