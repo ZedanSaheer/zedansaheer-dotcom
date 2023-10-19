@@ -7,17 +7,7 @@ tags: ["Life"]
 image: { src: "@assets/blogs/post-1.jpg", alt: "Testing cover picture ALT tag" }
 ---
 
-import { Image } from "astro:assets";
-import BlogCover from "@components/blog/BlogCover.astro"
-import blogCoverImage from "@assets/blogs/post-1.jpg";
-
 # Quo omnis stabat misisset dixerat me vitalesque
-
-<BlogCover
-  title={frontmatter.title}
-  src={blogCoverImage}
-  alt={frontmatter.image?.alt}
-/>
 
 ## Populis esse
 

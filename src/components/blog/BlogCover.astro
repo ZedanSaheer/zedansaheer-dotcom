@@ -13,10 +13,12 @@ const { src, alt, title = "no cover available" } = Astro.props;
 const isImageValueDefined = src !== undefined && alt !== undefined;
 ---
 
-<div class="w-full h-full aspect-video overflow-hidden rounded-2xl animate-fade-right">
+<div
+  class="w-full h-full aspect-video overflow-hidden rounded-2xl animate-fade-right mb-6"
+>
   {
     isImageValueDefined ? (
-      <Image src={src} alt={alt} class="w-full h-full"/>
+      <Image src={src} alt={alt} class="w-full h-full" loading="lazy" />
     ) : (
       <RandomBackgroundGenerator title={title} />
     )

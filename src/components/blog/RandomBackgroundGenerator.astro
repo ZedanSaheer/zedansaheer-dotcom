@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+Image
+
 type Props = {
   title: string;
 };
@@ -7,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <div
-  class="blog-cover aspect-video w-full h-full font-panchang font-bold text-4xl overflow-hidden flex justify-center items-center text-center uppercase bg-white-100 dark:bg-black-100 text-black-40 dark:text-white-40 line-clamp-2 p-10"
+  class="blog-cover aspect-video w-full h-full font-panchang font-bold text-4xl overflow-hidden flex justify-center items-center text-center uppercase text-black-40 dark:text-white-40 line-clamp-2 p-10"
 >
   {title}
 </div>
