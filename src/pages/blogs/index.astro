@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import MainLayout from "@layouts/MainLayout.astro";
 import BlogCover from "@components/blog/BlogCover.astro";
-import { slide } from "astro:transitions";
 
 const blogPosts = await getCollection("blogs");
 ---

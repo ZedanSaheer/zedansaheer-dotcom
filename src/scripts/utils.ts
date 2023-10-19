@@ -1,5 +1,7 @@
-export const imageBaseURL = (filename: string) => {
-  return `https://cdn.jsdelivr.net/gh/zedansaheer/zedansaheer-dotcom@main/public/${filename}`
+type BaseURLocation = "public" | "src"
+
+export const imageBaseURL = (location: BaseURLocation, filename: string) => {
+  return `https://cdn.jsdelivr.net/gh/zedansaheer/zedansaheer-dotcom@main/${location}/${filename}`
 }
 
 export const setBodyStyles = (condition: "main" | "error" | "index") => {
