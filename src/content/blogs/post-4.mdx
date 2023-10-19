@@ -1,13 +1,23 @@
 ---
-title: Post 4
-description:  I was literally going to use zod in my layouts for frontmatter schema validation and now that exact thing is integrated within astro.
-publishDate: 2023-01-02
+title: How I fixed some of the craziest bugs in Astro.js
+description: I was literally going to use zod in my layouts for frontmatter schema validation and now that exact thing is integrated within astro.
+publishDate: "2023-01-02"
 author: Zedan Saheer
+tags: ["Life"]
+image: { src: "@assets/blogs/post-4.jpg", alt: "Testing cover picture ALT tag" }
 ---
 
-# Tuam ipsum
+import { Image } from "astro:assets";
+import BlogCover from "@components/blog/BlogCover.astro"
+import blogCoverImage from "@assets/blogs/post-4.jpg";
 
-![Sample image](https://picsum.photos/400 "Optional title")
+# Quo omnis stabat misisset dixerat me vitalesque
+
+<BlogCover
+  title={frontmatter.title}
+  src={blogCoverImage}
+  alt={frontmatter.image?.alt}
+/>
 
 ## Potuisse torquere vidit
 
@@ -42,7 +52,7 @@ tantaeque et corpus pondus atque inde, ex obnoxia. Signum sparsit nil pudorem
 
 ## Ille Doridaque est rerum sic se Iuppiter
 
-Versato *fluit* Othrys solis. Regis exarsit cavas, et nec quique auxilium currus
+Versato _fluit_ Othrys solis. Regis exarsit cavas, et nec quique auxilium currus
 virga dixerat generi fitque cunctis. Abstinet cum terras; opes ignem quoque
 vulnere amorem, tectis. Aut umbras tamen **ac ictus**.
 
@@ -55,7 +65,7 @@ vulnere amorem, tectis. Aut umbras tamen **ac ictus**.
 ## Decebat timuit videri
 
 Gurgite imis. Dearum at mihi [admovet](http://litterataceam.io/), his **pingebat
-ipsas**; iam paene: et *valuere Eurus derexit* hominis. Speculatur ingens fama
+ipsas**; iam paene: et _valuere Eurus derexit_ hominis. Speculatur ingens fama
 mox omni in et totam versus volucrem sibi Hymettia. Demisit parce puer et futura
 linguae in obligor coram, ab quod; natis! Pars omnia trux coloni, itum terris,
 licet pondus est [mixtis](http://www.unde-ut.net/et.html) manifestaque.

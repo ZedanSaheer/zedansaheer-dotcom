@@ -5,7 +5,7 @@ import MainLayout from "@layouts/MainLayout.astro";
 
 <MainLayout bodyStyle="error">
   <section
-    class="w-full h-screen flex flex-col items-center justify-evenly overflow-hidden p-24 sm:p-4"
+    class="polka-dots-bg w-full h-screen flex flex-col items-center justify-evenly overflow-hidden p-24 sm:p-4"
   >
     <div class="w-1/2 sm:w-full">
       <ErrorLogo />
@@ -13,5 +13,5 @@ import MainLayout from "@layouts/MainLayout.astro";
   </section>
 </MainLayout>
 <script>
-  setTimeout(() => history.back(), 1500);
+  setTimeout(() => history.back(), 3000);
 </script>

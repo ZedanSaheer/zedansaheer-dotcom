@@ -1,0 +1,20 @@
+---
+type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+---
+
+<style>
+  .blog-cover {
+    background-image: url('https://placekitten.com/640/360');
+    background-position: center;
+    background-size: contain;
+  }
+</style>
+<div
+  class="blog-cover aspect-video w-full h-full font-panchang font-bold text-4xl overflow-hidden flex justify-center items-center text-center uppercase text-black-40 line-clamp-2 p-10"
+>
+  {title}
+</div>

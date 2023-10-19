@@ -11,6 +11,7 @@ interface Props {
 
 const { bodyStyle = "main" } = Astro.props;
 
+
 const currentPath = Astro.url.pathname;
 const isPathIndex = currentPath === "/";
 ---
@@ -50,6 +51,7 @@ const isPathIndex = currentPath === "/";
     </script>
     <!-- Close menu after each transition or route change -->
     <script src="@scripts/main_layout.ts"></script>
+    <!-- Clear session data before reload -->
     <script define:vars={{ isPathIndex }}>
     onbeforeunload = () => {
       if (isPathIndex) sessionStorage.clear();

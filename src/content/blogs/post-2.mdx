@@ -1,13 +1,23 @@
 ---
-title: Post 2
+title: How I fixed some of the craziest bugs in Astro.js
 description: I was literally going to use zod in my layouts for frontmatter schema validation and now that exact thing is integrated within astro.
-publishDate: 2023-01-02
+publishDate: "2023-01-02"
 author: Zedan Saheer
+tags: ["Life"]
+image: { src: "@assets/blogs/post-2.jpg", alt: "Testing cover picture ALT tag" }
 ---
 
-# Tot certe post illa defensae in tepida
+import { Image } from "astro:assets";
+import BlogCover from "@components/blog/BlogCover.astro"
+import blogCoverImage from "@assets/blogs/post-2.jpg";
 
-![Sample image](https://picsum.photos/400 "Optional title")
+# Quo omnis stabat misisset dixerat me vitalesque
+
+<BlogCover
+  title={frontmatter.title}
+  src={blogCoverImage}
+  alt={frontmatter.image?.alt}
+/>
 
 ## Ille solo
 

@@ -1,0 +1,24 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import RandomBackgroundGenerator from "./RandomBackgroundGenerator.astro";
+
+type Props = {
+  src?: ImageMetadata;
+  alt?: string;
+  title?: string;
+};
+
+const { src, alt, title = "no cover available" } = Astro.props;
+const isImageValueDefined = src !== undefined && alt !== undefined;
+---
+
+<div class="w-full aspect-video rounded-2xl overflow-hidden animate-fade-right">
+  {
+    isImageValueDefined ? (
+      <Image src={src} alt={alt} />
+    ) : (
+      <RandomBackgroundGenerator title={title} />
+    )
+  }
+</div>

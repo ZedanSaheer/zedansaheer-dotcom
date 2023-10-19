@@ -1,31 +1,49 @@
 ---
 import { getCollection } from "astro:content";
 import MainLayout from "@layouts/MainLayout.astro";
+import BlogCover from "@components/blog/BlogCover.astro";
+import { slide } from "astro:transitions";
 
 const blogPosts = await getCollection("blogs");
 ---
 
-<MainLayout>
-  <section class="flex flex-col justify-center items-center px-24 sm:px-4 pb-10">
+<MainLayout bodyStyle="index">
+  <section
+    class="flex flex-col justify-center items-center px-24 sm:px-4 pb-10"
+  >
     <h1
       class="dark:text-white-80 text-black-80 font-clash text-4xl my-28 text-center font-semibold lowercase"
     >
       <p class="uppercase gradient-text text-6xl animate-fade-up">blogs</p>
       <p class="animate-fade-up">Content, Ideas and Learnings</p>
     </h1>
-    <div class="flex flex-wrap items-start justify-start gap-4 sm:px-6">
+    <div class="flex flex-wrap items-start justify-start gap-10 w-full overflow-hidden">
       {
         blogPosts.map((blog) => (
-          <div class="my-4 flex flex-col flex-grow sm:items-start items-center gap-2 animate-fade-right">
-            <h1 class="font-clash font-bold text-4xl dark:text-white-100 text-black-100">
+          <a
+            href={`/blogs/${blog.slug}`}
+            class="flex-[30%] lg:flex-[40%] md:flex-[100%] my-4 flex flex-col flex-grow-0 sm:items-start items-start gap-2 animate-fade-right px-4 rounded-2xl cursor-pointer w-full"
+          >
+            <BlogCover
+              title={blog.data.title}
+              src={blog.data.image?.src}
+              alt={blog.data.image?.alt}
+            />
+            <div class="flex justify-between w-full">
+              <h2 class="font-clash text-sm dark:text-white-100 text-black-100">
+                {blog.data.author}
+              </h2>
+              <h2 class="font-clash text-sm dark:text-white-100 text-black-100">
+                {blog.data.publishDate}
+              </h2>
+            </div>
+            <h1 class="font-clash font-semibold text-3xl xl:text-2xl dark:text-white-100 text-black-100 my-2">
               {blog.data.title}
             </h1>
-            <h2 class="font-clash dark:text-white-100 text-black-100">{blog.data.author}</h2>
-            <p class="font-ranade font-light text-sm leading-6 text-center sm:text-left dark:text-white-80 text-black-80 w-3/4 sm:w-full line-clamp-6">{blog.data.description}</p>
-            <a href={`/blogs/${blog.slug}`} class="font-clash hover:dark:text-white-100 hover:text-black-100 dark:text-white-60 text-black-60">
-              Read now >
-            </a>
-          </div>
+            <p class="font-ranade font-light text-sm leading-6 sm:text-left dark:text-white-80 text-black-80 line-clamp-6 xl:line-clamp-4">
+              {blog.data.description}
+            </p>
+          </a>
         ))
       }
     </div>

@@ -10,7 +10,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
-
 <!-- Website share banner -->
 <link
   rel="image_src"
@@ -117,12 +116,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   href={imageBaseURL("favicon_light/site.webmanifest")}
 />
 
-<!-- Loading External fonts -->
-<link
-  href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,1,300&f[]=ranade@700,300,2,701,401,101,100,400,1,500,501,301&f[]=panchang@200,500,1,700,300,400,800,600&display=swap"
-  rel="stylesheet"
-/>
-
 <!-- SEO related queries -->
 <meta
   name="description"
@@ -163,5 +156,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <!-- Animate On Scroll CDN -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<!-- RSS Feed Auto Discovery -->
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="RSS Feed for zedansaheer.com"
+  href="/rss.xml"
+/>
 
 <title>Zedan Saheer - Software Engineer, Thinker and Creator</title>

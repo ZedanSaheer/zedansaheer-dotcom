@@ -85,7 +85,6 @@ class LoopingElement {
 
 let elements = document.querySelectorAll<HTMLElement>(".item");
 
-
 new LoopingElement(elements[0], 0, 0.08);
 new LoopingElement(elements[1], -100, 0.08);
 
