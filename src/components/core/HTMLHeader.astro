@@ -116,6 +116,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   href={imageBaseURL("favicon_light/site.webmanifest")}
 />
 
+<!-- Loading External fonts -->
+<link
+  href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,1,300&f[]=ranade@700,300,2,701,401,101,100,400,1,500,501,301&f[]=panchang@200,500,1,700,300,400,800,600&display=swap"
+  rel="stylesheet"
+/>
+
 <!-- SEO related queries -->
 <meta
   name="description"
