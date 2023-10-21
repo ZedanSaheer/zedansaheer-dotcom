@@ -58,9 +58,9 @@ export const setSocialLinksStyles = (pageType: SocialLinkPageType) => {
 export const joinKeywordsArrToString = (keywords: string[]) => keywords.join(", "); 
 
 /**
- * Takes a string of image source from Astro and returns the relative path to the source folder, If the image is not provided returns undefined
+ * Takes a string of image source from Astro output and returns the relative path to the source folder connecting to the CDN for images in the github repo, If the image is not provided returns undefined
  * @param {any} src - absolute path to an image
  * @returns {string} relative path / undefined
- * @example "{some}/{long}/{absolute path to your image}" => "{short}/{relative path}"
+ * @example "{some}/{long}/{_astro output path}/{absolute path to your image}" => "{short}/{relative path}"
  */
-export const generateImageBaseURL = (src : string | undefined) => src ? src.split("/").slice(-3).join("/").split("?")[0] : undefined;
+export const generateImageBaseURL = (src : string | undefined) => src ? src.split("/").slice(-3).join("/").split("?")[0].replace("/_astro","src/assets/blogs") : undefined;

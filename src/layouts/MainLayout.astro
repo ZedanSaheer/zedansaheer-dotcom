@@ -4,11 +4,7 @@ import HTMLHeader from "@components/core/HTMLHeader.astro";
 import Navbar from "@components/navbar/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
 import { setBodyStyles } from "@scripts/utils";
-import {
-  defaultImageMetaData,
-  type Header,
-  type PageType,
-} from "@scripts/constants";
+import { type Header, type PageType } from "@scripts/constants";
 
 interface Props {
   bodyStyle?: PageType;
