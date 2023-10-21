@@ -1,7 +1,7 @@
 import { imageBaseURL } from "./utils";
 
 /* Types */
-export type BaseURLocation = "public" | "src";
+export type BaseURLocation = "public" | "src" | "dist";
 export type PageType = "main" | "error" | "index";
 export type SocialLinkPageType = "footer" | "menu";
 
