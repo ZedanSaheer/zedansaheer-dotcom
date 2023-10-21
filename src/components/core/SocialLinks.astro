@@ -1,19 +1,14 @@
 ---
+import type { SocialLinkPageType } from "@scripts/constants";
+import { setSocialLinksStyles } from "@scripts/utils";
 import Icon from "astro-icon";
 
 interface Props {
-  showBorder?: boolean;
-  showText?: boolean;
-  reduceGap?: boolean;
+  pageType? : SocialLinkPageType;
 }
 
-const { reduceGap = false, showBorder = true, showText = true } = Astro.props;
-
-const reduceGapClasses = reduceGap ? "xs:gap-0 gap-4" : "gap-4";
-const socialContainerClass =
-  "social-container flex justify-center items-center" + " " + reduceGapClasses;
-const socialContainerClassWithBorder =
-  socialContainerClass + " " + "show-border";
+const {pageType = "menu"} = Astro.props;
+const showText = pageType === "menu";
 ---
 
 <style>
@@ -56,7 +51,7 @@ const socialContainerClassWithBorder =
     )
   }
   <div
-    class={showBorder ? socialContainerClassWithBorder : socialContainerClass}
+    class={setSocialLinksStyles(pageType)}
   >
     <a target="_blank" href="https://twitter.com/zedansaheer">
       <Icon

@@ -1,4 +1,6 @@
-import { OffScreenCanvas, header, wrapper } from "./constants";
+export const wrapper = document.querySelector(".menu_wrapper");
+export const header = document.querySelector("header");
+export const OffScreenCanvas = document.querySelector(".off-screen-canvas");
 
 //Validation conditions
 const checkWrapperOrCanvasIsNotActive =
@@ -9,24 +11,24 @@ const checkWrapperOrCanvasIsNotActive =
 //Action Methods
 const triggerMenu = () => {
   if (wrapper?.classList?.contains("active")) {
-    wrapper!.classList.remove("active");
-    OffScreenCanvas!.classList.remove("active");
-    header!.classList.remove("menu_active");
+    wrapper.classList.remove("active");
+    OffScreenCanvas?.classList.remove("active");
+    header?.classList.remove("menu_active");
   } else {
-    wrapper!.classList.add("active");
-    OffScreenCanvas!.classList.add("active");
-    header!.classList.add("menu_active");
+    wrapper?.classList.add("active");
+    OffScreenCanvas?.classList.add("active");
+    header?.classList.add("menu_active");
   }
 };
 
 const setStickyNav = () => {
   if (checkWrapperOrCanvasIsNotActive) {
-    header!.classList.toggle("scroll-mode", scrollY > 0);
+    header?.classList.toggle("scroll-mode", scrollY > 0);
   }
 };
 
 // Execute the humburger menu logic
-wrapper!.addEventListener("click", triggerMenu);
+wrapper?.addEventListener("click", triggerMenu);
 // Execute the sticky navbar logic
 addEventListener("scroll", setStickyNav);
 // Runs on view transitions navigation

@@ -1,4 +1,4 @@
-![Zedan Saheer Brand Banner](https://github.com/ZedanSaheer/zedansaheer-dotcom/blob/main/public/zedan_banner.png)
+![Zedan Saheer Brand Banner](https://github.com/ZedanSaheer/zedansaheer-dotcom/blob/main/public/media/zedan_banner.jpg)
 
  # Zedan Saheer 
 

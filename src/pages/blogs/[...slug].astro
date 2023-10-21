@@ -3,6 +3,7 @@ import MainLayout from "@layouts/MainLayout.astro";
 import Footer from "@components/core/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import BlogCover from "@components/blog/BlogCover.astro";
+import { generateImageBaseURL, imageBaseURL } from "@scripts/utils";
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blogs");
@@ -18,11 +19,25 @@ interface Props {
 }
 
 const { blog } = Astro.props;
-const { image, title } = await blog.data;
+const { image, title, description, author } = await blog.data;
 const { Content } = await blog.render();
+const imageRelativePath = generateImageBaseURL(image?.src.src);
+const imageMetaData = imageBaseURL("src", imageRelativePath!);
 ---
 
-<MainLayout>
+<MainLayout
+  metaData={{
+    title,
+    description,
+    author,
+    image: {
+      alt: image!.alt,
+      src: imageMetaData,
+      share: imageMetaData,
+      shareDark: imageMetaData,
+    },
+  }}
+>
   <div class="flex justify-center items-center md:px-6 pb-10">
     <article
       class="prose prose-pitchblack prose-slate dark:prose-invert prose-2xl xl:prose-xl lg:prose-lg md:prose-md sm:prose-sm prose-headings:font-clash prose-p:font-ranade prose-p:font-extralight prose-li:font-ranade prose-headings:gradient-text hover:prose-a:text-white-100 prose-img:aspect-video prose-img:w-full prose-img:rounded-2xl w-full"

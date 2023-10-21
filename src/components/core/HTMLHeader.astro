@@ -1,6 +1,30 @@
 ---
-import { imageBaseURL } from "@scripts/utils";
+import { defaultImageMetaData, defaultKeywords } from "@scripts/constants";
+import { imageBaseURL, joinKeywordsArrToString } from "@scripts/utils";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image: {
+    src: string;
+    alt: string;
+    share: string;
+    shareDark: string;
+  };
+  keywords?: string[];
+  author?: string;
+}
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const baseURL = new URL(Astro.url);
+
+const {
+  title = "Zedan Saheer - Software Engineer, Thinker and Creator",
+  description = "Zedan Saheer is a Software Engineer, Innovator, Content Writer and an Indie Chef. Focused on building highly performant and scalable code.",
+  image = defaultImageMetaData,
+  keywords = defaultKeywords!,
+  author = "Zedan Saheer",
+} = Astro.props;
 ---
 
 <meta charset="utf-8" />
@@ -11,14 +35,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Website share banner -->
+<link rel="image_src" href={image.share} media="(prefers-color-scheme: light)" />
 <link
   rel="image_src"
-  href={imageBaseURL("public", "media/zedan_banner.jpg")}
-  media="(prefers-color-scheme: light)"
-/>
-<link
-  rel="image_src"
-  href={imageBaseURL("public", "media/zedan_banner_dark.jpg")}
+  href={image.shareDark}
   media="(prefers-color-scheme: dark)"
 />
 
@@ -123,46 +143,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 />
 
 <!-- SEO related queries -->
-<meta
-  name="description"
-  content="Zedan Saheer is a Software Engineer, Innovator, Content Writer and an Indie Chef. Focused on building highly performant and scalable code."
-/>
-<meta name="author" content="Zedan Saheer" />
-<meta
-  name="keyword"
-  content="portfolio, javascript, developer,software engineer,zedan saheer,programmer,typescript"
-/>
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+<meta name="keyword" content={joinKeywordsArrToString(keywords)} />
 
 <!-- Meta tags for other social media -->
-<meta
-  property="og:title"
-  content="Zedan Saheer - Software Engineer, Content Writer"
-/>
+<meta property="og:title" content={title} />
 <meta property="og:type" content="website" />
-<meta
-  property="og:description"
-  content="Zedan Saheer is a Software Engineer, Innovator, Content Writer and an Indie Chef. Focused on building highly performant and scalable code."
-/>
-<meta property="og:url" content="https://zedansaheer.com/" />
-<meta
-  property="og:image"
-  content={imageBaseURL("public", "media/zedan_banner.jpg")}
-/>
-<meta property="og:image:alt" content="Zedan Saheer - Brand Banner" />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={baseURL} />
+<meta property="og:image" content={image.src} />
+<meta property="og:image:alt" content={image.alt} />
 
 <!-- Meta Tags for Twitter  -->
-<meta
-  name="twitter:title"
-  content="Zedan Saheer - Software Engineer, Content Writer"
-/>
-<meta
-  name="twitter:description"
-  content="Zedan Saheer is a Software Engineer, Innovator, Content Writer and an Indie Chef. Focused on building highly performant and scalable code."
-/>
-<meta
-  name="twitter:image"
-  content={imageBaseURL("public", "media/zedan_banner.jpg")}
-/>
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image.src} />
 <meta name="twitter:creator" content="@zedansaheer" />
 <meta name="twitter:card" content="summary_large_image" />
 
@@ -177,4 +173,4 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   href="/rss.xml"
 />
 
-<title>Zedan Saheer - Software Engineer, Thinker and Creator</title>
+<title>{title}</title>

@@ -1,4 +1,83 @@
+import { imageBaseURL } from "./utils";
+
+/* Types */
+export type BaseURLocation = "public" | "src";
+export type PageType = "main" | "error" | "index";
+export type SocialLinkPageType = "footer" | "menu";
+
+/* Interfaces */
+export interface Header {
+    title?: string;
+    description?: string;
+    image: {
+        alt: string;
+        src: string;
+        share: string;
+        shareDark: string;
+    }
+    keywords?: string[];
+    author?: string;
+}
+
 /* Variables */
-export const wrapper = document.querySelector(".menu_wrapper");
-export const header = document.querySelector("header");
-export const OffScreenCanvas = document.querySelector(".off-screen-canvas");
+export const defaultKeywords : Header['keywords'] = [
+    "portfolio",
+    "javascript",
+    "developer",
+    "software engineer",
+    "programmer",
+    "typescript",
+    "motivation",
+    "zedan",
+    "programming",
+    "career",
+    "blogs",
+    "content",
+    "zedan saheer",
+    "writing",
+    "engineering",
+    "blogging",
+    "content-writing",
+    "software developer",
+    "web developer",
+    "thinking",
+    "wisdom",
+    "startup",
+    "ideas",
+];
+
+export const defaultMetaData: Header = {
+    title: "Zedan Saheer - Software Engineer, Thinker and Creator",
+    description: "Zedan Saheer is a Software Engineer, Innovator, Content Writer and an Indie Chef. Focused on building highly performant and scalable code.",
+    image: {
+        src: imageBaseURL("public", "media/zedan_banner.jpg"),
+        share: imageBaseURL("public", "media/zedan_banner.jpg"),
+        shareDark: imageBaseURL("public", "media/zedan_banner_dark.jpg"),
+        alt: ""
+    },
+    keywords: defaultKeywords,
+    author: "Zedan Saheer",
+};
+
+export const defaultImageMetaData: Header['image'] = {
+    src: imageBaseURL("public", "media/zedan_banner.jpg"),
+    share: imageBaseURL("public", "media/zedan_banner.jpg"),
+    shareDark: imageBaseURL("public", "media/zedan_banner_dark.jpg"),
+    alt: "Zedan Saheer - Brand Banner"
+};
+
+export const blogPageMetaData: Header = {
+    title: "BLOGS : Content, Learning and Ideas - Zedan Saheer",
+    description:
+        "The blogs section features a rich curated set of well thought written content, learnings and understanding conveyed verbally based on different subjects around life and software",
+    author: "Zedan Saheer",
+    image: defaultImageMetaData,
+};
+
+export const aboutPageMetaData: Header = {
+    title: "About me - Zedan Saheer",
+    description:
+        "Want to know more about me and my journey? This page features a detailed retrospection of my life over the years and how I transformed into this version of me by my early 20's",
+    author: "Zedan Saheer",
+    image: defaultImageMetaData,
+};

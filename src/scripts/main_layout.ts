@@ -1,4 +1,4 @@
-import { OffScreenCanvas, header, wrapper } from "@scripts/constants";
+import { OffScreenCanvas, header, wrapper } from "@scripts/hamburger_menu";
 
 const closeMenuOnNavigationAndRemoveLoader = () => {
   let curtain = document.querySelector(".curtain");
@@ -8,9 +8,9 @@ const closeMenuOnNavigationAndRemoveLoader = () => {
     curtain?.remove();
   }
 
-  wrapper!.classList.remove("active");
-  OffScreenCanvas!.classList.remove("active");
-  header!.classList.remove("menu_active");
+  wrapper?.classList.remove("active");
+  OffScreenCanvas?.classList.remove("active");
+  header?.classList.remove("menu_active");
 };
 
 document.addEventListener(

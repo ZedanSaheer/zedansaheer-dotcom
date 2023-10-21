@@ -3,14 +3,19 @@ import "../main.css";
 import HTMLHeader from "@components/core/HTMLHeader.astro";
 import Navbar from "@components/navbar/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
-import {setBodyStyles} from "@scripts/utils"
+import { setBodyStyles } from "@scripts/utils";
+import {
+  defaultImageMetaData,
+  type Header,
+  type PageType,
+} from "@scripts/constants";
 
 interface Props {
-  bodyStyle?: "main" | "error" | "index";
+  bodyStyle?: PageType;
+  metaData: Header;
 }
 
-const { bodyStyle = "main" } = Astro.props;
-
+const { bodyStyle = "main", metaData } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 const isPathIndex = currentPath === "/";
@@ -36,7 +41,18 @@ const isPathIndex = currentPath === "/";
 </style>
 <html lang="en">
   <head>
-    <HTMLHeader />
+    <HTMLHeader
+      title={metaData?.title}
+      description={metaData?.description}
+      image={{
+        alt: metaData?.image?.alt,
+        src: metaData?.image?.src,
+        share: metaData?.image?.share,
+        shareDark: metaData?.image?.shareDark,
+      }}
+      keywords={metaData?.keywords}
+      author={metaData?.author}
+    />
     <!-- View transitions -->
     <ViewTransitions />
   </head>

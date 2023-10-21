@@ -2,11 +2,12 @@
 import { getCollection } from "astro:content";
 import MainLayout from "@layouts/MainLayout.astro";
 import BlogCover from "@components/blog/BlogCover.astro";
+import { blogPageMetaData } from "@scripts/constants";
 
 const blogPosts = await getCollection("blogs");
 ---
 
-<MainLayout bodyStyle="index">
+<MainLayout bodyStyle="index" metaData={blogPageMetaData}>
   <section
     class="flex flex-col justify-center items-center px-24 sm:px-4 pb-10"
   >
@@ -16,34 +17,45 @@ const blogPosts = await getCollection("blogs");
       <p class="uppercase gradient-text text-6xl animate-fade-up">blogs</p>
       <p class="animate-fade-up">Content, Ideas and Learnings</p>
     </h1>
-    <div class="flex flex-wrap items-start justify-start gap-10 w-full overflow-hidden">
+    <div
+      class="flex flex-wrap items-start justify-start gap-10 w-full overflow-hidden"
+    >
       {
-        blogPosts.map((blog) => (
-          <a
-            href={`/blogs/${blog.slug}`}
-            class="flex-[30%] lg:flex-[40%] md:flex-[100%] my-4 flex flex-col flex-grow-0 sm:items-start items-start gap-2 animate-fade-right px-4 rounded-2xl cursor-pointer w-full"
-          >
-            <BlogCover
-              title={blog.data.title}
-              src={blog.data.image?.src}
-              alt={blog.data.image?.alt}
-            />
-            <div class="flex justify-between w-full">
-              <h2 class="font-clash text-sm dark:text-white-100 text-black-100">
-                {blog.data.author}
-              </h2>
-              <h2 class="font-clash text-sm dark:text-white-100 text-black-100">
-                {blog.data.publishDate}
-              </h2>
-            </div>
-            <h1 class="font-clash font-semibold text-3xl xl:text-2xl dark:text-white-100 text-black-100 my-2">
-              {blog.data.title}
-            </h1>
-            <p class="font-ranade font-light text-sm leading-6 sm:text-left dark:text-white-80 text-black-80 line-clamp-6 xl:line-clamp-4">
-              {blog.data.description}
-            </p>
-          </a>
-        ))
+        blogPosts.map((blog) => {
+          const getReadingTime = async () => {
+            let pluginRendered = await blog.render();
+            let minutesRead =
+              pluginRendered.remarkPluginFrontmatter.minutesToRead;
+
+            return minutesRead;
+          };
+
+          return (
+            <a
+              href={`/blogs/${blog.slug}`}
+              class="flex-[30%] lg:flex-[40%] md:flex-[100%] my-4 flex flex-col flex-grow-0 sm:items-start items-start gap-2 animate-fade-left px-4 rounded-2xl cursor-pointer w-full"
+            >
+              <BlogCover
+                title={blog.data.title}
+                src={blog.data.image?.src}
+                alt={blog.data.image?.alt}
+              />
+              <div>
+                <div class="flex gap-2 justify-between w-full">
+                  <small class="font-clash text-xs dark:text-white-100 text-black-100 capitalize">
+                    {blog.data.publishDate}
+                  </small>
+                  <small class="font-clash text-xs dark:text-white-100 text-black-100 lowercase">
+                    {getReadingTime()}
+                  </small>
+                </div>
+                <h1 class="font-clash font-semibold text-3xl xl:text-2xl md:text-lg xs:text-sm dark:text-white-100 text-black-100 my-2">
+                  {blog.data.title}
+                </h1>
+              </div>
+            </a>
+          );
+        })
       }
     </div>
   </section>
