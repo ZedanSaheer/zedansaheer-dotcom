@@ -6,39 +6,36 @@ author: Zedan Saheer
 tags: ["Life"]
 image: { src: "@assets/blogs/post-1.png", alt: "Testing cover picture ALT tag" }
 ---
-import { Image } from 'astro:assets';
-import image_one from '@assets/blogs/post-1.00a.png';
-import image_two from '@assets/blogs/post-1.00b.png';
 
 # {frontmatter.title}
 
-Let’s discuss a little Backend? 
+Let’s discuss a little Backend?
 
-But before that let’s understand the fundamentals alright? 
+But before that let’s understand the fundamentals alright?
 
-What are these technical jargons which we usually hear? 
+What are these technical jargons which we usually hear?
 
 ## What exactly is Node.JS?
 
-Node.js is a event-driven JavaScript runtime environment that achieves low latency and high movement of output by taking a *Non-blocking* approach to serving requests. In other words, Node.js wastes no time or resources on waiting for Input/Output requests to return.
+Node.js is a event-driven JavaScript runtime environment that achieves low latency and high movement of output by taking a _Non-blocking_ approach to serving requests. In other words, Node.js wastes no time or resources on waiting for Input/Output requests to return.
 
 It is built on [**Chrome’s V8 engine**](https://v8.dev/). This engine takes your JavaScript code and converts it into a faster machine code. Machine code is low-level code which the computer can run without needing to first interpret it. You can use TypeScript or CoffeeScript as well for Node.JS.
 
-<Image src={image_one} alt="How Node.js Render On Local Devices - Drawing" class="w-full"/>
+![How Node.js Render On Local Devices - Drawing](@assets/blogs/post-1.00a.png)
 
 ### What actually is Non-Blocking Approach?
 
 Imagine there are two requests X and Y, in a blocking approach, X request is first resolved and then only moves to Y request which means Y has to wait till X request is resolved.
 
-<Image src={image_two} alt="Comparing latency for Non-Blocking - Drawing" class="w-full"/>
+![Comparing latency for Non-Blocking - Drawing](@assets/blogs/post-1.00b.png)
 
 So basically in non-blocking approach you can send requests to both X and Y before resolving X, this means almost parallely you are able to send requests. making it faster!
 
-But ***JavaScript is a single threaded language*** is what some of you might probably be thinking? Well this non-blocking I/O eliminates the need for multi-threading since the server can handle multiple requests at the same time.
+But **_JavaScript is a single threaded language_** is what some of you might probably be thinking? Well this non-blocking I/O eliminates the need for multi-threading since the server can handle multiple requests at the same time.
 
 Okay, you have got an idea now but still feeling kind of lost because we have one more part to discuss.
 
-What do I mean by ```Event-driven```?
+What do I mean by `Event-driven`?
 
 Node.js makes extensive use of events which is one of the reasons behind its speed, It is used to synchronize the occurrence of multiple events and to make the program as simple as possible.
 
@@ -54,4 +51,4 @@ There are two types of Events :
 
 2. 𝑪𝒖𝒔𝒕𝒐𝒎 𝑬𝒗𝒆𝒏𝒕𝒔 : JavaScript core.
 
-> Comibining these functions and ideas we can create an Event-Driven Non-Blocking program that acts fast  like a multi-threaded output.
+> Comibining these functions and ideas we can create an Event-Driven Non-Blocking program that acts fast like a multi-threaded output.
