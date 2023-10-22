@@ -20,7 +20,7 @@ export interface Header {
 }
 
 /* Variables */
-export const defaultKeywords : Header['keywords'] = [
+export const defaultKeywords: Header['keywords'] = [
     "portfolio",
     "javascript",
     "developer",
@@ -46,24 +46,19 @@ export const defaultKeywords : Header['keywords'] = [
     "ideas",
 ];
 
-export const defaultMetaData: Header = {
-    title: "Zedan Saheer - Software Engineer, Thinker and Creator",
-    description: "Zedan Saheer is a Software Engineer, Innovator, Content Writer and an Indie Chef. Focused on building highly performant and scalable code.",
-    image: {
-        src: imageBaseURL("public", "media/zedan_banner.jpg"),
-        share: imageBaseURL("public", "media/zedan_banner.jpg"),
-        shareDark: imageBaseURL("public", "media/zedan_banner_dark.jpg"),
-        alt: ""
-    },
-    keywords: defaultKeywords,
-    author: "Zedan Saheer",
-};
-
 export const defaultImageMetaData: Header['image'] = {
     src: imageBaseURL("public", "media/zedan_banner.jpg"),
     share: imageBaseURL("public", "media/zedan_banner.jpg"),
     shareDark: imageBaseURL("public", "media/zedan_banner_dark.jpg"),
     alt: "Zedan Saheer - Brand Banner"
+};
+
+export const defaultMetaData: Header = {
+    title: "Zedan Saheer - Software Engineer, Thinker and Creator",
+    description: "Zedan Saheer is a Software Engineer, Innovator, Content Writer and an Indie Chef. Focused on building highly performant and scalable code.",
+    image: defaultImageMetaData,
+    keywords: defaultKeywords,
+    author: "Zedan Saheer",
 };
 
 export const blogPageMetaData: Header = {

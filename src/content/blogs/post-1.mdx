@@ -1,87 +1,57 @@
 ---
-title: How I fixed some of the craziest bugs in Astro.js
+title: How does Node.js run JavaScript on your local device without a browser?
 description: I was literally going to use zod in my layouts for frontmatter schema validation and now that exact thing is integrated within astro.
 publishDate: "2023-01-02"
 author: Zedan Saheer
 tags: ["Life"]
-image: { src: "@assets/blogs/post-1.jpg", alt: "Testing cover picture ALT tag" }
+image: { src: "@assets/blogs/post-1.png", alt: "Testing cover picture ALT tag" }
 ---
+import { Image } from 'astro:assets';
+import image_one from '@assets/blogs/post-1.00a.png';
+import image_two from '@assets/blogs/post-1.00b.png';
 
-# Quo omnis stabat misisset dixerat me vitalesque
+# {frontmatter.title}
 
-## Populis esse
+Let’s discuss a little Backend? 
 
-_Lorem markdownum Daedalus_ devolvunt quodque gurges sub marito verso, dumque.
-Verbaque sociosque aere, [novam male](http://exstratis.com/virum.aspx),
-obtulimus caput tuli latus fuit densis, quam, dextra pendent.
+But before that let’s understand the fundamentals alright? 
 
-## Qua sibi
+What are these technical jargons which we usually hear? 
 
-Haberet traderet voti silicem; nec rapuit quod quidem, uno cum; et, esse. In
-laudabat corporis, et haurire segetes?
+## What exactly is Node.JS?
 
-Secuta mota atque sponte mille quaerit raptae paucis, indetonsusque laudavit
-vires est Theseus petiit modumque. Ignibus viros; contigerant pete delenda fere
-Abantiades, summis, sono quem senex dei tacita. Sequitur edita restabas saevit
-animae **tendens vale** Baucisque utque. Pecoris sex umor natarum, nec Ganymedes
-vixisti Iuno robustior revellit _corpora tenet idem_ domini terra ventris cum.
-Ore novi tota, spectabilis usus?
+Node.js is a event-driven JavaScript runtime environment that achieves low latency and high movement of output by taking a *Non-blocking* approach to serving requests. In other words, Node.js wastes no time or resources on waiting for Input/Output requests to return.
 
-```js
-const kNearestNeighbors = (data, labels, point, k = 3) => {
-  const kNearest = data
-    .map((el, i) => ({
-      dist: Math.hypot(...Object.keys(el).map((key) => point[key] - el[key])),
-      label: labels[i],
-    }))
-    .sort((a, b) => a.dist - b.dist)
-    .slice(0, k);
-};
+It is built on [**Chrome’s V8 engine**](https://v8.dev/). This engine takes your JavaScript code and converts it into a faster machine code. Machine code is low-level code which the computer can run without needing to first interpret it. You can use TypeScript or CoffeeScript as well for Node.JS.
 
-const data = [
-  [0, 0],
-  [0, 1],
-  [1, 3],
-  [2, 0],
-];
+<Image src={image_one} alt="How Node.js Render On Local Devices - Drawing" class="w-full"/>
 
-const labels = [0, 1, 1, 0];
+### What actually is Non-Blocking Approach?
 
-kNearestNeighbors(data, labels, [1, 2], 2); // 1
-kNearestNeighbors(data, labels, [1, 0], 2); // 0
-```
+Imagine there are two requests X and Y, in a blocking approach, X request is first resolved and then only moves to Y request which means Y has to wait till X request is resolved.
 
-## Una ire conata
+<Image src={image_two} alt="Comparing latency for Non-Blocking - Drawing" class="w-full"/>
 
-Addit mites miscentem, et restitit, sed est orbem, o et et dedit: invisi.
-Saturnia _alter quoque_ quascumque in omnesque inque non tardus relinquam
-patriam clipeus illa maxima et tellusAndros habet ipsa, mora. Recepto poena et
-Amphiona illis; quo [nec manes quoque](http://oraquid.net/): clivo, regnare.
-Nefandam maenades dixit callidus et concepta ferrum utiliter, belli. Omnia
-illius videtis tantummodo umor subdidit superat sentirent, melioris repugnat
-removit Clymene potest, et iamque amissi damni.
+So basically in non-blocking approach you can send requests to both X and Y before resolving X, this means almost parallely you are able to send requests. making it faster!
 
-Lassant ternis; sic **medium sub et** spatium causamque servat? [In
-hinc](http://cui.org/).
+But ***JavaScript is a single threaded language*** is what some of you might probably be thinking? Well this non-blocking I/O eliminates the need for multi-threading since the server can handle multiple requests at the same time.
 
-## Centum Solis auro minus expellam pharetra vires
+Okay, you have got an idea now but still feeling kind of lost because we have one more part to discuss.
 
-Iubet _potentem quoque_ minorque, [tremit
-quod](http://www.virilem-parabat.org/). Alimentaque arma terras gemitu quod? Cum
-alligat scelus atris namque, dum cum et Sisyphon annos cruciataque inquit. Dum
-Caenis nurus liceat laborum, est lassa hac, tu.
+What do I mean by ```Event-driven```?
 
-- Per bacis Seriphi
-- Incurvae alveus multamque octonis crura
-- Os per tanti at inclitus postquam
-- Ut aetas est dant
-- Chione non adspexit
-- Probabit altera
+Node.js makes extensive use of events which is one of the reasons behind its speed, It is used to synchronize the occurrence of multiple events and to make the program as simple as possible.
 
-Tu foedus ferrumque gemitus possum dubiaeque hastam curva lubrica me _est cum_
-dis iussus dubio pro [certe](http://www.themis-quod.org/canam), voces. Refers
-forma voce iam visa Numitorque emissi fluunt amplexus agros? Conposito nec
-[dum](http://mei.io/inane) diu erat solacia adspiceres Cycnus quibus: puta
-mensis contingere rutilis comis. Ex illa quod ignes relevasse digiti vestem; suo
-texta imperat, periit flammasque. Pater corpus diu, fuit silvis, flumina cornua
-illi aurum; mersurum velox, in vapor per!
+- There are callback functions called event-handlers which is called when an event is triggered.
+
+- An event loop that listens for event triggers and calls the corresponding event handles for that event.
+
+- The functions which listens for a trigger is called an observer.
+
+There are two types of Events :
+
+1. 𝑺𝒚𝒔𝒕𝒆𝒎 𝑬𝒗𝒆𝒏𝒕𝒔 : C++ core from a library called [libuv](https://docs.libuv.org/en/v1.x/).
+
+2. 𝑪𝒖𝒔𝒕𝒐𝒎 𝑬𝒗𝒆𝒏𝒕𝒔 : JavaScript core.
+
+> Comibining these functions and ideas we can create an Event-Driven Non-Blocking program that acts fast  like a multi-threaded output.

@@ -1,10 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+import BlogCover from "@components/blogs/BlogCover.astro";
 import MainLayout from "@layouts/MainLayout.astro";
-import BlogCover from "@components/blog/BlogCover.astro";
 import { blogPageMetaData } from "@scripts/constants";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-const blogPosts = await getCollection("blogs");
+const blogPosts:CollectionEntry<"blogs">[] = await getCollection("blogs");
 ---
 
 <MainLayout bodyStyle="index" metaData={blogPageMetaData}>
@@ -21,7 +21,7 @@ const blogPosts = await getCollection("blogs");
       class="flex flex-wrap items-start justify-start gap-10 w-full overflow-hidden"
     >
       {
-        blogPosts.map((blog) => {
+        blogPosts?.map((blog) => {
           const getReadingTime = async () => {
             let pluginRendered = await blog.render();
             let minutesRead =

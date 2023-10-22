@@ -4,6 +4,7 @@ import HeroText from "@components/index/HeroText.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import ScrollIndicator from "@components/index/ScrollIndicator.astro";
 import Preloader from "@components/core/Preloader.astro";
+import { defaultMetaData } from "@scripts/constants";
 ---
 
 <style>
@@ -36,7 +37,7 @@ import Preloader from "@components/core/Preloader.astro";
     }
   }
 </style>
-<MainLayout bodyStyle="index">
+<MainLayout bodyStyle="index" metaData={defaultMetaData}>
   <Preloader />
   <section
     class="landing-page flex flex-col justify-start items-center px-20 sm:px-6 h-full xs:h-full relative"
