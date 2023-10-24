@@ -1,0 +1,15 @@
+---
+import { categories } from "@scripts/constants";
+
+interface Props {
+  tag: string;
+}
+
+const { tag } = Astro.props;
+---
+
+<div
+  class="font-clash capitalize bg-gradient-to-r from-white-100 dark:from-black-100 to-orange-500 dark:to-blue font-semibold text-sm xs:text-xs text-black-60 dark:text-white-40 w-fit p-2 rounded-xl"
+>
+  {tag}
+</div>

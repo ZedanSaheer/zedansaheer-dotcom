@@ -1,10 +1,11 @@
 ---
 import BlogCover from "@components/blogs/BlogCover.astro";
+import Tags from "@components/blogs/Tags.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import { blogPageMetaData } from "@scripts/constants";
 import { getCollection, type CollectionEntry } from "astro:content";
 
-const blogPosts:CollectionEntry<"blogs">[] = await getCollection("blogs");
+const blogPosts: CollectionEntry<"blogs">[] = await getCollection("blogs");
 ---
 
 <MainLayout bodyStyle="index" metaData={blogPageMetaData}>
@@ -40,10 +41,13 @@ const blogPosts:CollectionEntry<"blogs">[] = await getCollection("blogs");
                 src={blog.data.image?.src}
                 alt={blog.data.image?.alt}
               />
-              <div>
+              <div class="mt-[-30px]">
+                <div class="my-6 flex flex-wrap">
+                  <Tags tag={blog.data.category} />
+                </div>
                 <div class="flex gap-2 justify-between w-full">
                   <small class="font-clash text-xs dark:text-white-100 text-black-100 capitalize">
-                    {blog.data.publishDate}
+                    {blog.data.publishDate.cardDate}
                   </small>
                   <small class="font-clash text-xs dark:text-white-100 text-black-100 lowercase">
                     {getReadingTime()}

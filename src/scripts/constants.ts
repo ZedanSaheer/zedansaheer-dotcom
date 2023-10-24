@@ -1,9 +1,23 @@
-import { imageBaseURL } from "./utils";
+import { z } from "astro:content";
+import { imageBaseURL, returnDateStringBasedOnMDDate } from "./utils";
 
 /* Types */
 export type BaseURLocation = "public" | "src" | "dist";
 export type PageType = "main" | "error" | "index";
 export type SocialLinkPageType = "footer" | "menu";
+
+/* Constants */
+export const categories = ["software engineering", "life"] as const;
+
+export const publishDateTransformedToLocaleDate = z.string().transform((date) => {
+    const cardDate = returnDateStringBasedOnMDDate(new Date(date));
+    const blogDate = new Date(date).toLocaleDateString('en-us', { year: "numeric", weekday: "long", month: "short", day: "2-digit" });
+
+    return {
+        cardDate,
+        blogDate
+    };
+});
 
 /* Interfaces */
 export interface Header {

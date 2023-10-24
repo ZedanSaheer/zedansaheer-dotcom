@@ -19,7 +19,7 @@ interface Props {
 }
 
 const { blog } = Astro.props;
-const { image, title, description, author } = await blog.data;
+const { image, title, description, author, publishDate } = await blog.data;
 const { Content } = await blog.render();
 const imageRelativePath = generateImageBaseURL(image?.src.src);
 const imageMetaData = imageBaseURL("src", imageRelativePath!);
@@ -43,6 +43,7 @@ const imageMetaData = imageBaseURL("src", imageRelativePath!);
       class="prose prose-pitchblack prose-slate dark:prose-invert prose-2xl xl:prose-xl lg:prose-lg md:prose-md sm:prose-sm prose-headings:font-clash prose-p:font-ranade prose-p:font-extralight prose-p:first-letter:capitalize prose-li:font-ranade prose-headings:gradient-text hover:prose-a:text-white-100 prose-img:aspect-video prose-img:w-full prose-img:rounded-2xl w-full"
     >
       <BlogCover alt={image?.alt} src={image?.src} title={title} />
+      <h4 class="not-prose my-8 uppercase font-bold text-sm md:text-xs">{publishDate.blogDate}</h4>
       <Content />
     </article>
   </div>
