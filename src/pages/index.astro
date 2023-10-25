@@ -1,77 +1,13 @@
 ---
-import Marquee from "@components/index/Marquee.astro";
-import HeroText from "@components/index/HeroText.astro";
 import MainLayout from "@layouts/MainLayout.astro";
-import ScrollIndicator from "@components/index/ScrollIndicator.astro";
 import Preloader from "@components/core/Preloader.astro";
 import { defaultMetaData } from "@scripts/constants";
+import HeroSection from "@components/index/HeroSection.astro";
 ---
 
-<style>
-  .landing-page::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0%;
-    bottom: 10%;
-    width: 150%;
-    left: -25%;
-    background: var(--landing-gradient-light);
-    background-position:;
-    -webkit-mask-image: var(--landing-radial-mask);
-    mask-image: var(--landing-radial-mask);
-  }
-
-  @media (max-width: 639px) {
-    .landing-page::before {
-      top: 0%;
-      bottom: 0%;
-      height: 80%;
-      width: 150%;
-      left: -55%;
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    .landing-page::before {
-      background: var(--landing-gradient-dark);
-    }
-  }
-</style>
 <MainLayout bodyStyle="index" metaData={defaultMetaData}>
   <Preloader />
-  <section
-    class="landing-page flex flex-col justify-start items-center px-20 sm:px-6 h-full xs:h-full relative"
-  >
-    <ScrollIndicator page="01/04" />
-    <HeroText />
-    <Marquee />
-  </section>
-  <section>
-    
-  </section>
+  <HeroSection />
+  <section></section>
 </MainLayout>
-<script>
-  const sections = document.querySelectorAll("section");
-  const header = document.querySelector("header");
-  const curtain = document.querySelector(".curtain");
-  const marquee = document.querySelector(".infinite-marquee")
-
-  onload = () => {
-    sections.forEach((section) => {
-      section.style.display = "none";
-      header!.style.display = "none";
-      marquee?.classList.add("hidden");
-      document.body.style.overflow = "hidden";
-    });
-  };
-
-  curtain?.addEventListener("animationend", () => {
-    sections.forEach((section) => {
-      section.style.display = "flex";
-    });
-    header!.style.display = "flex";
-    marquee?.classList.remove("hidden");
-    document.body.style.overflowY = "scroll";
-    sessionStorage.setItem("preloader", "rendered");
-  });
-</script>
+<script src="@scripts/index_page.ts"></script>

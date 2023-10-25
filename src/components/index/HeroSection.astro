@@ -1,0 +1,55 @@
+---
+import Marquee from "./Marquee.astro";
+import ScrollIndicator from "./ScrollIndicator.astro";
+---
+
+<style>
+  .landing-page::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0%;
+    bottom: 10%;
+    width: 150%;
+    left: -25%;
+    background: var(--landing-gradient-light);
+    background-position:;
+    -webkit-mask-image: var(--landing-radial-mask);
+    mask-image: var(--landing-radial-mask);
+  }
+
+  @media (max-width: 639px) {
+    .landing-page::before {
+      top: 0%;
+      bottom: 0%;
+      height: 80%;
+      width: 150%;
+      left: -55%;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .landing-page::before {
+      background: var(--landing-gradient-dark);
+    }
+  }
+</style>
+<section
+  class="landing-page flex flex-col justify-start items-center px-20 sm:px-6 h-full xs:h-full relative"
+>
+  <ScrollIndicator page="01/04" />
+  <h1
+    class="text-8xl xl:text-7xl lg:text-6xl font-panchang md:text-5xl sm:text-4xl xs:text-3xl py-10 uppercase gradient-text text-left font-bold animate-fade-up w-full animate-duration-1000 animate-delay-[300ms]"
+  >
+    crafting <br /> quality <br /> software
+  </h1>
+  <p
+    class="text-2xl lg:text-xl md:text-sm xs:text-xs font-ranade lowercase text-black-50 dark:text-white-50 font-extralight leading-10 xs:leading-6 text-left w-1/2 xs:w-10/12 animate-fade-left animate-delay-[300ms] animate-duration-1000"
+  >
+    is a combination of <span class="text-black-100 dark:text-white-100"
+      >art</span
+    > and <span class="text-black-100 dark:text-white-100">science</span>, This
+    craft is usually driven by an idea or vision for innovation and impact among
+    the scales via carefully curated architechture
+  </p>
+  <Marquee />
+</section>

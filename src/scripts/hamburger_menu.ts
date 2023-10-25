@@ -1,4 +1,4 @@
-export const wrapper = document.querySelector(".menu_wrapper");
+export const wrapper = document.querySelector(".menu-wrapper");
 export const header = document.querySelector("header");
 export const OffScreenCanvas = document.querySelector(".off-screen-canvas");
 

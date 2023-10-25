@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BlogCover from "./BlogCover.astro";
+import Tags from "./Tags.astro";
+import Arrow from "@assets/icons/Arrow.astro";
+
+interface Props {
+  blog: CollectionEntry<"blogs">;
+  getReadTime: () => Promise<string>;
+}
+
+const { blog, getReadTime } = Astro.props;
+---
+
+<div
+  class="group relative flex-[30%] lg:flex-[40%] md:flex-[100%] my-4 flex flex-col flex-grow-0 sm:items-start items-start gap-2 animate-fade-left px-4 rounded-2xl cursor-pointer w-full dark:bg-black-100 bg-white-100 border-2 dark:border-white-10 border-black-10 hover:border-black-40 dark:hover:border-white-40 dark:hover:brightness-50 py-4 transition-all"
+>
+  <a
+    href={`/blogs/${blog.slug}`}
+    class="group-hover:flex blog-card-link absolute z-10 right-0 top-0 text-black-100 dark:text-white-100 font-panchang text-2xl lg:text-xl hidden w-full h-full items-center wider justify-center uppercase font-bold animate-rotate-x animate-infinite animate-duration-[2000ms] animate-delay-150"
+  >
+    Read now <span class="ml-4"><Arrow /></span>
+  </a>
+  <div class="w-full h-full hover:blur-sm group-hover:opacity-20">
+    <BlogCover
+      title={blog.data.title}
+      src={blog.data.image?.src}
+      alt={blog.data.image?.alt}
+    />
+    <div class="mt-[-30px]">
+      <div class="my-6 flex flex-wrap">
+        <Tags tag={blog.data.category} />
+      </div>
+      <div class="flex gap-2 justify-between w-full">
+        <small
+          class="font-clash text-xs dark:text-white-100 text-black-100 capitalize"
+        >
+          {blog.data.publishDate.cardDate}
+        </small>
+        <small
+          class="font-clash text-xs dark:text-white-100 text-black-100 lowercase"
+        >
+          {getReadTime()}
+        </small>
+      </div>
+      <h1
+        class="font-clash font-semibold text-3xl xl:text-2xl md:text-lg dark:text-white-100 text-black-100 my-2"
+      >
+        {blog.data.title}
+      </h1>
+    </div>
+  </div>
+</div>

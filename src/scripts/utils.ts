@@ -79,6 +79,10 @@ export const generateImageBaseURL = (src: string | undefined) => {
  * @returns {any} Today | Yesterday | Last Week | Locale Date String
  */
 export const returnDateStringBasedOnMDDate = (date: Date) => {
+  const currentDate = date.getDate();
+  const currentMonth = date.getMonth() + 1;
+  const currentYear = date.getFullYear();
+
   const today = new Date();
   const yesterday = new Date();
   const lastWeek = new Date();
@@ -86,13 +90,23 @@ export const returnDateStringBasedOnMDDate = (date: Date) => {
   yesterday.setDate(yesterday.getDate() - 1);
   lastWeek.setDate(lastWeek.getDate() - 7);
 
-  const isTodayEqualToDate = (today.getDate() === date.getDate()) && (today.getMonth() + 1 === date.getMonth() + 1) && (today.getFullYear() === date.getFullYear());
-  const isYesterdayEqualToDate = (yesterday.getDate() === date.getDate()) && (yesterday.getMonth() + 1 === date.getMonth() + 1) && (yesterday.getFullYear() === date.getFullYear());
-  const isLastWeekEqualToDate = (lastWeek.getDate() < date.getDate()) && (lastWeek.getMonth() + 1 === date.getMonth() + 1) && (lastWeek.getFullYear() === date.getFullYear());
+  /* Validations */
+  const checkTodayDateWithCurrentDate = today.getDate() === currentDate;
+  const checkTodayMonthWithCurrentMonth = today.getMonth() + 1 === currentMonth;
+  const checkTodayYearWithCurrentYear = today.getFullYear() === currentYear;
 
-  if (isTodayEqualToDate) return "Today"
-  if (isYesterdayEqualToDate) return "Yesterday"
-  if (isLastWeekEqualToDate) return "Last week"
+  const checkYesterdayDateWithCurrentDate = yesterday.getDate() === currentDate;
+  const checkYesterdayMonthWithCurrentMonth = yesterday.getMonth() + 1 === currentMonth;
+  const checkYesterdayYearWithCurrentYear = yesterday.getFullYear() === currentYear;
+
+  const checkLastWeekDateWithCurrentDate = lastWeek.getDate() === currentDate;
+  const checkLastWeekMonthWithCurrentMonth = lastWeek.getMonth() + 1 === currentMonth;
+  const checkLastWeekYearWithCurrentYear = lastWeek.getFullYear() === currentYear;
+
+  /* Execution */
+  if (checkTodayDateWithCurrentDate && checkTodayMonthWithCurrentMonth && checkTodayYearWithCurrentYear) return "Today"
+  if (checkYesterdayDateWithCurrentDate && checkYesterdayMonthWithCurrentMonth && checkYesterdayYearWithCurrentYear) return "Yesterday"
+  if (checkLastWeekDateWithCurrentDate && checkLastWeekMonthWithCurrentMonth && checkLastWeekYearWithCurrentYear) return "Last week"
 
   return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 }

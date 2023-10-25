@@ -1,11 +1,7 @@
 ---
-import BlogCover from "@components/blogs/BlogCover.astro";
-import Tags from "@components/blogs/Tags.astro";
+import BlogsCardContainer from "@components/blogs/BlogsCardContainer.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import { blogPageMetaData } from "@scripts/constants";
-import { getCollection, type CollectionEntry } from "astro:content";
-
-const blogPosts: CollectionEntry<"blogs">[] = await getCollection("blogs");
 ---
 
 <MainLayout bodyStyle="index" metaData={blogPageMetaData}>
@@ -18,49 +14,6 @@ const blogPosts: CollectionEntry<"blogs">[] = await getCollection("blogs");
       <p class="uppercase gradient-text text-6xl animate-fade-up">blogs</p>
       <p class="animate-fade-up">Content, Ideas and Learnings</p>
     </h1>
-    <div
-      class="flex flex-wrap items-start justify-start gap-10 w-full overflow-hidden"
-    >
-      {
-        blogPosts?.map((blog) => {
-          const getReadingTime = async () => {
-            let pluginRendered = await blog.render();
-            let minutesRead =
-              pluginRendered.remarkPluginFrontmatter.minutesToRead;
-
-            return minutesRead;
-          };
-
-          return (
-            <a
-              href={`/blogs/${blog.slug}`}
-              class="flex-[30%] lg:flex-[40%] md:flex-[100%] my-4 flex flex-col flex-grow-0 sm:items-start items-start gap-2 animate-fade-left px-4 rounded-2xl cursor-pointer w-full"
-            >
-              <BlogCover
-                title={blog.data.title}
-                src={blog.data.image?.src}
-                alt={blog.data.image?.alt}
-              />
-              <div class="mt-[-30px]">
-                <div class="my-6 flex flex-wrap">
-                  <Tags tag={blog.data.category} />
-                </div>
-                <div class="flex gap-2 justify-between w-full">
-                  <small class="font-clash text-xs dark:text-white-100 text-black-100 capitalize">
-                    {blog.data.publishDate.cardDate}
-                  </small>
-                  <small class="font-clash text-xs dark:text-white-100 text-black-100 lowercase">
-                    {getReadingTime()}
-                  </small>
-                </div>
-                <h1 class="font-clash font-semibold text-3xl xl:text-2xl md:text-lg dark:text-white-100 text-black-100 my-2">
-                  {blog.data.title}
-                </h1>
-              </div>
-            </a>
-          );
-        })
-      }
-    </div>
+    <BlogsCardContainer />
   </section>
 </MainLayout>

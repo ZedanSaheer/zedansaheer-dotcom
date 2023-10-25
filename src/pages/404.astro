@@ -1,9 +1,10 @@
 ---
 import ErrorLogo from "@assets/logo/ErrorLogo.astro";
 import MainLayout from "@layouts/MainLayout.astro";
+import { defaultMetaData } from "@scripts/constants";
 ---
 
-<MainLayout bodyStyle="error">
+<MainLayout metaData={defaultMetaData} bodyStyle="error">
   <section
     class="polka-dots-bg w-full h-screen flex flex-col items-center justify-evenly overflow-hidden p-24 sm:p-4"
   >

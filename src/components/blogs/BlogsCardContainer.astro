@@ -1,0 +1,24 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BlogsCard from "./BlogsCard.astro";
+
+const blogPosts: CollectionEntry<"blogs">[] = await getCollection("blogs");
+---
+
+<div
+  class="flex flex-wrap items-start justify-start gap-10 w-full overflow-hidden"
+>
+  {
+    blogPosts?.map((blog) => {
+      const getReadTime = async () => {
+        let pluginRendered = await blog.render();
+        let minutesRead: string =
+          pluginRendered.remarkPluginFrontmatter.minutesToRead;
+
+        return minutesRead;
+      };
+
+      return <BlogsCard blog={blog} getReadTime={getReadTime} />;
+    })
+  }
+</div>

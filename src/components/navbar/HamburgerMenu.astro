@@ -1,7 +1,7 @@
 <style>
   /* Base styles for Menu container */
 
-  .menu_wrapper {
+  .menu-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,21 +36,21 @@
 
   /* Active styles for menu container */
 
-  .menu_wrapper.active > .middle {
+  .menu-wrapper.active > .middle {
     display: none;
   }
-  .menu_wrapper.active > .bottom {
+  .menu-wrapper.active > .bottom {
     transform: rotate(45deg);
     margin-top: 5px;
   }
-  .menu_wrapper.active > .top {
+  .menu-wrapper.active > .top {
     transform: rotate(-45deg);
     margin-bottom: -5px;
   }
   /* Responsive styles for hamburger menu */
 
   @media (max-width: 639px) {
-    .menu_wrapper {
+    .menu-wrapper {
       width: 60px;
       height: 60px;
     }
@@ -64,7 +64,7 @@
       margin: 6px 0;
     }
 
-    .menu_wrapper.active > .bottom {
+    .menu-wrapper.active > .bottom {
       margin-top: 3px;
     }
   }
@@ -80,7 +80,7 @@
   }
 </style>
 
-<nav class="menu_wrapper" transition:persist>
+<nav class="menu-wrapper" transition:persist>
   <div class="top"></div>
   <div class="middle"></div>
   <div class="bottom"></div>
