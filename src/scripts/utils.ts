@@ -99,7 +99,7 @@ export const returnDateStringBasedOnMDDate = (date: Date) => {
   const checkYesterdayMonthWithCurrentMonth = yesterday.getMonth() + 1 === currentMonth;
   const checkYesterdayYearWithCurrentYear = yesterday.getFullYear() === currentYear;
 
-  const checkLastWeekDateWithCurrentDate = lastWeek.getDate() === currentDate;
+  const checkLastWeekDateWithCurrentDate = lastWeek.getDate() < currentDate;
   const checkLastWeekMonthWithCurrentMonth = lastWeek.getMonth() + 1 === currentMonth;
   const checkLastWeekYearWithCurrentYear = lastWeek.getFullYear() === currentYear;
 
