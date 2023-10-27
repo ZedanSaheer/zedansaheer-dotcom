@@ -1,15 +1,16 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
-import Preloader from "@components/core/Preloader.astro";
 import { defaultMetaData } from "@scripts/utils/constants";
 import HeroSection from "@components/index/HeroSection.astro";
 import NewsBanner from "@components/core/NewsBanner.astro";
+import Preloader from "@components/core/Preloader.astro";
+import PersonalIntroduction from "@components/index/PersonalIntroduction.astro";
 ---
 
 <MainLayout bodyStyle="index" metaData={defaultMetaData}>
   <NewsBanner />
   <Preloader />
   <HeroSection />
-  <section></section>
+  <PersonalIntroduction />
 </MainLayout>
 <script src="@scripts/pages/index_page.ts"></script>

@@ -91,6 +91,18 @@ import SocialLinks from "@components/core/SocialLinks.astro";
     align-items: center;
   }
 
+  .off-screen-canvas.active li > a > .notice {
+    position: absolute;
+    left: 100%;
+    font-size: 0.6rem;
+    font-weight: 200;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   @media (max-width: 1024px) {
     .off-screen-canvas.active ul {
       left: 50%;
@@ -164,7 +176,9 @@ import SocialLinks from "@components/core/SocialLinks.astro";
       <a href="/blogs"><span>02</span>Blogs</a>
     </li>
     <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
-      <a href="/about"><span>03</span>About</a>
+      <a href="/about"
+        ><span>03</span>About<span class="notice">coming soon</span></a
+      >
     </li>
   </ul>
   <SocialLinks />
