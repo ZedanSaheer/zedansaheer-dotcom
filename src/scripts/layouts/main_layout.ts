@@ -1,4 +1,4 @@
-import { OffScreenCanvas, header, wrapper } from "@scripts/hamburger_menu";
+import { OffScreenCanvas, header, wrapper } from "@scripts/components/hamburger_menu";
 
 const closeMenuOnNavigationAndRemoveLoader = () => {
   let curtain = document.querySelector(".curtain");

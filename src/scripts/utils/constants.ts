@@ -1,5 +1,5 @@
 import { z } from "astro:content";
-import { imageBaseURL, returnDateStringBasedOnMDDate } from "./utils";
+import { imageBaseURL, returnDateStringBasedOnMDDate } from "./methods";
 
 /* Types */
 export type BaseURLocation = "public" | "src" | "dist";

@@ -2,7 +2,7 @@
 import BlogCover from "@components/blogs/BlogCover.astro";
 import Footer from "@components/core/Footer.astro";
 import MainLayout from "@layouts/MainLayout.astro";
-import { generateImageBaseURL, imageBaseURL } from "@scripts/utils";
+import { generateImageBaseURL, imageBaseURL } from "@scripts/utils/methods";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
@@ -49,3 +49,4 @@ const imageMetaData = imageBaseURL("src", imageRelativePath!);
   </div>
   <Footer />
 </MainLayout>
+@scripts/methods

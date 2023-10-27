@@ -1,7 +1,7 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import Preloader from "@components/core/Preloader.astro";
-import { defaultMetaData } from "@scripts/constants";
+import { defaultMetaData } from "@scripts/utils/constants";
 import HeroSection from "@components/index/HeroSection.astro";
 import NewsBanner from "@components/core/NewsBanner.astro";
 ---
@@ -12,4 +12,4 @@ import NewsBanner from "@components/core/NewsBanner.astro";
   <HeroSection />
   <section></section>
 </MainLayout>
-<script src="@scripts/index_page.ts"></script>
+<script src="@scripts/pages/index_page.ts"></script>

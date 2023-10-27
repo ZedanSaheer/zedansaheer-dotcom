@@ -3,8 +3,8 @@ import "../main.css";
 import HTMLHeader from "@components/core/HTMLHeader.astro";
 import Navbar from "@components/navbar/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
-import { setBodyStyles } from "@scripts/utils";
-import { type Header, type PageType } from "@scripts/constants";
+import { setBodyStyles } from "@scripts/utils/methods";
+import { type Header, type PageType } from "@scripts/utils/constants";
 
 interface Props {
   bodyStyle?: PageType;
@@ -53,8 +53,13 @@ const isPathIndex = currentPath === "/";
     <ViewTransitions />
   </head>
   <body class={setBodyStyles(bodyStyle)}>
+    <!-- News Banner -->
     <slot name="before-navbar"/>
+
+    <!-- Navbar -->
     {bodyStyle !== "error" && <Navbar />}
+
+    <!-- Body Content -->
     <slot />
 
     <!-- Animate On Scroll CDN -->
@@ -65,7 +70,7 @@ const isPathIndex = currentPath === "/";
     </script>
 
     <!-- Close menu after each transition or route change -->
-    <script src="@scripts/main_layout.ts"></script>
+    <script src="@scripts/layouts/main_layout.ts"></script>
 
     <!-- Clear session data before reload -->
     <script define:vars={{ isPathIndex }}>
@@ -75,3 +80,4 @@ const isPathIndex = currentPath === "/";
     </script>
   </body>
 </html>
+@scripts/methods

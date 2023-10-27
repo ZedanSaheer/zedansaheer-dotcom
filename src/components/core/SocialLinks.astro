@@ -1,6 +1,6 @@
 ---
-import type { SocialLinkPageType } from "@scripts/constants";
-import { setSocialLinksStyles } from "@scripts/utils";
+import type { SocialLinkPageType } from "@scripts/utils/constants";
+import { setSocialLinksStyles } from "@scripts/utils/methods";
 import Icon from "astro-icon";
 
 interface Props {
@@ -86,3 +86,4 @@ const showText = pageType === "menu";
     </a>
   </div>
 </div>
+@scripts/methods

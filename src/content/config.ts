@@ -1,4 +1,4 @@
-import { categories, publishDateTransformedToLocaleDate } from "@scripts/constants";
+import { categories, publishDateTransformedToLocaleDate } from "@scripts/utils/constants";
 import { defineCollection, z } from "astro:content";
 
 const blogCollection = defineCollection({
