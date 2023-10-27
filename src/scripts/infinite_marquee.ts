@@ -2,7 +2,7 @@ interface LoopingElement {
     element: HTMLElement;
     currentTranslation: number;
     speed: number;
-    direction: boolean;
+    direction: "right" | "left";
     scrollTop: number;
     metric: number;
     lerp: {
@@ -17,11 +17,11 @@ interface LoopingElement {
 
 
 class LoopingElement {
-    constructor(element: HTMLElement, currentTranslation: number, speed: number) {
+    constructor(element: HTMLElement, currentTranslation: number, speed: number, direction: "right" | "left") {
         this.element = element;
         this.currentTranslation = currentTranslation;
         this.speed = speed;
-        this.direction = true;
+        this.direction = direction;
         this.scrollTop = 0;
         this.metric = 100;
 
@@ -40,10 +40,10 @@ class LoopingElement {
             let direction =
                 pageYOffset || document.documentElement.scrollTop;
             if (direction > this.scrollTop) {
-                this.direction = true;
+                this.direction = "right";
                 this.lerp.target += this.speed * 5;
             } else {
-                this.direction = false;
+                this.direction = "left";
                 this.lerp.target -= this.speed * 5;
             }
             this.scrollTop = direction <= 0 ? 0 : direction;
@@ -71,10 +71,10 @@ class LoopingElement {
     }
 
     animate() {
-        this.direction ? this.goForward() : this.goBackward();
+        this.direction === "right" ? this.goForward() : this.goBackward();
         this.lerpFunc(this.lerp.current, this.lerp.target, this.lerp.factor);
 
-        if(this.element) this.element.style.transform = `translateX(${this.lerp.current}%)`;
+        if (this.element) this.element.style.transform = `translateX(${this.lerp.current}%)`;
     }
 
     render() {
@@ -85,11 +85,15 @@ class LoopingElement {
 
 let elements = document.querySelectorAll<HTMLElement>(".item");
 
-new LoopingElement(elements[0], 0, 0.08);
-new LoopingElement(elements[1], -100, 0.08);
+new LoopingElement(elements[0], 0, 0.08, "right");
+new LoopingElement(elements[1], -100, 0.08, "right");
+new LoopingElement(elements[2], 0, 0.08, "left");
+new LoopingElement(elements[3], -100, 0.08, "left");
 
 document.addEventListener('astro:after-swap', () => {
     let elements = document.querySelectorAll<HTMLElement>(".item");
-    new LoopingElement(elements[0], 0, 0.08);
-    new LoopingElement(elements[1], -100, 0.08);
+    new LoopingElement(elements[0], 0, 0.08, "right");
+    new LoopingElement(elements[1], -100, 0.08, "right");
+    new LoopingElement(elements[2], 0, 0.08, "left");
+    new LoopingElement(elements[3], -100, 0.08, "left");
 });

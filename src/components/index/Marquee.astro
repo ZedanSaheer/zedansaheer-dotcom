@@ -1,41 +1,88 @@
 ---
-import Arrow from "@assets/icons/Arrow.astro";
+import ArrowRight from "@assets/icons/ArrowRight.astro";
+import ArrowLeft from "@assets/icons/ArrowLeft.astro";
+
+interface Props {
+  words: string[];
+}
+
+const { words } = Astro.props;
 ---
 
 <div
-  class="infinite-marquee font-panchang uppercase text-4xl xs:text-2xl text-black-100 dark:text-white-100 relative whitespace-nowrap font-light tracking-wider w-screen h-56 overflow-x-hidden flex justify-center items-center animate-fade"
+  class="infinite-marquee font-clash capitalize text-4xl xs:text-2xl absolute md:top-0 top-[50%] whitespace-nowrap font-normal w-screen h-screen overflow-x-hidden flex flex-col justify-center items-center"
 >
-  <p
-    class="flex items-center gap-4 item absolute text-black-50 dark:text-white-50"
+  <div
+    class="w-full flex relative top-8 items-end rotate-[4deg] sm:rotate-[8deg]"
   >
-    <span class="ml-4">mutli displinary</span>
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-     software engineer
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-     visionary
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-     muslim
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-     story teller
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-     content creator
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-  </p>
-  <p
-    class="flex items-center gap-4 item absolute text-black-50 dark:text-white-50"
+    <p
+      class="flex dark:bg-black-100 bg-white-100 py-2 items-center gap-4 item absolute text-black-50 dark:text-white-50"
+    >
+      {
+        words.map((word) => {
+          return (
+            <>
+              {word}
+              <span class="text-black-60 dark:text-white-60">
+                <ArrowRight />
+              </span>
+            </>
+          );
+        })
+      }
+    </p>
+    <p
+      class="flex dark:bg-black-100 bg-white-100 py-2 items-center gap-4 item absolute text-black-50 dark:text-white-50"
+    >
+      {
+        words.map((word) => {
+          return (
+            <>
+              {word}
+              <span class="text-black-60 dark:text-white-60">
+                <ArrowRight />
+              </span>
+            </>
+          );
+        })
+      }
+    </p>
+  </div>
+  <div
+    class="w-full flex relative bottom-6 items-start rotate-[-4deg] sm:rotate-[-10deg]"
   >
-    <span class="ml-4">mutli displinary</span>
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-     software engineer
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-     visionary
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-     muslim
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-     story teller
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-     content creator
-    <span class="text-black-60 dark:text-white-60"><Arrow /></span>
-  </p>
+    <p
+      class="flex dark:bg-black-100 bg-white-100 py-2 items-center gap-4 item absolute text-black-100 dark:text-white-100"
+    >
+      {
+        words.map((word) => {
+          return (
+            <>
+              {word}
+              <span class="text-black-60 dark:text-white-60">
+                <ArrowLeft />
+              </span>
+            </>
+          );
+        })
+      }
+    </p>
+    <p
+      class="flex dark:bg-black-100 bg-white-100 py-2 items-center gap-4 item absolute text-black-100 dark:text-white-100"
+    >
+      {
+        words.map((word) => {
+          return (
+            <>
+              {word}
+              <span class="text-black-60 dark:text-white-60">
+                <ArrowLeft />
+              </span>
+            </>
+          );
+        })
+      }
+    </p>
+  </div>
 </div>
 <script src="@scripts/infinite_marquee.ts"></script>
