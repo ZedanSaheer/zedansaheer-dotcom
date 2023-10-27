@@ -53,16 +53,20 @@ const isPathIndex = currentPath === "/";
     <ViewTransitions />
   </head>
   <body class={setBodyStyles(bodyStyle)}>
+    <slot name="before-navbar"/>
     {bodyStyle !== "error" && <Navbar />}
     <slot />
 
     <!-- Animate On Scroll CDN -->
     <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Init AOS library -->
     <script is:inline>
     AOS.init();
     </script>
+
     <!-- Close menu after each transition or route change -->
     <script src="@scripts/main_layout.ts"></script>
+
     <!-- Clear session data before reload -->
     <script define:vars={{ isPathIndex }}>
     onbeforeunload = () => {

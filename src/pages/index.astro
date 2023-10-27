@@ -3,11 +3,13 @@ import MainLayout from "@layouts/MainLayout.astro";
 import Preloader from "@components/core/Preloader.astro";
 import { defaultMetaData } from "@scripts/constants";
 import HeroSection from "@components/index/HeroSection.astro";
+import NewsBanner from "@components/core/NewsBanner.astro";
 ---
 
 <MainLayout bodyStyle="index" metaData={defaultMetaData}>
-  <!-- <Preloader /> -->
+  <NewsBanner />
+  <Preloader />
   <HeroSection />
   <section></section>
 </MainLayout>
-<!-- <script src="@scripts/index_page.ts"></script> -->
+<script src="@scripts/index_page.ts"></script>

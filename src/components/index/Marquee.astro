@@ -16,14 +16,14 @@ const { words } = Astro.props;
     class="w-full flex relative top-8 items-end rotate-[4deg] sm:rotate-[8deg]"
   >
     <p
-      class="flex dark:bg-black-100 bg-white-100 py-2 items-center gap-4 item absolute text-black-50 dark:text-white-50"
+      class="flex dark:bg-black-100 bg-white-100 py-2 items-center gap-4 item absolute text-black-50 dark:text-white-50 last:text-red-500"
     >
       {
         words.map((word) => {
           return (
             <>
               {word}
-              <span class="text-black-60 dark:text-white-60">
+              <span class="text-black-60 dark:text-white-60 last:mr-4">
                 <ArrowRight />
               </span>
             </>
@@ -39,7 +39,7 @@ const { words } = Astro.props;
           return (
             <>
               {word}
-              <span class="text-black-60 dark:text-white-60">
+              <span class="text-black-60 dark:text-white-60 last:mr-4">
                 <ArrowRight />
               </span>
             </>
@@ -59,7 +59,7 @@ const { words } = Astro.props;
           return (
             <>
               {word}
-              <span class="text-black-60 dark:text-white-60">
+              <span class="text-black-60 dark:text-white-60 last:mr-4">
                 <ArrowLeft />
               </span>
             </>
@@ -75,7 +75,7 @@ const { words } = Astro.props;
           return (
             <>
               {word}
-              <span class="text-black-60 dark:text-white-60">
+              <span class="text-black-60 dark:text-white-60 last:mr-4">
                 <ArrowLeft />
               </span>
             </>
