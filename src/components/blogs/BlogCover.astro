@@ -7,14 +7,20 @@ type Props = {
   src?: ImageMetadata;
   alt?: string;
   title?: string;
+  marginBottom?: string;
 };
 
-const { src, alt, title = "no cover available" } = Astro.props;
+const {
+  src,
+  marginBottom = "mb-10 md:mb-8",
+  alt,
+  title = "no cover available",
+} = Astro.props;
 const isImageValueDefined = src !== undefined && alt !== undefined;
 ---
 
 <div
-  class="w-full h-full flex justify-center items-center aspect-video overflow-hidden rounded-2xl animate-fade-right mb-10 md:mb-8 "
+  class=`w-full h-full flex justify-center items-center aspect-video overflow-hidden rounded-t-2xl animate-fade-right ${marginBottom}`
 >
   {
     isImageValueDefined ? (

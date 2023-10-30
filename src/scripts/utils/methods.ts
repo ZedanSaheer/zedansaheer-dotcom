@@ -110,3 +110,16 @@ export const returnDateStringBasedOnMDDate = (date: Date) => {
 
   return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
 }
+
+/**
+ * Pass in string of formatted URL param, The string is converted into an array to remove any initial id formatting used and retrieve absolute the paths which results to some blog name or file path
+ * @param {string} slug - string 
+ * @returns {string} string 
+ * @example "post-1-my-blog" => "my-blog" 
+ */
+export const formatSlug = (slug: string) => {
+  const slugArray = slug.split("-");
+  slugArray.splice(0, 2);
+  console.log(slugArray);
+  return slugArray.join("-");
+};
