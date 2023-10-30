@@ -24,7 +24,7 @@ export interface Header {
     title?: string;
     description?: string;
     image: {
-        alt: string;
+        alt: string | undefined;
         src: string;
         share: string;
         shareDark: string;

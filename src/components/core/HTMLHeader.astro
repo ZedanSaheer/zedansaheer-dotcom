@@ -7,7 +7,7 @@ interface Props {
   description?: string;
   image: {
     src: string;
-    alt: string;
+    alt: string | undefined;
     share: string;
     shareDark: string;
   };
@@ -153,7 +153,7 @@ const {
 <meta property="og:description" content={description} />
 <meta property="og:url" content={baseURL} />
 <meta property="og:image" content={image.src} />
-<meta property="og:image:alt" content={image.alt} />
+<meta property="og:image:alt" content={image?.alt} />
 
 <!-- Meta Tags for Twitter  -->
 <meta name="twitter:title" content={title} />
