@@ -35,6 +35,34 @@
     animation-delay: 1s;
     transition: moveToLeft 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   }
+  .curtain::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0%;
+    bottom: 10%;
+    width: 150%;
+    left: -25%;
+    background: var(--landing-gradient-light);
+    background-position:;
+    -webkit-mask-image: var(--landing-radial-mask);
+    mask-image: var(--landing-radial-mask);
+  }
+
+  @media (max-width: 639px) {
+    .curtain::before {
+      top: 0%;
+      bottom: 0%;
+      height: 80%;
+      width: 150%;
+      left: -55%;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .curtain::before {
+      background: var(--landing-gradient-dark);
+    }
+  }
 
   .curtain {
     animation: curtainUp 1.5s;
@@ -332,7 +360,7 @@
   <div
     class="w-100 h-100 text-8xl md:text-4xl font-clash font-semibold overflow-hidden"
   >
-    <span class="move-right text-black-100 dark:text-white-100 uppercase"
+    <span class="move-right gradient-text uppercase"
       >z</span
     >
     <span
@@ -351,7 +379,7 @@
       class="fade-up-letters lowercase letter-4 mr-4 text-black-60 dark:text-white-60"
       >n</span
     >
-    <span class="text-black-100 dark:text-white-100 uppercase">s</span>
+    <span class="gradient-text uppercase">s</span>
     <span
       class="fade-up-letters lowercase letter-5 text-black-60 dark:text-white-60"
       >a</span
@@ -372,7 +400,6 @@
       class="fade-up-letters lowercase letter-9 text-black-60 dark:text-white-60"
       >r</span
     >
-    <span class="move-left text-black-100 dark:text-white-100">.</span>
+    <span class="move-left gradient-text">.</span>
   </div>
 </div>
-
