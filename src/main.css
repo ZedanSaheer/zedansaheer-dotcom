@@ -27,7 +27,7 @@
     --white80: rgba(250, 248, 246, 80%);
     --white90: rgba(250, 248, 246, 90%);
     --white100: rgba(250, 248, 246, 100%);
-    --landing-gradient-light: linear-gradient(83.21deg,   #ffffff, #a7000052);
+  --landing-gradient-light: linear-gradient(83.21deg,   #ffffff, #a7000052);
     --landing-gradient-dark: linear-gradient(83.21deg, #000000 0%, #410000 100%);
     --landing-radial-mask: radial-gradient(rgba(0, 0, 0, 0.45), transparent 70%);
   }

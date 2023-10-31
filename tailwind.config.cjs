@@ -4,6 +4,9 @@ module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		screens: {
+			'2xl-min': { 'min': '1550px' },
+			// => @media (min-width: 1550px) { ... }
+
 			'2xl': { 'max': '1535px' },
 			// => @media (max-width: 1535px) { ... }
 
