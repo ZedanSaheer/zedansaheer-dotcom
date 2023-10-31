@@ -3,21 +3,22 @@ import Icon from "astro-icon";
 
 interface Props {
   page: string;
+  styles?: string;
 }
 
-const { page} = Astro.props;
+const { page, styles = "pr-0" } = Astro.props;
 ---
 
 <div
-class="flex items-center justify-start w-full animate-fade animate-duration-1000"
+  class=`flex items-center justify-start w-full ${styles} animate-fade animate-duration-1000`
 >
-<p
-  class="text-sm xs:text-xs w-full text-black-100 dark:text-white-100 font-clash uppercase text-right"
->
-  {page} - scroll
-</p>
-<Icon
-  name="ph:arrow-down-thin"
-  class="w-6 ml-4 text-black-100 dark:text-white-100"
-/>
+  <p
+    class="text-sm xs:text-[6px] w-full text-black-100 dark:text-white-100 font-clash uppercase text-right"
+  >
+    {page} - scroll
+  </p>
+  <Icon
+    name="ph:arrow-down-thin"
+    class="w-6 sm:w-4 sm:ml-2 ml-4 text-black-100 dark:text-white-100"
+  />
 </div>

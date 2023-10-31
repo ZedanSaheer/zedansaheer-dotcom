@@ -2,11 +2,14 @@
 import { Image } from "astro:assets";
 import zedan from "@assets/home/zedan.png";
 import ArrowLink from "@assets/icons/ArrowLink.astro";
+import ScrollIndicator from "./ScrollIndicator.astro";
 ---
 
 <section
-    class="flex md:flex-col-reverse relative top-20 lg:top-36 items-center justify-end min-h-screen w-screen overflow-x-hidden xs:mb-20"
-  >
+  class="flex flex-col justify-start gap-6 relative top-60 lg:top-64 sm:top-52 min-h-screen w-screen overflow-x-hidden xs:mb-20"
+>
+  <ScrollIndicator page="02/04" styles="pr-20 xs:pr-6" />
+  <div class="flex md:flex-col-reverse items-center justify-end">
     <div class="flex flex-col justify-between gap-10 p-10">
       <p
         class="md:mt-4 font-ranade font-light lowercase text-4xl md:text-2xl xs:text-lg text-black-80 dark:text-white-80"
@@ -17,16 +20,16 @@ import ArrowLink from "@assets/icons/ArrowLink.astro";
         <span class="font-semibold capitalize">Zedan Saheer</span>, A 23 year
         old
         <span class="font-semibold capitalize">Software Engineer</span> who
-        chose a path very distinct from his peers. He has many stories to share, Many micro
-        observations to stare, He is on his journey with no destination as he believes, <i>"The journey is the destination"</i>
+        chose a path very distinct from his peers. He has many stories to share,
+        Many micro observations to stare, He is on his journey with no
+        destination as he believes, <i>"The journey is the destination"</i>
       </p>
       <a
         href="/about"
         class="flex gap-4 items-center justify-start font-ranade uppercase font-semibold text-xs xs:text-[10px] text-md dark:text-white-60 text-black-60 border dark:hover:bg-white-100 dark:hover:text-black-100 hover:bg-black-100 hover:text-white-100 hover:border-none border-black-40 dark:border-white-40 w-fit py-2 px-6 rounded-full group"
         data-aos="flip-up"
         data-aos-delay="300"
-        data-aos-duration="1500"
-        >Know more about me <ArrowLink /></a
+        data-aos-duration="1500">Know more about me <ArrowLink /></a
       >
     </div>
     <Image
@@ -37,4 +40,5 @@ import ArrowLink from "@assets/icons/ArrowLink.astro";
       data-aos-delay="100"
       data-aos-duration="1500"
     />
-  </section>
+  </div>
+</section>
