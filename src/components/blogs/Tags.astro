@@ -1,15 +1,15 @@
 ---
-import { categories } from "@scripts/utils/constants";
+import type { TagType } from "@scripts/utils/constants";
+import { generateClassNameForTags } from "@scripts/utils/methods";
 
 interface Props {
   tag: string;
+  tagType: TagType;
 }
 
-const { tag } = Astro.props;
+const { tag, tagType } = Astro.props;
 ---
 
-<div
-  class="font-clash capitalize bg-gradient-to-r from-white-100 dark:from-black-100 to-orange-500 dark:to-blue font-semibold text-sm xs:text-xs text-black-60 dark:text-white-40 w-fit p-2 rounded-xl"
->
+<div class={generateClassNameForTags(tag,tagType)}>
   {tag}
 </div>

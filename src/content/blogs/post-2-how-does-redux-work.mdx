@@ -1,0 +1,145 @@
+---
+title: How does Redux work?
+slug: how-does-redux-work
+description: Redux is a popular state management tool based on JavaScript used primarily in the React ecosystem to manage states. Today we will learn in a simple theorical manner how redux operates and different parts of it.
+publishDate: "2023-10-31"
+author: Zedan Saheer
+category: software engineering
+subCategories: ["react","state management","javascript","web development"]
+image:
+  {
+    src: "@assets/blogs/post-2/post-2.gif",
+    alt: "Node.js Simple Architechture",
+  }
+---
+
+# What is redux?
+
+You might have heard the word Redux multiple times and you wonder , What is [**Redux**](https://redux.js.org/)?
+
+Redux is simply a store to store the state of the variables in your app. Redux creates a process and procedures to interact with the store so that components will not just update or read the store randomly.
+
+## How Does Redux Work ?
+
+The way Redux works is simple. There is a central store that holds the entire state of the application. Each component can access the stored state without having to send down props from one component to another.
+
+There are three fundamental building parts that controls the cycle of state management.
+
+```js
+import { configureStore } from "@reduxjs/toolkit";
+// ...
+
+export const store = configureStore({
+  reducer: {
+    posts: postsReducer,
+    comments: commentsReducer,
+    users: usersReducer,
+  },
+});
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch;
+```
+
+### Actions
+
+Actions are events. They are the only way you can send data from your application to your Redux store. The data can be from user interactions, API calls, or even form submissions.
+
+Actions are sent using the `store.dispatch()` method. Actions are plain JavaScript objects, and they must have a type property to indicate the type of action to be carried out. They must also have a payload that contains the information that should be worked on by the action. Actions are created via an action creator.
+
+```js
+import React, { useState } from "react";
+
+import { useAppSelector, useAppDispatch } from "app/hooks";
+
+import { decrement, increment } from "./counterSlice";
+
+export function Counter() {
+  // The `state` arg is correctly typed as `RootState` already
+  const count = useAppSelector((state) => state.counter.value);
+  const dispatch = useAppDispatch();
+
+  // omit rendering logic
+}
+```
+
+### Reducers
+
+Reducers are pure functions that take the current state of an application, perform an action, and return a new state. These states are stored as objects, and they specify how the state of an application changes in response to an action sent to the store.
+
+It is based on the `reduce` function in JavaScript, where a single value is calculated from multiple values after a callback function has been carried out.
+
+```js
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "../../app/store";
+
+// Define a type for the slice state
+interface CounterState {
+  value: number;
+}
+
+// Define the initial state using that type
+const initialState: CounterState = {
+  value: 0,
+};
+
+export const counterSlice = createSlice({
+  name: "counter",
+  // `createSlice` will infer the state type from the `initialState` argument
+  initialState,
+  reducers: {
+    increment: (state) => {
+      state.value += 1;
+    },
+    decrement: (state) => {
+      state.value -= 1;
+    },
+    // Use the PayloadAction type to declare the contents of `action.payload`
+    incrementByAmount: (state, action: PayloadAction<number>) => {
+      state.value += action.payload;
+    },
+  },
+});
+
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+
+// Other code such as selectors can use the imported `RootState` type
+export const selectCount = (state: RootState) => state.counter.value;
+
+export default counterSlice.reducer;
+```
+
+### Store
+
+The store holds the application state. It is highly recommended to keep only one store in any Redux application. You can access the state stored, update the state, and register or unregister listeners via helper methods.
+
+Basically here there is a Store , the Reducer function that updates the state , an Action to dispatch for some event and the state itself.
+
+1. Initially the state is 0 and on clicking the deposit button the deposit action is dispatched which sends the amount as payload. (Payload is the data sent in requests in simple terms , the key value pair)
+2. The action is then sent to the reducer inside the store where the reducer does it’s function of updating state as per the logic provided.
+3. The state is then updated and sent back to the UI.
+
+```js
+const Counter = ({ value, incr, decr }) => (
+  <div>
+    <p>Value: {value}</p>
+    <button onClick={incr}>Increment</button>
+    <button onClick={decr}>Decrement</button>
+  </div>
+);
+
+const mapStateToProps = (state) => {
+  return {
+    value: state.counter
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  incr: () => dispatch(incrementAction()),
+  decr: () => dispatch(decrementAction())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+```

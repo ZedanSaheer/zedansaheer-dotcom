@@ -1,4 +1,4 @@
-import type { BaseURLocation, PageType, SocialLinkPageType } from "./constants";
+import { TagType, type BaseURLocation, type PageType, type SocialLinkPageType } from "@scripts/utils/constants";
 
 /**
  * Uses the location and filename param provided to generate quick CDN link for images stored in github repositary
@@ -120,6 +120,41 @@ export const returnDateStringBasedOnMDDate = (date: Date) => {
 export const formatSlug = (slug: string) => {
   const slugArray = slug.split("-");
   slugArray.splice(0, 2);
-  console.log(slugArray);
   return slugArray.join("-");
 };
+
+/**
+ * Generates the styles for tags based on the type of the tag
+ * @param {enum} tagType TagType { Category | SubCategory }
+ */
+export const generateClassNameForTags = (category: string, tagType: TagType) => {
+  let baseClass = "font-clash capitalize cursor-pointer text-[12px] xs:text-[8px] min-w-fit p-2 rounded-full"
+
+  if (tagType === TagType.Category) {
+    //Checking tag type to ensure only categories are sent to set color method
+    let categoryColorScheme = setCategoryColorBasedOnValue(category);
+
+    let categoryUI = `text-black-80 dark:text-white-60 bg-gradient-to-r from-white-100 dark:from-black-100 ${categoryColorScheme} font-semibold`;
+    return `${baseClass} ${categoryUI}`
+  }
+
+  let subCategoryUI = "text-black-60 dark:text-white-40 border-2 border-black-40 dark:border-white-40 font-normal"
+  if (tagType === TagType.SubCategory) return `${baseClass} ${subCategoryUI}`
+}
+
+/**
+ * Accepts category name as param and sets the color of the category tag based on that value
+ * @param {any} category string
+ * @returns {any} "softawre engineering" => yellow color.
+ */
+
+export const setCategoryColorBasedOnValue = (category: string) => {
+  switch (category) {
+    case "software engineering": {
+      return "to-orange-500 dark:to-orange-800"
+    }
+    default: {
+      return "to-blue dark:to-blue" //"life"
+    }
+  }
+}

@@ -7,7 +7,7 @@ const blogCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     category: z.enum(categories),
-    subCategory: z.string().array().optional(),
+    subCategories: z.string().array().optional(),
     author: z.enum(['Zedan Saheer']).default("Zedan Saheer"),
     publishDate: publishDateTransformedToLocaleDate,
     image: z.object({

@@ -1,10 +1,11 @@
 import { z } from "astro:content";
-import { imageBaseURL, returnDateStringBasedOnMDDate } from "./methods";
+import { imageBaseURL, returnDateStringBasedOnMDDate } from "@scripts/utils/methods";
 
 /* Types */
 export type BaseURLocation = "public" | "src" | "dist";
 export type PageType = "main" | "error" | "index";
 export type SocialLinkPageType = "footer" | "menu";
+export enum TagType {Category , SubCategory}
 
 /* Constants */
 export const categories = ["software engineering", "life"] as const;

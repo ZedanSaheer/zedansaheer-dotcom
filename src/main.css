@@ -103,7 +103,7 @@
 
   @media (prefers-color-scheme:dark) {
     .gradient-text {
-      @apply text-transparent bg-gradient-to-r from-blue to-red-600;
+      @apply text-transparent bg-gradient-to-r from-red-600 from-30% to-blue to-65%;
     }
   }
 }

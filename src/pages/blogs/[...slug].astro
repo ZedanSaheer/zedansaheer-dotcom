@@ -1,11 +1,9 @@
 ---
 import BlogCover from "@components/blogs/BlogCover.astro";
+import TagsContainer from "@components/blogs/TagsContainer.astro";
 import Footer from "@components/core/Footer.astro";
 import MainLayout from "@layouts/MainLayout.astro";
-import {
-  generateImageBaseURL,
-  imageBaseURL,
-} from "@scripts/utils/methods";
+import { generateImageBaseURL, imageBaseURL } from "@scripts/utils/methods";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
@@ -13,7 +11,7 @@ export async function getStaticPaths() {
 
   return blogPosts.map((blog) => {
     return {
-      params: { slug: blog.slug, },
+      params: { slug: blog.slug },
       props: { blog },
     };
   });
@@ -24,7 +22,15 @@ interface Props {
 }
 
 const { blog } = Astro.props;
-const { image, title, description, author, publishDate } = await blog.data;
+const {
+  image,
+  title,
+  description,
+  author,
+  publishDate,
+  category,
+  subCategories,
+} = await blog.data;
 const { Content } = await blog.render();
 const imageRelativePath = generateImageBaseURL(image?.src.src);
 const imageMetaData = imageBaseURL("src", imageRelativePath!);
@@ -48,6 +54,7 @@ const imageMetaData = imageBaseURL("src", imageRelativePath!);
       class="prose prose-pitchblack dark:prose-invert prose-xl lg:prose-lg md:prose-md sm:prose-sm prose-headings:font-clash prose-p:font-ranade prose-p:font-extralight prose-p:first-letter:capitalize prose-li:font-ranade prose-headings:gradient-text hover:prose-a:text-white-100 prose-img:aspect-video prose-img:w-full prose-img:rounded-2xl w-full"
     >
       <BlogCover alt={image?.alt} src={image?.src} title={title} />
+      <TagsContainer category={category} subCategories={subCategories}/>
       <h4 class="not-prose my-8 uppercase font-bold text-sm md:text-xs">
         {publishDate.blogDate}
       </h4>

@@ -55,7 +55,7 @@ module.exports = {
 						'--tw-prose-invert-counters': theme('colors.white[40]'),
 						'--tw-prose-invert-bullets': theme('colors.white[60]'),
 						'--tw-prose-invert-hr': theme('colors.white[70]'),
-						'--tw-prose-invert-quotes': theme('colors.white[40]'),
+						'--tw-prose-invert-quotes': theme('colors.white[100]'),
 						'--tw-prose-invert-quote-borders': theme('colors.white[70]'),
 						'--tw-prose-invert-captions': theme('colors.white[40]'),
 						'--tw-prose-invert-code': theme('colors.white'),

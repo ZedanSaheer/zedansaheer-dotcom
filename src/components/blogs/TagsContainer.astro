@@ -1,0 +1,21 @@
+---
+import { TagType } from '@scripts/utils/constants';
+import Tags from './Tags.astro';
+interface Props{
+    category: string;
+    subCategories?: string[];
+    showWholeContainer?: boolean;
+}
+
+const {category, subCategories, showWholeContainer = true} = Astro.props;
+const height = !showWholeContainer && "h-10" 
+---
+
+<div class=`flex flex-wrap ${height} overflow-hidden mt-4 mb-8 items-center gap-2 justify-start`>
+    <Tags tag={category} tagType={TagType.Category}/>
+    {
+      subCategories?.map((subCategory) => (
+        <Tags tag={subCategory} tagType={TagType.SubCategory} />
+      ))
+    }
+  </div>
