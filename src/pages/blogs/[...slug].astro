@@ -3,6 +3,7 @@ import BlogCover from "@components/blogs/BlogCover.astro";
 import TagsContainer from "@components/blogs/TagsContainer.astro";
 import Footer from "@components/core/Footer.astro";
 import MainLayout from "@layouts/MainLayout.astro";
+import { defaultImageMetaData } from "@scripts/utils/constants";
 import { generateImageBaseURL, imageBaseURL } from "@scripts/utils/methods";
 import { getCollection, type CollectionEntry } from "astro:content";
 
@@ -22,7 +23,7 @@ interface Props {
 }
 
 const { blog } = Astro.props;
-const {
+let {
   image,
   title,
   description,
@@ -31,9 +32,21 @@ const {
   category,
   subCategories,
 } = await blog.data;
+
 const { Content } = await blog.render();
 const imageRelativePath = generateImageBaseURL(image?.src.src);
 const imageMetaData = imageBaseURL("src", imageRelativePath!);
+
+//Sets image to default banner if the blog does not contain cover
+const setImage =
+  image === undefined
+    ? defaultImageMetaData
+    : {
+        alt: image?.alt,
+        src: imageMetaData,
+        share: imageMetaData,
+        shareDark: imageMetaData,
+      };
 ---
 
 <MainLayout
@@ -41,12 +54,7 @@ const imageMetaData = imageBaseURL("src", imageRelativePath!);
     title,
     description,
     author,
-    image: {
-      alt: image?.alt,
-      src: imageMetaData,
-      share: imageMetaData,
-      shareDark: imageMetaData,
-    },
+    image: setImage,
   }}
 >
   <div class="flex justify-center items-center md:px-6 pb-10">
@@ -54,7 +62,7 @@ const imageMetaData = imageBaseURL("src", imageRelativePath!);
       class="prose prose-pitchblack dark:prose-invert prose-xl lg:prose-lg md:prose-md sm:prose-sm prose-headings:font-clash prose-p:font-ranade prose-p:font-extralight prose-p:first-letter:capitalize prose-li:font-ranade prose-headings:gradient-text hover:prose-a:text-white-100 prose-img:aspect-video prose-img:w-full prose-img:rounded-2xl w-full"
     >
       <BlogCover alt={image?.alt} src={image?.src} title={title} />
-      <TagsContainer category={category} subCategories={subCategories}/>
+      <TagsContainer category={category} subCategories={subCategories} />
       <h4 class="not-prose my-8 uppercase font-bold text-sm md:text-xs">
         {publishDate.blogDate}
       </h4>

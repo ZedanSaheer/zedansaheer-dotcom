@@ -4,7 +4,7 @@ import { TagType, type BaseURLocation, type PageType, type SocialLinkPageType } 
  * Uses the location and filename param provided to generate quick CDN link for images stored in github repositary
  * @param {BaseURLocation} location:BaseURLocation
  * @param {string} filename:string
- * @returns {string}
+ * @returns {string} (some/location,image.type) => cdn.link.com/some/location/image.type
  */
 export const imageBaseURL = (location: BaseURLocation, filename: string) => {
   return `https://cdn.jsdelivr.net/gh/zedansaheer/zedansaheer-dotcom@main/${location}/${filename}`
