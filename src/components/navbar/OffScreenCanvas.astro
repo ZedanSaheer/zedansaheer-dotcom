@@ -50,6 +50,10 @@ import SocialLinks from "@components/core/SocialLinks.astro";
     z-index: 1;
   }
 
+  .off-screen-canvas li{
+    transform: translateY(200%);
+  }
+
   .off-screen-canvas.active li {
     display: flex;
     align-items: center;
@@ -63,6 +67,8 @@ import SocialLinks from "@components/core/SocialLinks.astro";
     color: theme(colors.black.70);
     font-weight: bold;
     border-bottom: 1px solid theme(colors.black.70);
+    transform: translateY(0%);
+    transition: 1s ease-out;
   }
 
   .off-screen-canvas.active li:last-child {
