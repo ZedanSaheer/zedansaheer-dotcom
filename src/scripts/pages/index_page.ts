@@ -18,6 +18,7 @@ curtain?.addEventListener("animationend", () => {
   });
   header!.style.display = "flex";
   marquee?.classList.remove("hidden");
-  document.body.style.overflow = "scroll";
+  document.body.style.overflowY = "scroll";
+  document.body.style.overflowX = "hidden";
   sessionStorage.setItem("preloader", "rendered");
 });
