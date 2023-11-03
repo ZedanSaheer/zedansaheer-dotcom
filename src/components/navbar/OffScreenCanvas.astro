@@ -193,23 +193,38 @@ const baseClass = "animate-fade-up animate-duration-[1000ms] animate-delay-200";
   <SocialLinks />
 </div>
 <script>
-  const links = document.querySelectorAll("a");
-  const currentPath = location.href;
-
-  links.forEach((link) =>
-    link.href === currentPath
-      ? link.parentElement?.classList.add("active")
-      : link.parentElement?.classList.remove("active")
+  const links = document.querySelectorAll<HTMLAnchorElement>(
+    ".off-screen-canvas > ul > li > a"
   );
 
-  document.addEventListener("astro:page-load", () => {
-    const links = document.querySelectorAll("a");
-    const currentPath = location.href;
+  const currentPath =
+    location.pathname.length > 1
+      ? location.href.slice(0, location.href.length - 1)
+      : location.href;
 
-    links.forEach((link) =>
-      link.href === currentPath
-        ? link.parentElement?.classList.add("active")
-        : link.parentElement?.classList.remove("active")
+  links.forEach((link) => {
+    let linkPath = link.href;
+
+    linkPath === currentPath
+      ? link.parentElement?.classList.add("active")
+      : link.parentElement?.classList.remove("active");
+  });
+
+  document.addEventListener("astro:page-load", () => {
+    const links = document.querySelectorAll<HTMLAnchorElement>(
+      ".off-screen-canvas > ul > li > a"
     );
+
+    const currentPath = location.pathname.length > 1
+      ? location.href.slice(0, location.href.length - 1)
+      : location.href;
+
+    links.forEach((link) => {
+      let linkPath = link.href;
+
+      linkPath === currentPath
+        ? link.parentElement?.classList.add("active")
+        : link.parentElement?.classList.remove("active");
+    });
   });
 </script>

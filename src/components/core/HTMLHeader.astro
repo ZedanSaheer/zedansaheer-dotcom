@@ -1,5 +1,8 @@
 ---
-import { defaultImageMetaData, defaultKeywords } from "@scripts/utils/constants";
+import {
+  defaultImageMetaData,
+  defaultKeywords,
+} from "@scripts/utils/constants";
 import { imageBaseURL, joinKeywordsArrToString } from "@scripts/utils/methods";
 
 interface Props {
@@ -35,12 +38,17 @@ const {
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Website share banner -->
-<link rel="image_src" href={image.share} media="(prefers-color-scheme: light)" />
+<link
+  rel="image_src"
+  href={image.share}
+  media="(prefers-color-scheme: light)"
+/>
 <link
   rel="image_src"
   href={image.shareDark}
   media="(prefers-color-scheme: dark)"
 />
+<link rel="shortcut icon" href="#" />
 
 <!-- Favicon Light Mode -->
 <link
@@ -60,7 +68,7 @@ const {
   rel="icon"
   type="image/x-icon"
   media="(prefers-color-scheme: light)"
-  href="/favicon_light/favicon.ico"
+  href={imageBaseURL("public", "favicon_dark/favicon.ico")}
 />
 <link
   rel="icon"
@@ -107,7 +115,7 @@ const {
   rel="icon"
   type="image/x-icon"
   media="(prefers-color-scheme: dark)"
-  href="/favicon_light/favicon.ico"
+  href={imageBaseURL("public", "favicon_light/favicon.ico")}
 />
 <link
   rel="icon"
