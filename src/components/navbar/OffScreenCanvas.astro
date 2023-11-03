@@ -1,6 +1,7 @@
 ---
 import SocialLinks from "@components/core/SocialLinks.astro";
 
+const pathname = Astro.url.pathname;
 const baseClass = "animate-fade-up animate-duration-[1000ms] animate-delay-200";
 ---
 
@@ -177,13 +178,13 @@ const baseClass = "animate-fade-up animate-duration-[1000ms] animate-delay-200";
 
 <div class="off-screen-canvas" transition:persist>
   <ul>
-    <li class={baseClass}>
+    <li class={pathname === "/" ? `${baseClass} active` : baseClass}>
       <a href="/"><span>01</span>Home</a>
     </li>
-    <li class={baseClass}>
+    <li class={pathname === "/blogs" ? `${baseClass} active` : baseClass}>
       <a href="/blogs"><span>02</span>Blogs</a>
     </li>
-    <li class={baseClass}>
+    <li class={pathname === "/about" ? `${baseClass} active` : baseClass}>
       <a href="/about"
         ><span>03</span>About<span class="notice">coming soon</span></a
       >
@@ -192,17 +193,23 @@ const baseClass = "animate-fade-up animate-duration-[1000ms] animate-delay-200";
   <SocialLinks />
 </div>
 <script>
-  const links = document.querySelectorAll(".off-screen-canvas > ul > li > a");
-  links.forEach((link) => {
-    const parent = link.parentElement;
-    const path = link.getAttribute("href");
+  const links = document.querySelectorAll("a");
+  const currentPath = location.href;
 
-    if (path === location.pathname) parent?.classList.add("active");
-    else parent?.classList.remove("active");
+  links.forEach((link) =>
+    link.href === currentPath
+      ? link.parentElement?.classList.add("active")
+      : link.parentElement?.classList.remove("active")
+  );
 
-    document.addEventListener("astro:page-load", () => {
-      if (path === location.pathname) parent?.classList.add("active");
-      else parent?.classList.remove("active");
-    });
+  document.addEventListener("astro:page-load", () => {
+    const links = document.querySelectorAll("a");
+    const currentPath = location.href;
+
+    links.forEach((link) =>
+      link.href === currentPath
+        ? link.parentElement?.classList.add("active")
+        : link.parentElement?.classList.remove("active")
+    );
   });
 </script>
