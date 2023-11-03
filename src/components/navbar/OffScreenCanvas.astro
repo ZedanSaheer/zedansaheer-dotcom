@@ -1,5 +1,7 @@
 ---
 import SocialLinks from "@components/core/SocialLinks.astro";
+
+const baseClass = "animate-fade-up animate-duration-[1000ms] animate-delay-200";
 ---
 
 <style>
@@ -21,6 +23,7 @@ import SocialLinks from "@components/core/SocialLinks.astro";
     align-items: center;
     width: 100vw;
     height: 100vh;
+    padding: 4rem 0;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -45,12 +48,12 @@ import SocialLinks from "@components/core/SocialLinks.astro";
     align-items: center;
     user-select: none;
     cursor: pointer;
-    height: 2/3;
+    height: 100%;
     width: fit-content;
     z-index: 1;
   }
 
-  .off-screen-canvas li{
+  .off-screen-canvas li {
     transform: translateY(200%);
   }
 
@@ -66,17 +69,14 @@ import SocialLinks from "@components/core/SocialLinks.astro";
     text-transform: capitalize;
     color: theme(colors.black.70);
     font-weight: bold;
-    border-bottom: 1px solid theme(colors.black.70);
     transform: translateY(0%);
-    transition: 1s ease-out;
+    transition: 0.4s ease-out;
   }
 
-  .off-screen-canvas.active li:last-child {
-    border-bottom: none;
+  .off-screen-canvas.active li:hover {
+    color: theme(colors.black.100);
   }
-
-  .off-screen-canvas.active li:hover,
-  .off-screen-canvas.active li:active {
+  .off-screen-canvas.active li.active {
     color: theme(colors.black.100);
     border-bottom: 1px solid theme(colors.black.100);
   }
@@ -162,11 +162,12 @@ import SocialLinks from "@components/core/SocialLinks.astro";
     }
     .off-screen-canvas.active li {
       color: theme(colors.white.50);
-      border-bottom: 1px solid theme(colors.white.50);
     }
 
-    .off-screen-canvas.active li:hover,
-    .off-screen-canvas.active li:active {
+    .off-screen-canvas.active li:hover {
+      color: theme(colors.white.100);
+    }
+    .off-screen-canvas.active li.active {
       color: theme(colors.white.100);
       border-bottom: 1px solid theme(colors.white.100);
     }
@@ -175,13 +176,13 @@ import SocialLinks from "@components/core/SocialLinks.astro";
 
 <div class="off-screen-canvas" transition:persist>
   <ul>
-    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
+    <li class={baseClass}>
       <a href="/"><span>01</span>Home</a>
     </li>
-    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
+    <li class={baseClass}>
       <a href="/blogs"><span>02</span>Blogs</a>
     </li>
-    <li class="animate-fade-up animate-duration-[1000ms] animate-delay-200">
+    <li class={baseClass}>
       <a href="/about"
         ><span>03</span>About<span class="notice">coming soon</span></a
       >
@@ -189,3 +190,18 @@ import SocialLinks from "@components/core/SocialLinks.astro";
   </ul>
   <SocialLinks />
 </div>
+<script>
+  const links = document.querySelectorAll(".off-screen-canvas > ul > li > a");
+  links.forEach((link) => {
+    const parent = link.parentElement;
+    const path = link.getAttribute("href");
+
+    if (path === location.pathname) parent?.classList.add("active");
+    else parent?.classList.remove("active");
+
+    document.addEventListener("astro:page-load", () => {
+      if (path === location.pathname) parent?.classList.add("active");
+      else parent?.classList.remove("active");
+    });
+  });
+</script>

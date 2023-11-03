@@ -18,6 +18,6 @@ curtain?.addEventListener("animationend", () => {
   });
   header!.style.display = "flex";
   marquee?.classList.remove("hidden");
-  document.body.style.overflowY = "scroll";
+  document.body.style.overflow = "scroll";
   sessionStorage.setItem("preloader", "rendered");
 });
