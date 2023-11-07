@@ -15,7 +15,7 @@ export type Options = {
 export enum TagType { Category, SubCategory }
 
 /* Constants */
-export const categories = ["software engineering", "life"] as const;
+export const categories = ["engineering", "life"] as const;
 
 export const publishDateTransformedToLocaleDate = z.string().transform((date) => {
     //Card also uses regular date expression but returns verbal forms for recent dates

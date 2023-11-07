@@ -1,5 +1,5 @@
 ---
-import type { TagType } from "@scripts/utils/constants";
+import { TagType } from "@scripts/utils/constants";
 import { generateClassNameForTags } from "@scripts/utils/methods";
 
 interface Props {
@@ -10,6 +10,17 @@ interface Props {
 const { tag, tagType } = Astro.props;
 ---
 
-<div class={generateClassNameForTags(tag,tagType)}>
-  {tag}
+<div class={generateClassNameForTags(tag, tagType)}>
+  {
+    tagType === TagType.Category ? (
+      <a
+        href={`/blogs/${tag}`}
+        class="decoration-transparent font-semibold dark:hover:text-white-100 hover:text-black-100"
+      >
+        {tag}
+      </a>
+    ) : (
+      tag
+    )
+  }
 </div>

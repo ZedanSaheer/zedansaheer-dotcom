@@ -146,13 +146,13 @@ export const setSocialLinksStyles = (pageType: SocialLinkPageType) => {
  * @param {enum} tagType TagType { Category | SubCategory }
  */
 export const generateClassNameForTags = (category: string, tagType: TagType) => {
-  let baseClass = "font-clash capitalize cursor-pointer text-[12px] xs:text-[8px] min-w-fit p-2 rounded-full"
+  let baseClass = "font-clash flex items-center justify-center capitalize cursor-pointer text-[12px] xs:text-[8px] min-w-fit p-2 rounded-full"
 
   if (tagType === TagType.Category) {
     //Checking tag type to ensure only categories are sent to set color method
     let categoryColorScheme = setCategoryColorBasedOnValue(category);
 
-    let categoryUI = `text-black-80 dark:text-white-60 bg-gradient-to-r from-white-100 dark:from-black-100 ${categoryColorScheme} font-semibold`;
+    let categoryUI = `text-black-80 dark:text-white-60 bg-gradient-to-r from-white-100 text-[14px] xs:text-[10px] dark:from-black-100 ${categoryColorScheme} font-semibold`;
     return `${baseClass} ${categoryUI}`
   }
 
@@ -168,7 +168,7 @@ export const generateClassNameForTags = (category: string, tagType: TagType) => 
 
 export const setCategoryColorBasedOnValue = (category: string) => {
   switch (category) {
-    case "software engineering": {
+    case "engineering": {
       return "to-orange-500 dark:to-orange-800"
     }
     default: {
