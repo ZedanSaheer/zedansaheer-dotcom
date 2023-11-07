@@ -6,10 +6,11 @@ import TagsContainer from "./TagsContainer.astro";
 
 interface Props {
   blog: CollectionEntry<"blogs">;
+  displayCardImage: boolean;
   getReadTime: () => Promise<string>;
 }
 
-const { blog, getReadTime } = Astro.props;
+const { blog, getReadTime, displayCardImage } = Astro.props;
 ---
 
 <div
@@ -22,19 +23,27 @@ const { blog, getReadTime } = Astro.props;
     Read now <span class="ml-4"><Arrow /></span>
   </a>
   <div class="w-full h-full group-hover:blur-sm group-hover:opacity-20">
-    <BlogCover
-      title={blog.data.title}
-      src={blog.data.image?.src}
-      alt={blog.data.image?.alt}
-      marginBottom="mb-0"
-    />
+    {
+      displayCardImage && (
+        <BlogCover
+          title={blog.data.title}
+          src={blog.data.image?.src}
+          alt={blog.data.image?.alt}
+          marginBottom="mb-0"
+        />
+      )
+    }
     <div class="p-4">
       <h1
-        class="font-clash font-medium lowercase 2xl-min:text-3xl text-4xl xl:text-3xl md:text-lg dark:text-white-100 text-black-100 my-2 line-clamp-2"
+        class="font-clash font-medium lowercase 2xl-min:text-3xl text-4xl xl:text-3xl md:text-lg dark:text-white-100 text-black-100 my-2 line-clamp-2 2xl-min:h-24 2xl:h-24 sm:h-16"
       >
         {blog.data.title}
       </h1>
-      <TagsContainer category={blog.data.category} subCategories={blog.data.subCategories} showWholeContainer={false}/>
+      <TagsContainer
+        category={blog.data.category}
+        subCategories={blog.data.subCategories}
+        showWholeContainer={false}
+      />
       <div class="flex gap-2 mt-4 justify-between w-full">
         <small
           class="font-clash font-light text-xs dark:text-white-100 text-black-100 uppercase"

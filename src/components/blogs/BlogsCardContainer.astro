@@ -1,8 +1,17 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import BlogsCard from "./BlogsCard.astro";
+import { formatCollection } from "@scripts/utils/methods";
 
+interface Props {
+  sortByDate?: boolean;
+  limit?: number;
+  displayCardImage?: boolean;
+}
+
+const { sortByDate, limit, displayCardImage = true } = Astro.props;
 const blogPosts: CollectionEntry<"blogs">[] = await getCollection("blogs");
+formatCollection(blogPosts, { sortByDate: sortByDate, limit });
 ---
 
 <div
@@ -18,7 +27,7 @@ const blogPosts: CollectionEntry<"blogs">[] = await getCollection("blogs");
         return minutesRead;
       };
 
-      return <BlogsCard blog={blog} getReadTime={getReadTime} />;
+      return <BlogsCard blog={blog} getReadTime={getReadTime} displayCardImage={displayCardImage}/>;
     })
   }
 </div>

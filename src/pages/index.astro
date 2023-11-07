@@ -1,11 +1,17 @@
 ---
+import NewsBanner from "@components/core/NewsBanner.astro";
+import HeroSection from "@components/index/HeroSection.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import { defaultMetaData } from "@scripts/utils/constants";
-import HeroSection from "@components/index/HeroSection.astro";
-import NewsBanner from "@components/core/NewsBanner.astro";
 import Preloader from "@components/core/Preloader.astro";
 import PersonalIntroductionSection from "@components/index/PersonalIntroductionSection.astro";
+import RecentBlogs from "@components/index/RecentBlogs.astro";
 import PersonalTraitsSection from "@components/index/PersonalTraitsSection.astro";
+import { formatCollection } from "@scripts/utils/methods";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const blogPosts: CollectionEntry<"blogs">[] = await getCollection("blogs");
+formatCollection(blogPosts, { sortByDate: true, limit: 3 });
 ---
 
 <MainLayout bodyStyle="index" metaData={defaultMetaData}>
@@ -14,7 +20,7 @@ import PersonalTraitsSection from "@components/index/PersonalTraitsSection.astro
   <HeroSection />
   <PersonalIntroductionSection />
   <PersonalTraitsSection />
-  <section class="h-[50vh] relative z-40 text-white-100">
-  </section>
+  <RecentBlogs />
+  <section class="w-screen h-[150vh]"></section>
 </MainLayout>
 <script src="@scripts/pages/index_page.ts"></script>

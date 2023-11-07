@@ -1,4 +1,11 @@
-import { TagType, type BaseURLocation, type PageType, type SocialLinkPageType } from "@scripts/utils/constants";
+import { TagType, type BaseURLocation, type PageType, type SocialLinkPageType, type Options } from "@scripts/utils/constants";
+import { type CollectionEntry } from "astro:content";
+
+
+/* GENERAL UTILS
+__________________________________________________________________________
+___________________________________________________________________________
+*/
 
 /**
  * Uses the location and filename param provided to generate quick CDN link for images stored in github repositary
@@ -10,44 +17,8 @@ export const imageBaseURL = (location: BaseURLocation, filename: string) => {
   return `https://cdn.jsdelivr.net/gh/zedansaheer/zedansaheer-dotcom@main/${location}/${filename}`
 }
 
-/**
- * Sets the body tailwind style class tags based on the page type param
- * @param {PageType} pageType:"main"|"error"|"index"
- * @returns {class}
- */
-export const setBodyStyles = (pageType: PageType) => {
-  let baseStyles = "relative min-h-screen bg-white-100 dark:bg-black-100 overflow-x-hidden pt-40 sm:pt-36"
 
-  switch (pageType) {
-    case "index": {
-      return `${baseStyles} polka-dots-bg`
-    }
-    case "error": {
-      return "relative min-h-screen bg-white-100 dark:bg-black-100 overflow-x-hidden p-0"
-    }
-    default: {
-      return baseStyles;
-    }
-  }
-};
 
-/**
- * Sets the social links container tailwind style class tags based on the page type param
- * @param {SocialLinkPageType} pageType:"main"|"error"|"index"
- * @returns {class}
- */
-export const setSocialLinksStyles = (pageType: SocialLinkPageType) => {
-  let baseStyles = "social-container flex justify-center items-center";
-
-  switch (pageType) {
-    case "footer": {
-      return `${baseStyles} xs:gap-0 gap-4`
-    }
-    default: {
-      return `${baseStyles} show-border gap-4`;
-    }
-  }
-};
 
 /**
  * Takes an array of strings and transforms it into a string of words seperated by ', '
@@ -78,7 +49,7 @@ export const generateImageBaseURL = (src: string | undefined) => {
  * @param {any} date:Date
  * @returns {any} Today | Yesterday | Last Week | Locale Date String
  */
-export const returnDateStringBasedOnMDDate = (date: Date) => {
+export const returnDateStringBasedOnMDDate = (date: Date): "Today" | "Yesterday" | "Last week" | `${string}/${string}/${string}` => {
   const currentDate = date.getDate();
   const currentMonth = date.getMonth() + 1;
   const currentYear = date.getFullYear();
@@ -123,6 +94,53 @@ export const formatSlug = (slug: string) => {
   return slugArray.join("-");
 };
 
+
+
+
+/* CLASS GENERATORS 
+__________________________________________________________________________
+___________________________________________________________________________
+*/
+
+/**
+ * Sets the body tailwind style class tags based on the page type param
+ * @param {PageType} pageType:"main"|"error"|"index"
+ * @returns {class}
+ */
+export const setBodyStyles = (pageType: PageType) => {
+  let baseStyles = "relative min-h-screen bg-white-100 dark:bg-black-100 overflow-x-hidden pt-40 sm:pt-36"
+
+  switch (pageType) {
+    case "index": {
+      return `${baseStyles} polka-dots-bg`
+    }
+    case "error": {
+      return "relative min-h-screen bg-white-100 dark:bg-black-100 overflow-x-hidden p-0"
+    }
+    default: {
+      return baseStyles;
+    }
+  }
+};
+
+/**
+ * Sets the social links container tailwind style class tags based on the page type param
+ * @param {SocialLinkPageType} pageType:"main"|"error"|"index"
+ * @returns {class}
+ */
+export const setSocialLinksStyles = (pageType: SocialLinkPageType) => {
+  let baseStyles = "social-container flex justify-center items-center";
+
+  switch (pageType) {
+    case "footer": {
+      return `${baseStyles} xs:gap-0 gap-4`
+    }
+    default: {
+      return `${baseStyles} show-border gap-4`;
+    }
+  }
+};
+
 /**
  * Generates the styles for tags based on the type of the tag
  * @param {enum} tagType TagType { Category | SubCategory }
@@ -157,4 +175,42 @@ export const setCategoryColorBasedOnValue = (category: string) => {
       return "to-blue dark:to-blue" //"life"
     }
   }
+}
+
+
+
+/* FRONTMATTER UTILS
+__________________________________________________________________________
+___________________________________________________________________________
+*/
+
+/**
+ * This method acts like a reducer, Takes options for the input of blog data and returns a formatted array based on the options provided
+ * @param {CollectionEntry<"blogs">[]} posts:CollectionEntry<"blogs">[]
+ * @param {number|undefined} limit:Number
+ * @param {boolean|undefined} sortByDate:Boolean
+ * @param {boolean|undefined} recent:Boolean
+ * @returns {any}
+ */
+export const formatCollection = (posts: CollectionEntry<"blogs">[], { limit, sortByDate, recent }: Options): CollectionEntry<"blogs">[] => {
+  let formattedPosts = posts;
+
+  if (sortByDate) {
+    formattedPosts.sort((first, second) => {
+      let firstDate = new Date(first.data.publishDate.blogDate).valueOf();
+      let secondDate = new Date(second.data.publishDate.blogDate).valueOf();
+
+      return secondDate - firstDate;
+    })
+  }
+
+  if (recent) {
+    formattedPosts.filter(({ data }) => data.publishDate.cardDate === "Last week" || data.publishDate.cardDate === "Today" || data.publishDate.cardDate === "Yesterday");
+  }
+
+  if (limit) {
+    return formattedPosts.slice(0, limit);
+  }
+
+  return formattedPosts;
 }

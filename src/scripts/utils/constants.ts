@@ -5,13 +5,23 @@ import { imageBaseURL, returnDateStringBasedOnMDDate } from "@scripts/utils/meth
 export type BaseURLocation = "public" | "src" | "dist";
 export type PageType = "main" | "error" | "index";
 export type SocialLinkPageType = "footer" | "menu";
-export enum TagType {Category , SubCategory}
+export type Options = {
+    sortByDate?: boolean,
+    limit?: number,
+    recent?: number,
+}
+
+/* Enums */
+export enum TagType { Category, SubCategory }
 
 /* Constants */
 export const categories = ["software engineering", "life"] as const;
 
 export const publishDateTransformedToLocaleDate = z.string().transform((date) => {
+    //Card also uses regular date expression but returns verbal forms for recent dates
     const cardDate = returnDateStringBasedOnMDDate(new Date(date));
+
+    //Blog uses regular date expression
     const blogDate = new Date(date).toLocaleDateString('en-us', { year: "numeric", weekday: "long", month: "short", day: "2-digit" });
 
     return {
