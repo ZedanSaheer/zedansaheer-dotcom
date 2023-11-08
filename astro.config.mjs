@@ -7,7 +7,9 @@ import { remarkReadingTime } from "/src/scripts/js/remark-reading-time";
 
 export default defineConfig({
   site: 'https://zedansaheer.com',
-  integrations: [tailwind(), sitemap(), mdx()],
+  integrations: [tailwind(), sitemap({
+    filter: (page) => page !== 'https://zedansaheer.com/vault/sweet-purple/'
+  }), mdx()],
   markdown: {
     image: {
       remotePatterns: [{ protocol: "https" }],
