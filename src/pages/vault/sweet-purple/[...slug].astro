@@ -1,6 +1,5 @@
 ---
 import BlogCover from "@components/blogs/BlogCover.astro";
-import TagsContainer from "@components/blogs/TagsContainer.astro";
 import Footer from "@components/core/Footer.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import { defaultImageMetaData } from "@scripts/utils/constants";
@@ -8,36 +7,28 @@ import { generateImageBaseURL, imageBaseURL } from "@scripts/utils/methods";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-  const blogPosts = await getCollection("blogs");
+  const vaultPosts = await getCollection("vault");
 
-  return blogPosts.map((blog) => {
+  return vaultPosts.map((post) => {
     return {
-      params: { slug: blog.slug },
-      props: { blog },
+      params: { slug: post.slug },
+      props: { post },
     };
   });
 }
 
 interface Props {
-  blog: CollectionEntry<"blogs">;
+  post: CollectionEntry<"vault">;
 }
 
-const { blog } = Astro.props;
-let {
-  image,
-  title,
-  description,
-  author,
-  publishDate,
-  category,
-  subCategories,
-} = await blog.data;
+const { post } = Astro.props;
+let { image, title, author, publishDate } = await post.data;
 
-const { Content } = await blog.render();
+const { Content } = await post.render();
 const imageRelativePath = generateImageBaseURL(image?.src.src);
 const imageMetaData = imageBaseURL("src", imageRelativePath!);
 
-//Sets image to default banner if the blog does not contain cover
+// Sets image to default banner if the post does not contain cover
 const setImage =
   image === undefined
     ? defaultImageMetaData
@@ -52,7 +43,6 @@ const setImage =
 <MainLayout
   metaData={{
     title,
-    description,
     author,
     image: setImage,
   }}
@@ -62,13 +52,14 @@ const setImage =
       class="prose prose-pitchblack dark:prose-invert prose-xl lg:prose-lg md:prose-md sm:prose-sm prose-headings:font-clash prose-p:font-ranade prose-p:font-extralight prose-p:first-letter:capitalize prose-li:font-ranade prose-headings:gradient-text hover:prose-a:text-white-100 prose-img:aspect-video prose-img:w-full prose-img:rounded-2xl w-full"
     >
       <BlogCover alt={image?.alt} src={image?.src} title={title} />
-      <TagsContainer category={category} subCategories={subCategories} />
-      <h4 class="not-prose my-8 uppercase font-bold text-sm md:text-xs">
-        {publishDate.blogDate}
-      </h4>
-      <h4 class="not-prose my-8 uppercase font-bold text-sm md:text-xs">
-        {author}
-      </h4>
+      <div class="flex w-full justify-between items-center">
+        <h4 class="not-prose my-8 uppercase font-bold text-sm md:text-xs">
+          {publishDate.blogDate}
+        </h4>
+        <h4 class="not-prose my-8 uppercase font-bold text-sm md:text-xs">
+          {author}
+        </h4>
+      </div>
       <Content />
     </article>
   </div>

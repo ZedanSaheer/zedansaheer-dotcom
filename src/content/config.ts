@@ -17,6 +17,20 @@ const blogCollection = defineCollection({
   })
 });
 
+const vaultCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    author: z.enum(['Zedan Saheer']).default("Zedan Saheer"),
+    publishDate: publishDateTransformedToLocaleDate,
+    image: z.object({
+      alt: z.string(),
+      src: image(),
+    }).optional(),
+  })
+});
+
 export const collections = {
   blogs: blogCollection,
+  vault: vaultCollection,
 };

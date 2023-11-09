@@ -1,13 +1,21 @@
 ---
 import MainLayout from "@src/layouts/MainLayout.astro";
 import { defaultMetaData } from "@src/scripts/utils/constants";
+import Icon from "astro-icon";
 ---
 
 <MainLayout metaData={defaultMetaData}>
+  <img
+    src="https://cataas.com/cat/cute"
+    class="w-full h-screen sm:h-1/4 md:h-1/2 md:w-full absolute top-0 left-0"
+    decoding="async"
+    loading="lazy"
+    alt="A description of my image."
+  />
   <section
     class="absolute top-0 w-full h-screen gap-6 flex p-10 flex-col justify-around items-center"
   >
-    <div class="flex flex-col gap-10 justify-center items-center">
+    <div class="flex flex-col gap-10 justify-center relative items-center">
       <h1
         class="text-white-100 uppercase font-panchang text-center text-6xl sm:text-4xl font-normal animate-fade-up"
       >
@@ -17,8 +25,13 @@ import { defaultMetaData } from "@src/scripts/utils/constants";
         class="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-purple-600 font-clash lowercase font-semibold text-4xl sm:text-xl w-1/2 sm:w-full"
       >
         The orchids of lavender that gave rise to the supreme fragrance of
-        purples, It represent purity, silence, devotion, serenity, grace, and calmness.
+        purples, It represent purity, silence, devotion, serenity, grace, and
+        calmness.
       </p>
+      <h2 class="mt-32 text-white-100 sm:w-full flex justify-between items-center font-clash sm:text-[8px] border-2 p-2 rounded capitalize">
+        <Icon name="openmoji:light-bulb" class="w-10"/>
+        Refresh the page to generate cute cat pictures
+      </h2>
     </div>
   </section>
 </MainLayout>

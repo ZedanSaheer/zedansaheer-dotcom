@@ -2,38 +2,45 @@
 import ThinkingWriter from "@assets/home/ThinkingWriter.astro";
 import ArrowLink from "@assets/icons/ArrowLink.astro";
 import BlogsCardContainer from "@components/blogs/BlogsCardContainer.astro";
-
 ---
 
 <section
-class="relative top-96 lg:top-44 md:top-56 w-full min-h-screen flex md:flex-col md:justify-start md:items-center flex-wrap gap-6 overflow justify-start items-start"
+  class="relative top-96 lg:top-44 md:top-56 w-full min-h-screen flex md:flex-col md:justify-start md:items-center flex-wrap gap-6 overflow justify-start items-start"
 >
-<h1
-  class="dark:text-white-20 relative text-black-20 font-bold font-panchang text-center w-fit text-8xl xl:text-7xl lg:text-6xl md:text-4xl xs:text-xl uppercase px-10"
-  data-aos="fade-down"
-  data-aos-duration="1000"
-  data-aos-anchor-placement="top-center"
->
-  recent blogs <span
-    class="dark:text-white-80 absolute left-[6px] top-[6px] text-black-80 font-bold font-panchang text-center w-fit text-8xl xl:text-7xl lg:text-6xl md:text-4xl xs:text-xl uppercase px-10 whitespace-nowrap"
-    >recent blogs</span
+  <h1
+    class="dark:text-white-20 relative text-black-20 font-bold font-panchang text-center w-fit text-8xl xl:text-7xl lg:text-6xl md:text-4xl xs:text-xl uppercase px-10"
+    data-aos="fade-down"
+    data-aos-duration="1000"
+    data-aos-anchor-placement="top-center"
   >
-</h1>
-<ThinkingWriter />
-<div
-  class="flex flex-col gap-12 w-3/4 xl:w-full relative lg:top-[-8rem] md:top-0 top-[-14rem] p-10"
->
-  <BlogsCardContainer
-    displayCardImage={false}
-    sortByDate={true}
-    limit={3}
-  />
-  <a
-    href="/blogs"
-    class="flex gap-4 items-center justify-center font-ranade uppercase font-semibold text-xs xs:text-[10px] text-md dark:text-white-60 text-black-60 border dark:hover:bg-white-100 dark:hover:text-black-100 hover:bg-black-100 hover:text-white-100 hover:border-none border-black-40 dark:border-white-40 w-fit py-2 px-6 rounded-full group"
-    data-aos="flip-up"
-    data-aos-delay="300"
-    data-aos-duration="1500">View all blogs<ArrowLink /></a
+    recent blogs
+    <span
+      class="dark:text-white-80 absolute left-[6px] top-[6px] text-black-80 font-bold font-panchang text-center w-fit text-8xl xl:text-7xl lg:text-6xl md:text-4xl xs:text-xl uppercase px-10 whitespace-nowrap"
+      >recent blogs
+    </span>
+    <span
+      class="dark:text-white-60 absolute left-[4px] top-[8px] text-black-60 font-bold font-panchang text-center w-fit text-8xl xl:text-7xl lg:text-6xl md:text-4xl xs:text-xl uppercase px-10 whitespace-nowrap"
+      >recent blogs
+    </span>
+  </h1>
+  <ThinkingWriter />
+  <div
+    class="flex flex-col gap-12 w-3/4 xl:w-full relative lg:top-[-8rem] md:top-0 top-[-6rem] 2xl-min:top-[-14rem] p-10"
   >
-</div>
+    <BlogsCardContainer displayCardImage={false} sortByDate={true} limit={3} />
+    <div
+      class="w-fit rounded-full bg-gradient-to-r from-blue to-red-600 p-1"
+      data-aos="flip-up"
+      data-aos-delay="300"
+      data-aos-duration="1500"
+    >
+      <a
+        href="/blogs"
+        class="flex gap-4 items-center justify-start font-ranade uppercase font-semibold text-xs xs:text-[10px] text-md dark:text-white-60 text-black-60 dark:bg-black-100 bg-white-100 dark:hover:bg-white-40 dark:hover:text-black-100 hover:bg-black-100 hover:text-white-100 w-fit py-2 px-6 rounded-full group"
+        data-aos="flip-up"
+        data-aos-delay="300"
+        data-aos-duration="1500">View all blogs<ArrowLink /></a
+      >
+    </div>
+  </div>
 </section>
