@@ -30,5 +30,5 @@ const setStickyNav = () => {
 // Execute the humburger menu logic
 wrapper?.addEventListener("click", triggerMenu);
 // Execute the sticky navbar logic
-addEventListener("scroll", setStickyNav);
+document.addEventListener("scroll", setStickyNav);
 // Runs on view transitions navigation
