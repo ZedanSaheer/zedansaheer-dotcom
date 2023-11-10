@@ -8,6 +8,15 @@ const { title } = Astro.props;
 
 <div
   class="aspect-video w-full h-full font-ranade font-bold text-xl overflow-hidden flex flex-col justify-center items-center text-center uppercase text-black-100 dark:text-white-100"
+  id="title-cover"
 >
-{title}
+  {title}
 </div>
+<script>
+  const titleCover = document.getElementById("title-cover");
+
+  document.addEventListener("astro:page-load", () => {
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    titleCover!.style.backgroundColor = "#" + randomColor;
+  });
+</script>
