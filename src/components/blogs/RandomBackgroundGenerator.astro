@@ -17,6 +17,6 @@ const { title } = Astro.props;
 
   document.addEventListener("astro:page-load", () => {
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    titleCover!.style.backgroundColor = "#" + randomColor;
+    if(titleCover !== null) titleCover.style.backgroundColor = "#" + randomColor;
   });
 </script>

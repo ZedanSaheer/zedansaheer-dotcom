@@ -65,3 +65,27 @@ const setImage =
   </div>
   <Footer />
 </MainLayout>
+<script>
+  let bodyContent = document.body.innerHTML;
+
+  document.body.innerHTML =
+    "<div class='w-screen h-[60vh] flex flex-col gap-4 justify-center items-center text-center text-white-100 animate-fade font-panchang'><h1>This route is password protected</h1> <input type='password' name='password' id='password' class='animate-fade rounded px-4 py-2 text-purple-600 border border-white-80 bg-purple-200 sm:w-2/3'><h3 id='error' class='my-4 font-clash font-semibold text-red-800 text-sm animate-pulse'></h3><button id='submit' class='animate-fade font-clash text-[12px] font-semibold hover:bg-purple-600 capitalize text-purple-200 bg-purple-800 p-2 rounded-xl'>Verify access</button></div>";
+
+  let password = document.getElementById("password") as HTMLInputElement;
+  let submit = document.getElementById("submit") as HTMLInputElement;
+  let error = document.getElementById("error");
+
+  submit?.addEventListener("click", () => {
+    let value = password!.value;
+
+    if (value === "#52218102") {
+      document.body.innerHTML = bodyContent;
+    } else {
+      if (value.length < 1) {
+        error!.innerText = "Please enter an access code";
+      } else {
+        error!.innerText = "Incorrect access code";
+      }
+    }
+  });
+</script>

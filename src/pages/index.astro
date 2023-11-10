@@ -12,15 +12,17 @@ import { getCollection, type CollectionEntry } from "astro:content";
 
 const blogPosts: CollectionEntry<"blogs">[] = await getCollection("blogs");
 formatCollection(blogPosts, { sortByDate: true, limit: 3 });
+
+const productionEnv = import.meta.env.PROD;
 ---
 
 <MainLayout bodyStyle="index" metaData={defaultMetaData}>
   <NewsBanner />
-  <!-- <Preloader /> -->
+  {productionEnv && <Preloader />}
   <HeroSection />
   <PersonalIntroductionSection />
   <PersonalTraitsSection />
   <RecentBlogs />
   <section class="w-screen h-[150vh]"></section>
 </MainLayout>
-<!-- <script src="@scripts/pages/index_page.ts"></script> -->
+{productionEnv && <script src="@scripts/pages/index_page.ts"></script>}
