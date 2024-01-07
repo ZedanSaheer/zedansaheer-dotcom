@@ -11,7 +11,7 @@ const vaultCollection: CollectionEntry<"vault">[] =
 
 <MainLayout metaData={defaultMetaData} bodyStyle="index">
   <section
-    class="absolute top-24 sm:top-36 w-full h-screen sm:h-[120vh] gap-14 flex px-10 flex-col justify-center items-center"
+    class="absolute top-24 sm:top-36 w-full h-screen sm:h-[120vh] gap-14 flex px-10 flex-col justify-center items-center pb-24"
   >
     <div
       class="flex flex-col gap-10 sm:gap-4 justify-center relative items-center"
@@ -29,13 +29,13 @@ const vaultCollection: CollectionEntry<"vault">[] =
         calmness.
       </p>
     </div>
-    <div class="flex sm:flex-col gap-6">
+    <div class="w-2/3 flex sm:flex-col gap-6">
       {
         vaultCollection.map((post) => {
           return (
             <div class="flex-[30%] lg:flex-[40%] md:flex-[100%] rounded-2xl bg-gradient-to-r from-purple-400 to-purple-900 p-0.5 group">
               <a href={`/vault/sweet-purple/${post.slug}`}>
-                <div class="w-full h-full bg-black-100 rounded-2xl overflow-hidden">
+                <div class="w-full h-full dark:bg-black-100 bg-white-100 rounded-2xl overflow-hidden">
                   <div class="aspect-video">
                     <BlogCover
                       title={post.data.title}
