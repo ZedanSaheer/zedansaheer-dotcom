@@ -1,14 +1,167 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import { aboutPageMetaData } from "@scripts/utils/constants";
+import { Image } from "astro:assets";
+import zedan from "@assets/home/zedan.png";
+import old_desk from "@assets/about/old_desk.jpeg";
+import old_desk_two from "@assets/about/old_desk_two.jpeg";
+import new_desk from "@assets/about/new_desk.jpg";
+import new_desk_two from "@assets/about/new_desk_two.jpg";
 ---
 
 <MainLayout metaData={aboutPageMetaData}>
   <section class="flex flex-col justify-center items-center px-6 sm:px-0">
     <h1
-      class="font-clash text-8xl xl:text-7xl lg:text-6xl md:text-5xl sm:text-3xl xs:text-2xl font-bold gradient-text animate-fade-up"
+      class="font-clash text-8xl xl:text-7xl lg:text-6xl md:text-5xl sm:text-3xl xs:text-2xl font-bold animate-fade-up"
     >
-      Coming soon.
+      <div class="flex md:flex-col-reverse items-center justify-end">
+        <div class="flex flex-col justify-between gap-10 p-10 sm:gap-4">
+          <p class="gradient-text">Zedan Saheer!</p>
+          <p
+            class="md:mt-4 font-ranade font-light lowercase 2xl-min:text-6xl text-5xl xl:text-2xl xs:text-lg text-black-40 dark:text-white-40"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            data-aos-duration="1500"
+          >
+            A 23 year old self taught
+            <span
+              class="font-semibold capitalize text-black-80 dark:text-white-80"
+              >Software Engineer</span
+            > who chose a path very distinct from his peers. With many stories to
+            share, people to meet and things to learn along his road, He is on his
+            journey with no real destination as he believes, <i
+              class="text-black-80 dark:text-white-80"
+              >"The journey is the destination"</i
+            >
+          </p>
+        </div>
+        <Image
+          src={zedan}
+          alt="Zedan Saheer"
+          class="w-1/3 xs:w-2/3 mr-10 md:mr-0"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="1500"
+        />
+      </div>
     </h1>
+    <div
+      class="w-[50vw] h-[2px] animate-border bg-[length:400%_400%] rounded-full bg-gradient-to-r from-blue to-red-600 mt-32 mb-32"
+    >
+    </div>
+    <div
+      class="flex flex-row-reverse md:flex-col-reverse items-center justify-end"
+    >
+      <div class="flex flex-1 flex-col justify-between gap-10 p-10 md:gap-4">
+        <h1
+          class="font-clash text-6xl xl:text-7xl lg:text-5xl md:text-4xl sm:text-2xl xs:text-xl font-bold text-black-80 dark:text-white-80 text-right md:text-left"
+          data-aos="fade"
+          data-aos-delay="300"
+          data-aos-duration="1500"
+        >
+          Evolution.
+        </h1>
+        <p
+          class="md:mt-4 font-ranade font-light lowercase 2xl-min:text-4xl text-3xl xl:text-xl xs:text-sm text-black-40 dark:text-white-40 text-right md:text-left"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data-aos-duration="1500"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+          laborum, nihil est dolorem hic officia voluptate nulla modi minima,
+          saepe minus nam. Fugit ipsa velit suscipit facilis obcaecati sed
+          eaque. Impedit corrupti soluta ipsam consequatur architecto ab sed
+          voluptate esse, in quisquam nam itaque, iste, doloremque sit at et
+          maiores ratione tenetur harum dolor? Excepturi et fugiat incidunt iure
+          rem? Illo doloremque reiciendis culpa laborum architecto asperiores
+          ipsam accusamus magnam veritatis commodi rerum nemo officia, soluta
+          earum aut velit ullam, est blanditiis? Optio quisquam consectetur
+          dolorum! Quidem autem cumque aperiam! Soluta earum obcaecati natus
+          sunt fugit ratione numquam quibusdam porro, sed rem mollitia voluptate
+          assumenda explicabo saepe odit corrupti, veritatis voluptatem error
+          aspernatur officia, nobis alias aliquam! Omnis, labore nesciunt!
+          Corrupti aperiam accusamus non, nulla maxime reprehenderit neque
+          impedit fugit nam consequuntur sed officia voluptates cupiditate a,
+          eius unde doloremque in facilis asperiores quibusdam ad quidem. Cum in
+          fugiat ea!
+        </p>
+      </div>
+      <div class="flex flex-1 flex-col items-center gap-10">
+        <Image
+          src={old_desk}
+          alt="Desk Setup - 2021"
+          class="w-1/2 xs:w-2/3 mr-10 md:mr-0 p-1 rounded-2xl animate-border bg-[length:400%_400%] bg-gradient-to-r from-blue to-red-600"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="1500"
+        />
+        <Image
+          src={old_desk_two}
+          alt="Desk Setup - 2021"
+          class="w-1/2 xs:w-2/3 mr-10 md:mr-0 p-1 rounded-2xl animate-border bg-[length:400%_400%] bg-gradient-to-r from-blue to-red-600"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="1500"
+        />
+      </div>
+    </div>
+    <div
+      class="w-[50vw] h-[2px] animate-border bg-[length:400%_400%] rounded-full bg-gradient-to-r from-blue to-red-600 mt-32 mb-32"
+    >
+    </div>
+    <div class="flex md:flex-col-reverse items-center justify-end">
+      <div class="flex flex-1 flex-col justify-between gap-10 p-10 md:gap-4">
+        <h1
+          class="font-clash text-6xl xl:text-7xl lg:text-5xl md:text-4xl sm:text-2xl xs:text-xl font-bold text-black-80 dark:text-white-80"
+          data-aos="fade"
+          data-aos-delay="300"
+          data-aos-duration="1500"
+        >
+          Journey.
+        </h1>
+        <p
+          class="md:mt-4 font-ranade font-light lowercase 2xl-min:text-4xl text-3xl xl:text-xl xs:text-sm text-black-40 dark:text-white-40"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data-aos-duration="1500"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+          laborum, nihil est dolorem hic officia voluptate nulla modi minima,
+          saepe minus nam. Fugit ipsa velit suscipit facilis obcaecati sed
+          eaque. Impedit corrupti soluta ipsam consequatur architecto ab sed
+          voluptate esse, in quisquam nam itaque, iste, doloremque sit at et
+          maiores ratione tenetur harum dolor? Excepturi et fugiat incidunt iure
+          rem? Illo doloremque reiciendis culpa laborum architecto asperiores
+          ipsam accusamus magnam veritatis commodi rerum nemo officia, soluta
+          earum aut velit ullam, est blanditiis? Optio quisquam consectetur
+          dolorum! Quidem autem cumque aperiam! Soluta earum obcaecati natus
+          sunt fugit ratione numquam quibusdam porro, sed rem mollitia voluptate
+          assumenda explicabo saepe odit corrupti, veritatis voluptatem error
+          aspernatur officia, nobis alias aliquam! Omnis, labore nesciunt!
+          Corrupti aperiam accusamus non, nulla maxime reprehenderit neque
+          impedit fugit nam consequuntur sed officia voluptates cupiditate a,
+          eius unde doloremque in facilis asperiores quibusdam ad quidem. Cum in
+          fugiat ea!
+        </p>
+      </div>
+      <div class="flex flex-1 flex-col items-center gap-10">
+        <Image
+          src={new_desk}
+          alt="Desk Setup - 2024"
+          class="w-2/3 xs:w-2/3 mr-10 md:mr-0 p-1 rounded-2xl animate-border bg-[length:400%_400%] bg-gradient-to-r from-blue to-red-600"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="1500"
+        />
+        <Image
+          src={new_desk_two}
+          alt="Desk Setup - 2024"
+          class="w-2/3 xs:w-2/3 mr-10 md:mr-0 p-1 rounded-2xl animate-border bg-[length:400%_400%] bg-gradient-to-r from-blue to-red-600"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="1500"
+        />
+      </div>
+    </div>
   </section>
 </MainLayout>
